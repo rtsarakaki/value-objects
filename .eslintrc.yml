@@ -1,0 +1,36 @@
+env:
+  browser: true
+  ES2022: true
+  jest: true
+  node: true
+extends:
+  - eslint:recommended
+  - plugin:@typescript-eslint/recommended
+  - prettier
+  - plugin:prettier/recommended
+overrides: []
+parser: '@typescript-eslint/parser'
+parserOptions:
+  ecmaFeatures:
+    jsx: true
+  ecmaVersion: latest
+  sourceType: module
+plugins:
+  - '@typescript-eslint'
+  - 'eslint-plugin-import-helpers'
+  - 'prettier'
+rules:
+  camelcase: off
+  import/no-unresolved: error
+  indent:
+    - error
+    - tab
+  linebreak-style:
+    - error
+    - unix
+  quotes:
+    - error
+    - double
+  semi:
+    - error
+    - always
