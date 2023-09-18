@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1695062593547" clover="3.2.0">
-  <project timestamp="1695062593547" name="All files">
-    <metrics statements="71" coveredstatements="63" conditionals="67" coveredconditionals="54" methods="23" coveredmethods="22" elements="161" coveredelements="139" complexity="0" loc="71" ncloc="71" packages="3" files="13" classes="13"/>
+<coverage generated="1695071756844" clover="3.2.0">
+  <project timestamp="1695071756844" name="All files">
+    <metrics statements="157" coveredstatements="154" conditionals="155" coveredconditionals="129" methods="38" coveredmethods="37" elements="350" coveredelements="320" complexity="0" loc="157" ncloc="157" packages="4" files="17" classes="17"/>
     <package name="Errors">
       <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
       <file name="GenericError.error.ts" path="/Users/colaborador/Documents/git/projects/value-objects/src/Errors/GenericError.error.ts">
         <metrics statements="4" coveredstatements="4" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="2" count="98" type="stmt"/>
-        <line num="5" count="98" type="stmt"/>
-        <line num="6" count="98" type="stmt"/>
-        <line num="9" count="98" type="stmt"/>
+        <line num="2" count="231" type="stmt"/>
+        <line num="5" count="231" type="stmt"/>
+        <line num="6" count="231" type="stmt"/>
+        <line num="9" count="231" type="stmt"/>
       </file>
       <file name="InvalidValue.error.ts" path="/Users/colaborador/Documents/git/projects/value-objects/src/Errors/InvalidValue.error.ts">
         <metrics statements="2" coveredstatements="2" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="5" count="96" type="stmt"/>
-        <line num="6" count="96" type="stmt"/>
+        <line num="5" count="229" type="stmt"/>
+        <line num="6" count="229" type="stmt"/>
       </file>
     </package>
     <package name="Types.RootTypes">
@@ -36,89 +36,190 @@
       </file>
       <file name="GenericType.type.ts" path="/Users/colaborador/Documents/git/projects/value-objects/src/Types/RootTypes/GenericType.type.ts">
         <metrics statements="8" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="5"/>
-        <line num="6" count="16" type="stmt"/>
-        <line num="9" count="16" type="stmt"/>
+        <line num="6" count="31" type="stmt"/>
+        <line num="9" count="31" type="stmt"/>
         <line num="13" count="15" type="stmt"/>
-        <line num="17" count="14" type="stmt"/>
-        <line num="18" count="14" type="cond" truecount="2" falsecount="0"/>
-        <line num="19" count="7" type="stmt"/>
-        <line num="24" count="14" type="stmt"/>
+        <line num="17" count="59" type="stmt"/>
+        <line num="18" count="59" type="cond" truecount="2" falsecount="0"/>
+        <line num="19" count="19" type="stmt"/>
+        <line num="24" count="59" type="stmt"/>
         <line num="28" count="0" type="stmt"/>
       </file>
     </package>
     <package name="Validations">
-      <metrics statements="45" coveredstatements="39" conditionals="50" coveredconditionals="41" methods="12" coveredmethods="12"/>
+      <metrics statements="99" coveredstatements="98" conditionals="118" coveredconditionals="104" methods="16" coveredmethods="16"/>
       <file name="CannotBeBlank.validation.ts" path="/Users/colaborador/Documents/git/projects/value-objects/src/Validations/CannotBeBlank.validation.ts">
-        <metrics statements="5" coveredstatements="4" conditionals="10" coveredconditionals="9" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="9" count="24" type="cond" truecount="1" falsecount="1"/>
-        <line num="11" count="24" type="stmt"/>
-        <line num="12" count="24" type="cond" truecount="6" falsecount="0"/>
-        <line num="15" count="0" type="stmt"/>
+        <metrics statements="8" coveredstatements="8" conditionals="14" coveredconditionals="13" methods="1" coveredmethods="1"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="10" count="47" type="stmt"/>
+        <line num="11" count="47" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="42" type="cond" truecount="1" falsecount="1"/>
+        <line num="15" count="42" type="stmt"/>
+        <line num="16" count="42" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="39" type="cond" truecount="6" falsecount="0"/>
+        <line num="20" count="3" type="stmt"/>
       </file>
       <file name="CannotHaveMoreThanXCharacters.validation.ts" path="/Users/colaborador/Documents/git/projects/value-objects/src/Validations/CannotHaveMoreThanXCharacters.validation.ts">
-        <metrics statements="5" coveredstatements="4" conditionals="5" coveredconditionals="4" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="10" count="7" type="cond" truecount="1" falsecount="1"/>
-        <line num="12" count="7" type="stmt"/>
-        <line num="13" count="7" type="cond" truecount="2" falsecount="0"/>
-        <line num="16" count="0" type="stmt"/>
+        <metrics statements="8" coveredstatements="8" conditionals="9" coveredconditionals="8" methods="1" coveredmethods="1"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="10" count="30" type="stmt"/>
+        <line num="11" count="30" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="25" type="cond" truecount="1" falsecount="1"/>
+        <line num="15" count="25" type="stmt"/>
+        <line num="16" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="22" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="3" type="stmt"/>
       </file>
       <file name="CannotHaveSpecialCharacters.validation.ts" path="/Users/colaborador/Documents/git/projects/value-objects/src/Validations/CannotHaveSpecialCharacters.validation.ts">
-        <metrics statements="4" coveredstatements="4" conditionals="5" coveredconditionals="4" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="5" count="43" type="cond" truecount="1" falsecount="1"/>
-        <line num="7" count="43" type="stmt"/>
-        <line num="8" count="43" type="cond" truecount="2" falsecount="0"/>
+        <metrics statements="7" coveredstatements="7" conditionals="9" coveredconditionals="8" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="5" count="51" type="stmt"/>
+        <line num="6" count="51" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="46" type="cond" truecount="1" falsecount="1"/>
+        <line num="11" count="46" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="43" type="stmt"/>
+        <line num="14" count="43" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="CannotStartWithZero.validation.ts" path="/Users/colaborador/Documents/git/projects/value-objects/src/Validations/CannotStartWithZero.validation.ts">
-        <metrics statements="3" coveredstatements="3" conditionals="5" coveredconditionals="4" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="4" count="12" type="cond" truecount="1" falsecount="1"/>
-        <line num="5" count="12" type="cond" truecount="2" falsecount="0"/>
+        <metrics statements="6" coveredstatements="6" conditionals="9" coveredconditionals="8" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="5" count="20" type="stmt"/>
+        <line num="6" count="20" type="cond" truecount="2" falsecount="0"/>
+        <line num="8" count="15" type="cond" truecount="1" falsecount="1"/>
+        <line num="9" count="15" type="cond" truecount="2" falsecount="0"/>
+        <line num="10" count="12" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="IsValidColor.validation.ts" path="/Users/colaborador/Documents/git/projects/value-objects/src/Validations/IsValidColor.validation.ts">
-        <metrics statements="6" coveredstatements="5" conditionals="5" coveredconditionals="4" methods="2" coveredmethods="2"/>
-        <line num="4" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="5" count="23" type="cond" truecount="1" falsecount="1"/>
-        <line num="8" count="23" type="stmt"/>
-        <line num="9" count="23" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="15" count="23" type="cond" truecount="2" falsecount="0"/>
+        <metrics statements="9" coveredstatements="9" conditionals="9" coveredconditionals="8" methods="2" coveredmethods="2"/>
+        <line num="5" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="6" count="31" type="stmt"/>
+        <line num="7" count="31" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="26" type="cond" truecount="1" falsecount="1"/>
+        <line num="12" count="26" type="stmt"/>
+        <line num="13" count="26" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="23" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="20" count="26" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="IsValidEmail.validation.ts" path="/Users/colaborador/Documents/git/projects/value-objects/src/Validations/IsValidEmail.validation.ts">
-        <metrics statements="6" coveredstatements="5" conditionals="5" coveredconditionals="4" methods="2" coveredmethods="2"/>
-        <line num="3" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="5" count="18" type="cond" truecount="1" falsecount="1"/>
-        <line num="8" count="18" type="stmt"/>
-        <line num="9" count="18" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="15" count="18" type="cond" truecount="2" falsecount="0"/>
+        <metrics statements="9" coveredstatements="9" conditionals="9" coveredconditionals="8" methods="2" coveredmethods="2"/>
+        <line num="4" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="5" count="26" type="stmt"/>
+        <line num="6" count="26" type="cond" truecount="2" falsecount="0"/>
+        <line num="8" count="21" type="cond" truecount="1" falsecount="1"/>
+        <line num="11" count="21" type="stmt"/>
+        <line num="12" count="21" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="18" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="19" count="21" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="IsValidUrl.validation.ts" path="/Users/colaborador/Documents/git/projects/value-objects/src/Validations/IsValidUrl.validation.ts">
-        <metrics statements="7" coveredstatements="7" conditionals="5" coveredconditionals="4" methods="2" coveredmethods="2"/>
-        <line num="3" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="5" count="11" type="cond" truecount="1" falsecount="1"/>
-        <line num="8" count="11" type="stmt"/>
-        <line num="9" count="11" type="stmt"/>
-        <line num="10" count="8" type="stmt"/>
-        <line num="12" count="3" type="stmt"/>
-        <line num="16" count="11" type="cond" truecount="2" falsecount="0"/>
+        <metrics statements="10" coveredstatements="10" conditionals="9" coveredconditionals="8" methods="2" coveredmethods="2"/>
+        <line num="4" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="6" count="19" type="stmt"/>
+        <line num="7" count="19" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="14" type="cond" truecount="1" falsecount="1"/>
+        <line num="12" count="14" type="stmt"/>
+        <line num="13" count="14" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="11" type="stmt"/>
+        <line num="15" count="8" type="stmt"/>
+        <line num="17" count="6" type="stmt"/>
+        <line num="21" count="14" type="cond" truecount="2" falsecount="0"/>
+      </file>
+      <file name="MustBeContainedInEnum.validation.ts" path="/Users/colaborador/Documents/git/projects/value-objects/src/Validations/MustBeContainedInEnum.validation.ts">
+        <metrics statements="14" coveredstatements="14" conditionals="15" coveredconditionals="12" methods="2" coveredmethods="2"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="13" count="14" type="stmt"/>
+        <line num="14" count="14" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="9" type="cond" truecount="1" falsecount="1"/>
+        <line num="17" count="9" type="cond" truecount="1" falsecount="1"/>
+        <line num="18" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="8" type="stmt"/>
+        <line num="22" count="8" type="cond" truecount="1" falsecount="1"/>
+        <line num="23" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="25" count="5" type="stmt"/>
+        <line num="26" count="34" type="stmt"/>
+        <line num="29" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="34" count="4" type="stmt"/>
       </file>
       <file name="MustContainOnlyNumbers.validation.ts" path="/Users/colaborador/Documents/git/projects/value-objects/src/Validations/MustContainOnlyNumbers.validation.ts">
-        <metrics statements="3" coveredstatements="3" conditionals="5" coveredconditionals="4" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="4" count="15" type="cond" truecount="1" falsecount="1"/>
-        <line num="5" count="15" type="cond" truecount="2" falsecount="0"/>
+        <metrics statements="6" coveredstatements="6" conditionals="9" coveredconditionals="8" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="6" count="23" type="stmt"/>
+        <line num="7" count="23" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="18" type="cond" truecount="1" falsecount="1"/>
+        <line num="10" count="18" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="15" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="MustHaveAtLeastXCharacters.validation.ts" path="/Users/colaborador/Documents/git/projects/value-objects/src/Validations/MustHaveAtLeastXCharacters.validation.ts">
-        <metrics statements="6" coveredstatements="4" conditionals="5" coveredconditionals="4" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="10" count="5" type="cond" truecount="1" falsecount="1"/>
-        <line num="11" count="5" type="stmt"/>
-        <line num="12" count="5" type="cond" truecount="2" falsecount="0"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
+        <metrics statements="8" coveredstatements="8" conditionals="9" coveredconditionals="8" methods="1" coveredmethods="1"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="11" count="35" type="stmt"/>
+        <line num="12" count="35" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="30" type="cond" truecount="1" falsecount="1"/>
+        <line num="15" count="30" type="stmt"/>
+        <line num="16" count="30" type="cond" truecount="2" falsecount="0"/>
+        <line num="18" count="24" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="6" type="stmt"/>
+      </file>
+      <file name="MustHaveOnlyOneWord.validation.ts" path="/Users/colaborador/Documents/git/projects/value-objects/src/Validations/MustHaveOnlyOneWord.validation.ts">
+        <metrics statements="10" coveredstatements="9" conditionals="10" coveredconditionals="9" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="6" count="24" type="stmt"/>
+        <line num="7" count="24" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="19" type="cond" truecount="1" falsecount="1"/>
+        <line num="11" count="19" type="stmt"/>
+        <line num="12" count="19" type="stmt"/>
+        <line num="13" count="19" type="stmt"/>
+        <line num="14" count="19" type="stmt"/>
+        <line num="16" count="19" type="cond" truecount="5" falsecount="0"/>
+        <line num="19" count="0" type="stmt"/>
+      </file>
+      <file name="ValidationsTools.ts" path="/Users/colaborador/Documents/git/projects/value-objects/src/Validations/ValidationsTools.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="7" coveredconditionals="6" methods="1" coveredmethods="1"/>
+        <line num="4" count="330" type="cond" truecount="1" falsecount="1"/>
+        <line num="5" count="330" type="cond" truecount="2" falsecount="0"/>
+        <line num="6" count="294" type="cond" truecount="2" falsecount="0"/>
+        <line num="7" count="270" type="stmt"/>
+      </file>
+    </package>
+    <package name="ValueObjects.Person">
+      <metrics statements="32" coveredstatements="32" conditionals="20" coveredconditionals="12" methods="11" coveredmethods="11"/>
+      <file name="FullName.type.ts" path="/Users/colaborador/Documents/git/projects/value-objects/src/ValueObjects/Person/FullName.type.ts">
+        <metrics statements="32" coveredstatements="32" conditionals="20" coveredconditionals="12" methods="11" coveredmethods="11"/>
+        <line num="8" count="15" type="cond" truecount="1" falsecount="1"/>
+        <line num="9" count="15" type="stmt"/>
+        <line num="10" count="15" type="cond" truecount="1" falsecount="1"/>
+        <line num="11" count="15" type="stmt"/>
+        <line num="12" count="15" type="stmt"/>
+        <line num="13" count="15" type="stmt"/>
+        <line num="14" count="15" type="stmt"/>
+        <line num="15" count="15" type="stmt"/>
+        <line num="17" count="15" type="stmt"/>
+        <line num="22" count="41" type="cond" truecount="1" falsecount="1"/>
+        <line num="26" count="7" type="cond" truecount="1" falsecount="1"/>
+        <line num="27" count="7" type="stmt"/>
+        <line num="31" count="7" type="cond" truecount="1" falsecount="1"/>
+        <line num="32" count="7" type="cond" truecount="1" falsecount="1"/>
+        <line num="36" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="37" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="42" count="15" type="stmt"/>
+        <line num="46" count="15" type="stmt"/>
+        <line num="47" count="15" type="stmt"/>
+        <line num="48" count="15" type="stmt"/>
+        <line num="49" count="15" type="stmt"/>
+        <line num="50" count="28" type="stmt"/>
+        <line num="53" count="15" type="stmt"/>
+        <line num="54" count="15" type="stmt"/>
+        <line num="56" count="15" type="stmt"/>
+        <line num="57" count="120" type="stmt"/>
+        <line num="65" count="15" type="stmt"/>
+        <line num="66" count="15" type="stmt"/>
+        <line num="67" count="15" type="stmt"/>
+        <line num="68" count="43" type="cond" truecount="2" falsecount="0"/>
+        <line num="69" count="28" type="stmt"/>
+        <line num="73" count="15" type="stmt"/>
       </file>
     </package>
   </project>

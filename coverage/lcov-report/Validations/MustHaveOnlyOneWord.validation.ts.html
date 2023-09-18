@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for Validations/IsValidColor.validation.ts</title>
+    <title>Code coverage report for Validations/MustHaveOnlyOneWord.validation.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">Validations</a> IsValidColor.validation.ts</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">Validations</a> MustHaveOnlyOneWord.validation.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">90.9% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>11/11</span>
+                <span class='fraction'>10/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">88.88% </span>
+                <span class="strong">90% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>8/9</span>
+                <span class='fraction'>9/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">90% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>9/9</span>
+                <span class='fraction'>9/10</span>
             </div>
         
             
@@ -86,43 +86,43 @@
 <a name='L21'></a><a href='#L21'>21</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">31x</span>
-<span class="cline-any cline-yes">31x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">26x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">26x</span>
-<span class="cline-any cline-yes">26x</span>
-<span class="cline-any cline-yes">23x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">26x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import InvalidValue from "../Errors/InvalidValue.error";
-import validateColor from "validate-color";
 import { validateLabel } from "./ValidationsTools";
 &nbsp;
-export const IsValidColor = (value: string, label: string, language: string = 'en-US') =&gt; {
+export const MustHaveOnlyOneWord = (value: string, label: string, language: string = 'en-US') =&gt; {
+&nbsp;
 	const labelValidation = validateLabel(label)
 	if (labelValidation !== null) return labelValidation
 &nbsp;
-	const errorMessage = language === 'pt-BR' ? <span class="branch-0 cbranch-no" title="branch not covered" >`${label}  deve ser uma cor valida.` </span>: `${label}  must be a valid color.`
+	const errorMessage = language === 'pt-BR' ? <span class="branch-0 cbranch-no" title="branch not covered" >`${label}  não pode conter espaços.` </span>: `${label}  cannot contain spaces.`
 &nbsp;
-	function colorValidation(color: string) {
-		try {
-			if (typeof color !== 'string') throw new InvalidValue(errorMessage);
-			return validateColor(color.trim());
-		} catch (err) {
-			return false;
-		}
+	try {
+		const haveSpace = value?.trim().indexOf(' ') != -1
+		const haveTab = value?.trim().indexOf('	') != -1
+		const haveReturn = value?.trim().indexOf(`
+		`) != -1
+		return (haveSpace || haveReturn || haveTab) ? new InvalidValue(errorMessage) : null;
 	}
-&nbsp;
-	return !colorValidation(value) ? new InvalidValue(errorMessage) : null;
+	catch (e) {
+<span class="cstat-no" title="statement not covered" >		return new InvalidValue(errorMessage)</span>
+	}
 };</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

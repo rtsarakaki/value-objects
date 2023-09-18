@@ -18,7 +18,6 @@ export const MustHaveAtLeastXCharacters = (
 		return value?.trim().length < charactersNumber ? new InvalidValue(errorMessage) : null;
 	}
 	catch (e) {
-		console.log('MustHaveAtLeastXCharacters ERROR', e)
 		return new InvalidValue(errorMessage)
 	}
 };
