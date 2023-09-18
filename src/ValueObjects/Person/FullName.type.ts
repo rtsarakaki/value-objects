@@ -38,7 +38,7 @@ export class FullName extends GenericType {
   }
 }
 
-export function CreateFullName(name: string, label: string, required = true) {
+export function createFullName(name: string, label: string, required = true) {
   return new FullName(name, label, required);
 }
 

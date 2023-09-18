@@ -1,5 +1,5 @@
 import { describe, expect, test } from '@jest/globals';
-import { CreateFullName } from './FullName.type';
+import { createFullName } from './FullName.type';
 
 
 describe('FullName value object', () => {
@@ -24,7 +24,7 @@ describe('FullName value object', () => {
             if (partsOfName.length <= 1) return ''
             const lastName = partsOfName.at(-1) ?? '';
 
-            const fullName = CreateFullName(name, "Name")
+            const fullName = createFullName(name, "Name")
             expect(fullName.value).toBe(result)
             expect(fullName.errors.length).toBe(0)
             expect(fullName.firstName).toEqual(firstName)
@@ -45,7 +45,7 @@ describe('FullName value object', () => {
         ]
 
         arrayOfInvalidNames.map(({ name, result }) => {
-            const fullName = CreateFullName(name, "Name")
+            const fullName = createFullName(name, "Name")
             expect(fullName.errors.length).toBe(result)
         })
     })
