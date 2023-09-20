@@ -1,0 +1,174 @@
+{
+	"defaultLanguage": "en-US",
+	"validations": [
+		{
+			"key": "CannotBeBlank",
+			"messages": [
+				{
+					"language": "en-US", 
+					"message": "${label} cannot be blank." 
+				},
+				{
+					"language": "pt-BR",
+					"message": "${label} não pode estar em branco."
+				}
+			]
+		},
+		{
+			"key": "CannotHaveMoreThanXCharacters",
+			"messages": [
+				{
+					"language": "en-US", 
+					"message": "${label} cannot have more than  ${charactersNumber}  characters." 
+				},
+				{
+					"language": "pt-BR",
+					"message": "${label}  não pode ter mais que ${charactersNumber} caracteres."
+				}
+			]
+		},
+		{
+			"key": "CannotHaveSpecialCharacters",
+			"messages": [
+				{
+					"language": "en-US", 
+					"message": "${label}  cannot have special characters." 
+				},
+				{
+					"language": "pt-BR",
+					"message": "${label} não pode começar com zero."
+				}
+			]
+		},
+		{
+			"key": "CannotStartWithZero",
+			"messages": [
+				{
+					"language": "en-US", 
+					"message": "${label} cannot start with zero." 
+				},
+				{
+					"language": "pt-BR",
+					"message": "${label} não pode começar com zero."
+				}
+			]
+		},
+		{
+			"key": "IsValidColor",
+			"messages": [
+				{
+					"language": "en-US", 
+					"message": "${label}  must be a valid color." 
+				},
+				{
+					"language": "pt-BR",
+					"message": "${label}  deve ser uma cor valida."
+				}
+			]
+		},
+		{
+			"key": "IsValidEmail",
+			"messages": [
+				{
+					"language": "en-US", 
+					"message": "${label}  must be a valid e-mail." 
+				},
+				{
+					"language": "pt-BR",
+					"message": "${label}  deve ser um e-mail valido."
+				}
+			]
+		},
+		{
+			"key": "IsValidUrl",
+			"messages": [
+				{
+					"language": "en-US", 
+					"message": "${label}  must be a valid URL." 
+				},
+				{
+					"language": "pt-BR",
+					"message": "${label}  deve ser uma URL valida."
+				}
+			]
+		},
+		{
+			"key": "MustBeContainedInEnum",
+			"messages": [
+				{
+					"language": "en-US", 
+					"message": "${label}  must be among the following values ${JSON.stringify('model')}." 
+				},
+				{
+					"language": "pt-BR",
+					"message": "${label}  (${value}) deve ter estar entre os seguintes valores ${lista}"
+				}
+			]
+		},
+		{
+			"key": "MustContainOnlyNumbers",
+			"messages": [
+				{
+					"language": "en-US", 
+					"message": "${label} must contain only numbers." 
+				},
+				{
+					"language": "pt-BR",
+					"message": "${label}  deve conter apenas números."
+				}
+			]
+		},
+		{
+			"key": "MustHaveAtLeastXCharacters",
+			"messages": [
+				{
+					"language": "en-US", 
+					"message": "${label} must have at least  ${charactersNumber}  characters." 
+				},
+				{
+					"language": "pt-BR",
+					"message": "${label}  deve ter pelo menos ${charactersNumber} caracteres."
+				}
+			]
+		},
+		{
+			"key": "MustHaveOnlyOneWord",
+			"messages": [
+				{
+					"language": "en-US", 
+					"message": "${label}  cannot contain spaces." 
+				},
+				{
+					"language": "pt-BR",
+					"message": "${label}  não pode conter espaços."
+				}
+			]
+		},
+		{
+			"key": "MustHaveTheSameStructureThan",
+			"messages": [
+				{
+					"language": "en-US", 
+					"message": "${label}  must have the same structure than ${JSON.stringify('model')}." 
+				},
+				{
+					"language": "pt-BR",
+					"message": "${label}  deve ter a mesma estrutura que ${JSON.stringify('model')}."
+				}
+			]
+		},
+		{
+			"key": "validateLabel",
+			"messages": [
+				{
+					"language": "en-US", 
+					"message": "Label cannot be empty." 
+				},
+				{
+					"language": "pt-BR",
+					"message": "Label não pode ser vazio."
+				}
+			]
+		}
+	]
+}

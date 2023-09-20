@@ -1,4 +1,5 @@
 import InvalidValue from "../Errors/InvalidValue.error";
+import { getResourceMessageByKey } from "../Resources/Messages.resource";
 import { validateLabel } from "./ValidationsTools";
 
 export const CannotBeBlank = (
@@ -10,7 +11,8 @@ export const CannotBeBlank = (
 	const labelValidation = validateLabel(label)
 	if (labelValidation !== null) return labelValidation
 
-	const errorMessage = language === 'pt-BR' ? `${label} não pode estar em branco.` : `${label} cannot be blank.`;
+	const replaceList = [{ tag: '${label}', value: label }]
+	const errorMessage = getResourceMessageByKey("CannotBeBlank", language, replaceList)
 
 	try {
 		if (typeof value !== 'string') throw new InvalidValue(errorMessage);

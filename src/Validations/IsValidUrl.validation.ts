@@ -1,4 +1,5 @@
 import InvalidValue from "../Errors/InvalidValue.error";
+import { getResourceMessageByKey } from "../Resources/Messages.resource";
 import { validateLabel } from "./ValidationsTools";
 
 export const IsValidUrl = (valor: string, label: string, language: string = 'en-US') => {
@@ -6,7 +7,10 @@ export const IsValidUrl = (valor: string, label: string, language: string = 'en-
 	const labelValidation = validateLabel(label)
 	if (labelValidation !== null) return labelValidation
 
-	const errorMessage = language === 'pt-BR' ? `${label}  deve ser uma URL valida.` : `${label}  must be a valid URL.`
+	const replaceList = [
+		{ tag: '${label}', value: label },
+	]
+	const errorMessage = getResourceMessageByKey(IsValidUrl.name, language, replaceList)
 
 	function validateUrl(url: string) {
 		try {

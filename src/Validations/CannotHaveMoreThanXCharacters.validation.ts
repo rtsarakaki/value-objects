@@ -1,4 +1,5 @@
 import InvalidValue from "../Errors/InvalidValue.error";
+import { getResourceMessageByKey } from "../Resources/Messages.resource";
 import { validateLabel } from "./ValidationsTools";
 
 export const CannotHaveMoreThanXCharacters = (
@@ -10,7 +11,11 @@ export const CannotHaveMoreThanXCharacters = (
 	const labelValidation = validateLabel(label)
 	if (labelValidation !== null) return labelValidation
 
-	const errorMessage = language === 'pt-BR' ? `${label}  não pode ter mais que ${charactersNumber} caracteres.` : `${label} cannot have more than  ${charactersNumber}  characters.`;
+	const replaceList = [
+		{ tag: '${label}', value: label }, 
+		{ tag: '${charactersNumber}', value: charactersNumber.toString() }
+	]
+	const errorMessage = getResourceMessageByKey("CannotHaveMoreThanXCharacters", language, replaceList)
 
 	try {
 		if (typeof value !== 'string') throw new InvalidValue(errorMessage);

@@ -1,4 +1,5 @@
 import InvalidValue from "../Errors/InvalidValue.error";
+import { getResourceMessageByKey } from "../Resources/Messages.resource";
 import { validateLabel } from "./ValidationsTools";
 
 export const MustHaveAtLeastXCharacters = (
@@ -11,7 +12,12 @@ export const MustHaveAtLeastXCharacters = (
 	const labelValidation = validateLabel(label)
 	if (labelValidation !== null) return labelValidation
 
-	const errorMessage = language === 'pt-BR' ? `${label}  deve ter pelo menos ${charactersNumber} caracteres.` : `${label} must have at least  ${charactersNumber}  characters.`;
+	const replaceList = [
+		{ tag: '${label}', value: label },
+		{ tag: '${charactersNumber}', value: charactersNumber.toString() }
+	]
+	const errorMessage = getResourceMessageByKey(MustHaveAtLeastXCharacters.name, language, replaceList)
+
 	try {
 		if (typeof value !== 'string') throw new InvalidValue(errorMessage);
 		

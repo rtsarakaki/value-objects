@@ -1,12 +1,16 @@
 import InvalidValue from "../Errors/InvalidValue.error";
 import validateColor from "validate-color";
 import { validateLabel } from "./ValidationsTools";
+import { getResourceMessageByKey } from "../Resources/Messages.resource";
 
 export const IsValidColor = (value: string, label: string, language: string = 'en-US') => {
 	const labelValidation = validateLabel(label)
 	if (labelValidation !== null) return labelValidation
 
-	const errorMessage = language === 'pt-BR' ? `${label}  deve ser uma cor valida.` : `${label}  must be a valid color.`
+	const replaceList = [
+		{ tag: '${label}', value: label },
+	]
+	const errorMessage = getResourceMessageByKey(IsValidColor.name, language, replaceList)
 
 	function colorValidation(color: string) {
 		try {

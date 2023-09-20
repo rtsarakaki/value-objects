@@ -1,8 +1,13 @@
 import InvalidValue from "../Errors/InvalidValue.error";
+import { getResourceMessageByKey } from "../Resources/Messages.resource";
 
 export function MustHaveTheSameStructureThan<T>(valor: string, label: string, language: string = 'en-US') {
 
-	const errorMessage = language === 'pt-BR' ? `${label}  deve ter a mesma estrutura que ${JSON.stringify('model')}.` : `${label}  must have the same structure than ${JSON.stringify('model')}.`
+	const replaceList = [
+		{ tag: '${label}', value: label },
+		{ tag: "${JSON.stringify('model')}", value: JSON.stringify('model') },
+	]
+	const errorMessage = getResourceMessageByKey(MustHaveTheSameStructureThan.name, language, replaceList)
 
 	try {
 		const resultado = JSON.parse(valor);

@@ -1,4 +1,5 @@
 import InvalidValue from "../Errors/InvalidValue.error";
+import { getResourceMessageByKey } from "../Resources/Messages.resource";
 import { validateLabel } from "./ValidationsTools";
 
 export const MustHaveOnlyOneWord = (value: string, label: string, language: string = 'en-US') => {
@@ -6,7 +7,10 @@ export const MustHaveOnlyOneWord = (value: string, label: string, language: stri
 	const labelValidation = validateLabel(label)
 	if (labelValidation !== null) return labelValidation
 
-	const errorMessage = language === 'pt-BR' ? `${label}  não pode conter espaços.` : `${label}  cannot contain spaces.`
+	const replaceList = [
+		{ tag: '${label}', value: label },
+	]
+	const errorMessage = getResourceMessageByKey(MustHaveOnlyOneWord.name, language, replaceList)
 
 	try {
 		const haveSpace = value?.trim().indexOf(' ') != -1

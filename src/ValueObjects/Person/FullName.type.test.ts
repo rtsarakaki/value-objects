@@ -12,7 +12,7 @@ describe('FullName value object', () => {
             { name: 'Dom Pedro 1', result: 'Dom Pedro' },
             { name: 'Dom Pedro I', result: 'Dom Pedro I' },
             { name: 'ricardo t. s. arakaki@', result: 'Ricardo T S Arakaki' },
-            { name: 'josé da silva e costa', result: 'José da Silva e Costa' },
+            { name: '    josé da silva e costa    ', result: 'José da Silva e Costa' },
         ]
 
         arrayOfValidNames.map(({ name, result }) => {

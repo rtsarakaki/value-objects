@@ -20,6 +20,8 @@ plugins:
   - 'eslint-plugin-import-helpers'
   - 'prettier'
 rules:
+  prettier/prettier:
+    - error
   camelcase: off
   import/no-unresolved: error
   indent:
