@@ -38,4 +38,9 @@ describe('SingleWord value object', () => {
 			expect(fullName.errors.length).toBeGreaterThan(0)
 		})
 	})
+
+	test('Create SingleWord withou pass the label', () => {
+		const fullName = createSingleWord('Test')
+		expect(fullName.errors.length).toEqual(0)
+	})
 })

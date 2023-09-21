@@ -63,4 +63,10 @@ describe('MustBeContainedInEnum', () => {
 		})
 	})
 
+	test('Passing an invalid enum', () => {
+		const result = MustBeContainedInEnum('a', 'b', undefined)
+		expect(result).toBeInstanceOf(InvalidValue)
+		expect(result?.message).toEqual('Enum is not valid.')
+	})
+
 }) 

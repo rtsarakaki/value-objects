@@ -14,7 +14,7 @@ export const MustBeContainedInEnum = (
 	const labelValidation = validateLabel(label) 
 	if (labelValidation !== null) return labelValidation
 
-	const enumErrorMessage = language === 'pt-BR' ? 'Enum não é valida.' : 'Enum is not valid.'
+	const enumErrorMessage = getResourceMessageByKey('enumError', language)
 	if (typeof enumeration !== "object") return new InvalidValue(enumErrorMessage);
 	if (enumeration === null) return new InvalidValue(enumErrorMessage);
 

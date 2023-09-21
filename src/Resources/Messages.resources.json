@@ -169,6 +169,19 @@
 					"message": "Label não pode ser vazio."
 				}
 			]
+		},
+		{
+			"key": "enumError",
+			"messages": [
+				{
+					"language": "en-US", 
+					"message": "Enum is not valid." 
+				},
+				{
+					"language": "pt-BR",
+					"message": "Enum não é valida."
+				}
+			]
 		}
 	]
 }

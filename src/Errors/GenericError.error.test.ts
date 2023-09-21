@@ -18,4 +18,11 @@ describe('GenericError', () => {
 		expect(genericError.errors).toBeNull()
 	})
 
+	test('GenericError construtor must set message, but errors is optional', () => {
+		const message = 'any message'
+		const genericError = new GenericError(message)
+		expect(genericError.message).toEqual(message)
+		expect(genericError.errors).toBeNull()
+	})
+
 })
