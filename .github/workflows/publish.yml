@@ -22,7 +22,7 @@ jobs:
           npm install
           npm run build
           npm publish --access public
-        working-directory: ./packages/ts-value-objects
+        working-directory: value-objects
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
