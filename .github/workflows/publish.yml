@@ -2,28 +2,19 @@ name: value-objects
 
 on:
   push:
-    branches:
-      - master
+    branches: [ main ]
+    paths:
+      - 'package.json'
 
 jobs:
-  release: 
-    name: ts-value-objects
+  publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup Node.js
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
         with:
-          node-version: 12.x
-          registry-url: https://registry.npmjs.org/
-      - name: publish
-        run: |
-          npm install
-          npm run build
-          npm publish --access public
-        working-directory: value-objects
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-
+          node-version: 14.x
+      - run: npm install
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
