@@ -1,4 +1,4 @@
-import GenericType from "../../Types/RootTypes/GenericType.type";
+import { GenericType } from "../../Types";
 export declare class FullName extends GenericType {
     constructor(name: string, label: string, required?: boolean);
     private get _nameParts();

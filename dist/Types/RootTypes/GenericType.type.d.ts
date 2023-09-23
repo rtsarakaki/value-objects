@@ -1,5 +1,5 @@
-import GenericError from "../../Errors/GenericError.error";
-export default class GenericType {
+import { GenericError } from "../../Errors/GenericError.error";
+export declare class GenericType {
     value: any;
     [property: string]: any;
     errors: Array<GenericError>;

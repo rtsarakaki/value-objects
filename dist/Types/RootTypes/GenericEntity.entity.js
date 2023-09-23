@@ -1,10 +1,8 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const GenericType_type_1 = __importDefault(require("./GenericType.type"));
-class GenericEntity extends GenericType_type_1.default {
+exports.GenericEntity = void 0;
+const GenericType_type_1 = require("./GenericType.type");
+class GenericEntity extends GenericType_type_1.GenericType {
     constructor() {
         super(null);
     }
@@ -25,4 +23,4 @@ class GenericEntity extends GenericType_type_1.default {
         return '';
     }
 }
-exports.default = GenericEntity;
+exports.GenericEntity = GenericEntity;

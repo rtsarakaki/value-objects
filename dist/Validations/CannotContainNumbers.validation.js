@@ -1,10 +1,7 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CannotContainNumbers = void 0;
-const InvalidValue_error_1 = __importDefault(require("../Errors/InvalidValue.error"));
+const Errors_1 = require("../Errors");
 const Messages_resource_1 = require("../Resources/Messages.resource");
 const ValidationsTools_1 = require("./ValidationsTools");
 const CannotContainNumbers = (value, label, language = 'en-US') => {
@@ -16,10 +13,10 @@ const CannotContainNumbers = (value, label, language = 'en-US') => {
     ];
     const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)(exports.CannotContainNumbers.name, language, replaceList);
     if (typeof value !== 'string')
-        return new InvalidValue_error_1.default(errorMessage);
+        return new Errors_1.InvalidValue(errorMessage);
     const regex = /\d/;
     return regex.test(value)
-        ? new InvalidValue_error_1.default(errorMessage)
+        ? new Errors_1.InvalidValue(errorMessage)
         : null;
 };
 exports.CannotContainNumbers = CannotContainNumbers;

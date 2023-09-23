@@ -1,2 +1,2 @@
-import InvalidValue from "../Errors/InvalidValue.error";
+import { InvalidValue } from "../Errors";
 export declare const CannotContainSpecialCharacters: (value: string, label: string, language?: string) => InvalidValue | null;

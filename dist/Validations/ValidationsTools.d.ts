@@ -1,2 +1,2 @@
-import InvalidValue from "../Errors/InvalidValue.error";
+import { InvalidValue } from "../Errors";
 export declare function validateLabel(value: string, language?: string): InvalidValue | null;

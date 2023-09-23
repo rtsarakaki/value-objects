@@ -1,4 +1,4 @@
-import GenericType from "../../Types/RootTypes/GenericType.type";
+import { GenericType } from "../../Types";
 export declare class SingleWord extends GenericType {
     constructor(value: string, label?: string | null);
 }

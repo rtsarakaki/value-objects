@@ -1,10 +1,7 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MustHaveOnlyOneWord = void 0;
-const InvalidValue_error_1 = __importDefault(require("../Errors/InvalidValue.error"));
+const Errors_1 = require("../Errors");
 const Messages_resource_1 = require("../Resources/Messages.resource");
 const ValidationsTools_1 = require("./ValidationsTools");
 const MustHaveOnlyOneWord = (value, label, language = 'en-US') => {
@@ -20,10 +17,10 @@ const MustHaveOnlyOneWord = (value, label, language = 'en-US') => {
         const haveTab = value?.trim().indexOf('	') != -1;
         const haveReturn = value?.trim().indexOf(`
 		`) != -1;
-        return (haveSpace || haveReturn || haveTab) ? new InvalidValue_error_1.default(errorMessage) : null;
+        return (haveSpace || haveReturn || haveTab) ? new Errors_1.InvalidValue(errorMessage) : null;
     }
     catch (e) {
-        return new InvalidValue_error_1.default(errorMessage);
+        return new Errors_1.InvalidValue(errorMessage);
     }
 };
 exports.MustHaveOnlyOneWord = MustHaveOnlyOneWord;

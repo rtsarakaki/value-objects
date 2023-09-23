@@ -1,11 +1,7 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.IsValidColor = void 0;
-const InvalidValue_error_1 = __importDefault(require("../Errors/InvalidValue.error"));
-const validate_color_1 = __importDefault(require("validate-color"));
+const InvalidValue_error_1 = require("../Errors/InvalidValue.error");
 const ValidationsTools_1 = require("./ValidationsTools");
 const Messages_resource_1 = require("../Resources/Messages.resource");
 const IsValidColor = (value, label, language = 'en-US') => {
@@ -19,13 +15,13 @@ const IsValidColor = (value, label, language = 'en-US') => {
     function colorValidation(color) {
         try {
             if (typeof color !== 'string')
-                throw new InvalidValue_error_1.default(errorMessage);
-            return (0, validate_color_1.default)(color.trim());
+                throw new InvalidValue_error_1.InvalidValue(errorMessage);
+            return false;
         }
         catch (err) {
             return false;
         }
     }
-    return !colorValidation(value) ? new InvalidValue_error_1.default(errorMessage) : null;
+    return !colorValidation(value) ? new InvalidValue_error_1.InvalidValue(errorMessage) : null;
 };
 exports.IsValidColor = IsValidColor;

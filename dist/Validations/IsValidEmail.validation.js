@@ -1,10 +1,7 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.IsValidEmail = void 0;
-const InvalidValue_error_1 = __importDefault(require("../Errors/InvalidValue.error"));
+const InvalidValue_error_1 = require("../Errors/InvalidValue.error");
 const Messages_resource_1 = require("../Resources/Messages.resource");
 const ValidationsTools_1 = require("./ValidationsTools");
 const IsValidEmail = (valor, label, language = 'en-US') => {
@@ -18,13 +15,13 @@ const IsValidEmail = (valor, label, language = 'en-US') => {
     function validateEmail(email) {
         try {
             if (typeof email !== 'string')
-                throw new InvalidValue_error_1.default(errorMessage);
+                throw new InvalidValue_error_1.InvalidValue(errorMessage);
             return /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i.test(email);
         }
         catch (err) {
             return false;
         }
     }
-    return !validateEmail(valor) ? new InvalidValue_error_1.default(errorMessage) : null;
+    return !validateEmail(valor) ? new InvalidValue_error_1.InvalidValue(errorMessage) : null;
 };
 exports.IsValidEmail = IsValidEmail;

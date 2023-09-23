@@ -1,4 +1,4 @@
-import InvalidValue from "../Errors/InvalidValue.error";
+import { InvalidValue } from "../Errors/InvalidValue.error";
 import { getResourceMessageByKey } from "./Messages.resource";
 
 export interface ITagListItem {

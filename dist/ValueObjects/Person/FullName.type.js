@@ -1,14 +1,11 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.formatFullName = exports.createFullName = exports.FullName = void 0;
-const GenericType_type_1 = __importDefault(require("../../Types/RootTypes/GenericType.type"));
+const Types_1 = require("../../Types");
 const CannotBeBlank_validation_1 = require("../../Validations/CannotBeBlank.validation");
 const CannotHaveMoreThanXCharacters_validation_1 = require("../../Validations/CannotHaveMoreThanXCharacters.validation");
 const MustHaveAtLeastXCharacters_validation_1 = require("../../Validations/MustHaveAtLeastXCharacters.validation");
-class FullName extends GenericType_type_1.default {
+class FullName extends Types_1.GenericType {
     constructor(name, label, required = true) {
         const msg = label ?? 'Name';
         super(name);

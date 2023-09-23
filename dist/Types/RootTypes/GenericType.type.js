@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.GenericType = void 0;
 class GenericType {
     value;
     errors = new Array();
@@ -22,4 +23,4 @@ class GenericType {
         return {};
     }
 }
-exports.default = GenericType;
+exports.GenericType = GenericType;

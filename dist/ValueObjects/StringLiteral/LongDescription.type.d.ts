@@ -1,4 +1,4 @@
-import GenericType from "../../Types/RootTypes/GenericType.type";
+import { GenericType } from "../../Types";
 export declare class LongDescription extends GenericType {
     constructor(value: string, label: string);
 }

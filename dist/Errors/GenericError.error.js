@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.GenericError = void 0;
 class GenericError extends Error {
     errors = new Array();
     constructor(message, errors = null) {
@@ -8,4 +9,4 @@ class GenericError extends Error {
         Object.setPrototypeOf(this, GenericError.prototype);
     }
 }
-exports.default = GenericError;
+exports.GenericError = GenericError;
