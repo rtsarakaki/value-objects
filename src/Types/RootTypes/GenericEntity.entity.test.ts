@@ -1,7 +1,7 @@
 import { describe, expect, test } from '@jest/globals';
-import InvalidValue from '../../Errors/InvalidValue.error';
-import GenericEntity from './GenericEntity.entity';
-import GenericType from './GenericType.type';
+import { InvalidValue } from '../../Errors/InvalidValue.error';
+import { GenericEntity } from './GenericEntity.entity';
+import { GenericType } from './GenericType.type';
 
 test.todo('convert test to test.each model');
 

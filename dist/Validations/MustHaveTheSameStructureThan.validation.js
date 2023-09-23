@@ -5,8 +5,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MustHaveTheSameStructureThan = void 0;
 const InvalidValue_error_1 = __importDefault(require("../Errors/InvalidValue.error"));
+const Messages_resource_1 = require("../Resources/Messages.resource");
 function MustHaveTheSameStructureThan(valor, label, language = 'en-US') {
-    const errorMessage = language === 'pt-BR' ? `${label}  deve ter a mesma estrutura que ${JSON.stringify('model')}.` : `${label}  must have the same structure than ${JSON.stringify('model')}.`;
+    const replaceList = [
+        { tag: '${label}', value: label },
+        { tag: "${JSON.stringify('model')}", value: JSON.stringify('model') },
+    ];
+    const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)(MustHaveTheSameStructureThan.name, language, replaceList);
     try {
         const resultado = JSON.parse(valor);
         const model = resultado;

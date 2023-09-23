@@ -1,5 +1,5 @@
 import { describe, expect, test } from '@jest/globals';
-import InvalidValue from '../Errors/InvalidValue.error';
+import { InvalidValue } from '../Errors';
 import { CannotContainNumbers } from './CannotContainNumbers.validation';
 
 const arrayOfInvalidValues = [

@@ -1,4 +1,4 @@
-import InvalidValue from "../Errors/InvalidValue.error";
+import { InvalidValue } from "../Errors";
 import { getResourceMessageByKey } from "../Resources/Messages.resource";
 import { validateLabel } from "./ValidationsTools";
 

@@ -1,5 +1,4 @@
-import InvalidValue from "../../Errors/InvalidValue.error";
-import GenericType from "../../Types/RootTypes/GenericType.type";
+import { GenericType } from "../../Types";
 import { CannotBeBlank } from "../../Validations/CannotBeBlank.validation";
 import { CannotHaveMoreThanXCharacters } from "../../Validations/CannotHaveMoreThanXCharacters.validation";
 import { MustHaveAtLeastXCharacters } from "../../Validations/MustHaveAtLeastXCharacters.validation";

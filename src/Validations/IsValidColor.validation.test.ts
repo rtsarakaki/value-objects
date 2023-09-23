@@ -1,5 +1,5 @@
 import { describe, expect, test } from '@jest/globals';
-import InvalidValue from '../Errors/InvalidValue.error';
+import { InvalidValue } from '../Errors';
 import { IsValidColor } from './IsValidColor.validation';
 
 test.todo('convert test to test.each model');

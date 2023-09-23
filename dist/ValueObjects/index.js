@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Title = exports.SingleWord = exports.ShortDescription = exports.LongDescription = exports.FullName = void 0;
+var FullName_type_1 = require("./Person/FullName.type");
+Object.defineProperty(exports, "FullName", { enumerable: true, get: function () { return FullName_type_1.FullName; } });
+var LongDescription_type_1 = require("./StringLiteral/LongDescription.type");
+Object.defineProperty(exports, "LongDescription", { enumerable: true, get: function () { return LongDescription_type_1.LongDescription; } });
+var ShortDescription_type_1 = require("./StringLiteral/ShortDescription.type");
+Object.defineProperty(exports, "ShortDescription", { enumerable: true, get: function () { return ShortDescription_type_1.ShortDescription; } });
+var SingleWord_type_1 = require("./StringLiteral/SingleWord.type");
+Object.defineProperty(exports, "SingleWord", { enumerable: true, get: function () { return SingleWord_type_1.SingleWord; } });
+var Title_type_1 = require("./StringLiteral/Title.type");
+Object.defineProperty(exports, "Title", { enumerable: true, get: function () { return Title_type_1.Title; } });

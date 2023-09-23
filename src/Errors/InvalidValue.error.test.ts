@@ -1,6 +1,6 @@
 import { describe, expect, test } from '@jest/globals';
-import GenericError from './GenericError.error';
-import InvalidValue from './InvalidValue.error';
+import { GenericError } from './GenericError.error';
+import { InvalidValue } from './InvalidValue.error';
 
 test('InvalidValue must be instance of GenericError', () => {
 

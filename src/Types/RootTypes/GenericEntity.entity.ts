@@ -1,6 +1,6 @@
-import GenericType from './GenericType.type';
+import { GenericType } from './GenericType.type';
 
-export default class GenericEntity extends GenericType {
+export class GenericEntity extends GenericType {
   constructor() {
     super(null);
   }

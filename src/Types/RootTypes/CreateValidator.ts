@@ -1,5 +1,5 @@
-import GenericEntity from "./GenericEntity.entity";
-import GenericType from "./GenericType.type";
+import { GenericEntity } from "./GenericEntity.entity";
+import { GenericType } from "./GenericType.type";
 
 export function CreateValidator(property: any, label: string) {
 	if (property instanceof GenericEntity || property instanceof GenericType) {

@@ -1,5 +1,5 @@
 import { describe, expect, test } from '@jest/globals';
-import GenericError from './GenericError.error';
+import { GenericError } from './GenericError.error';
 
 test('When passed message = null and error = null to constructor.', () => {
 	const message = null

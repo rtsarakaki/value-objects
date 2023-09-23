@@ -1,4 +1,4 @@
-export default class GenericError extends Error {
+export class GenericError extends Error {
     errors: Array<GenericError> | null = new Array();
 
     constructor(message: string, errors = null) {

@@ -1,4 +1,4 @@
-import InvalidValue from "../Errors/InvalidValue.error";
+import { InvalidValue } from "../Errors/InvalidValue.error";
 import { getResourceMessageByKey } from "../Resources/Messages.resource";
 
 export function MustHaveTheSameStructureThan<T>(valor: string, label: string, language: string = 'en-US') {
