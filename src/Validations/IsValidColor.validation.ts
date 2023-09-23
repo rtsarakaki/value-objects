@@ -1,6 +1,7 @@
+import validateColor from "validate-color";
 import { InvalidValue } from "../Errors/InvalidValue.error";
-import { validateLabel } from "./ValidationsTools";
 import { getResourceMessageByKey } from "../Resources/Messages.resource";
+import { validateLabel } from "./ValidationsTools";
 
 export const IsValidColor = (value: string, label: string, language: string = 'en-US') => {
 	const labelValidation = validateLabel(label)
@@ -14,7 +15,7 @@ export const IsValidColor = (value: string, label: string, language: string = 'e
 	function colorValidation(color: string) {
 		try {
 			if (typeof color !== 'string') throw new InvalidValue(errorMessage);
-			return false;
+			return validateColor(color.trim());
 		} catch (err) {
 			return false;
 		}

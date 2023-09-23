@@ -20,7 +20,6 @@ describe('ShortDescription value object', () => {
 
 		arrayOfValidNames.map(({ value, result }) => {
 			const description = createShortDescription(value, "Short Description")
-			console.log(description)
 			expect(description.value).toBe(result)
 			expect(description.errors.length).toBe(0)
 		})

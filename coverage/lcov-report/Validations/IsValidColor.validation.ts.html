@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">7.14% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/12</span>
+                <span class='fraction'>1/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>7/7</span>
+                <span class='fraction'>0/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">8.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/10</span>
+                <span class='fraction'>1/12</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -87,54 +87,60 @@
 <a name='L22'></a><a href='#L22'>22</a>
 <a name='L23'></a><a href='#L23'>23</a>
 <a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">31x</span>
-<span class="cline-any cline-yes">31x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">26x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">26x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">26x</span>
-<span class="cline-any cline-yes">26x</span>
-<span class="cline-any cline-yes">23x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">26x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import InvalidValue from "../Errors/InvalidValue.error";
-import validateColor from "validate-color";
-import { validateLabel } from "./ValidationsTools";
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import validateColor from "validate-color";
+import { InvalidValue } from "../Errors/InvalidValue.error";
 import { getResourceMessageByKey } from "../Resources/Messages.resource";
+import { validateLabel } from "./ValidationsTools";
 &nbsp;
-export const IsValidColor = (value: string, label: string, language: string = 'en-US') =&gt; {
-	const labelValidation = validateLabel(label)
-	if (labelValidation !== null) return labelValidation
+export const IsValidColor = <span class="fstat-no" title="function not covered" >(v</span>alue: string, label: string, language: string = <span class="branch-0 cbranch-no" title="branch not covered" >'en-US')</span> =&gt; {
+	const labelValidation = <span class="cstat-no" title="statement not covered" >validateLabel(label)</span>
+<span class="cstat-no" title="statement not covered" >	if (labelValidation !== null) <span class="cstat-no" title="statement not covered" >return labelValidation</span></span>
 &nbsp;
-	const replaceList = [
+	const replaceList = <span class="cstat-no" title="statement not covered" >[</span>
 		{ tag: '${label}', value: label },
 	]
-	const errorMessage = getResourceMessageByKey(IsValidColor.name, language, replaceList)
+	const errorMessage = <span class="cstat-no" title="statement not covered" >getResourceMessageByKey(IsValidColor.name, language, replaceList)</span>
 &nbsp;
-	function colorValidation(color: string) {
-		try {
-			if (typeof color !== 'string') throw new InvalidValue(errorMessage);
-			return validateColor(color.trim());
+	function <span class="fstat-no" title="function not covered" >colorValidation(</span>color: string) {
+<span class="cstat-no" title="statement not covered" >		try {</span>
+<span class="cstat-no" title="statement not covered" >			if (typeof color !== 'string') <span class="cstat-no" title="statement not covered" >throw new InvalidValue(errorMessage);</span></span>
+<span class="cstat-no" title="statement not covered" >			return validateColor(color);</span>
 		} catch (err) {
-			return false;
+<span class="cstat-no" title="statement not covered" >			console.log(err);</span>
+<span class="cstat-no" title="statement not covered" >			throw err</span>
+<span class="cstat-no" title="statement not covered" >			return false;</span>
 		}
 	}
 &nbsp;
-	return !colorValidation(value) ? new InvalidValue(errorMessage) : null;
+<span class="cstat-no" title="statement not covered" >	return !colorValidation(value) ? new InvalidValue(errorMessage) : null;</span>
 };</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -142,7 +148,7 @@ export const IsValidColor = (value: string, label: string, language: string = 'e
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-09-21T01:03:56.296Z
+                at 2023-09-23T23:15:42.726Z
             </div>
         <script src="../prettify.js"></script>
         <script>
