@@ -1,3 +1,5 @@
+import InvalidValue from "../Errors/InvalidValue.error";
+import { getResourceMessageByKey } from "./Messages.resource";
 
 export interface ITagListItem {
 	tag: string,
@@ -5,6 +7,12 @@ export interface ITagListItem {
 }
 
 export function replaceTagsInMessage(message: string, tagList: ITagListItem[]): string {
-	const messageReplaced = tagList.reduce((result : string, tag: ITagListItem) => { return result.replace(tag.tag, tag.value) }, message)
-	return messageReplaced;
+	try {
+		const messageReplaced = tagList.reduce((result: string, tag: ITagListItem) => { return result.replace(tag.tag, tag.value) }, message)
+		return messageReplaced;
+	}
+	catch (e){
+		const errorMessage = getResourceMessageByKey(replaceTagsInMessage.name)
+		throw new InvalidValue(errorMessage);
+	}
 }

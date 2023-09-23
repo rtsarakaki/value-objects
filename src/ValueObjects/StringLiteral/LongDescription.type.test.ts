@@ -1,6 +1,8 @@
 import { describe, expect, test } from '@jest/globals';
 import { createLongDescription } from './LongDescription.type';
 
+test.todo('convert test to test.each model');
+
 describe('LongDescription value object', () => {
 	test('Valid LongDescription Values.', () => {
 		const arrayOfValidNames = [

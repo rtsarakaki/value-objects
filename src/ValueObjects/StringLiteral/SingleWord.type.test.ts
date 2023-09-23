@@ -1,6 +1,8 @@
 import { describe, expect, test } from '@jest/globals';
 import { createSingleWord } from './SingleWord.type';
 
+test.todo('convert test to test.each model');
+
 describe('SingleWord value object', () => {
 	test('Valid SingleWord Values.', () => {
 		const arrayOfValidNames = [

@@ -1,6 +1,8 @@
 import { describe, expect, test } from '@jest/globals';
 import { createShortDescription } from './ShortDescription.type';
 
+test.todo('convert test to test.each model');
+
 describe('ShortDescription value object', () => {
 	test('Valid ShortDescription Values.', () => {
 		const arrayOfValidNames = [

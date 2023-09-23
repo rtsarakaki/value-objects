@@ -2,6 +2,8 @@ import { describe, expect, test } from '@jest/globals';
 import InvalidValue from '../../Errors/InvalidValue.error';
 import GenericType from './GenericType.type';
 
+test.todo('convert test to test.each model');
+
 class TestType extends GenericType {
 	constructor() {
 		super('initial value');

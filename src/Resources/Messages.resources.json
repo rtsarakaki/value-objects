@@ -28,15 +28,15 @@
 			]
 		},
 		{
-			"key": "CannotHaveSpecialCharacters",
+			"key": "CannotContainSpecialCharacters",
 			"messages": [
 				{
 					"language": "en-US", 
-					"message": "${label}  cannot have special characters." 
+					"message": "${label}  cannot contain special characters." 
 				},
 				{
 					"language": "pt-BR",
-					"message": "${label} não pode começar com zero."
+					"message": "${label} não pode conter caracteres especiais."
 				}
 			]
 		},
@@ -180,6 +180,32 @@
 				{
 					"language": "pt-BR",
 					"message": "Enum não é valida."
+				}
+			]
+		},
+		{
+			"key": "CannotContainNumbers",
+			"messages": [
+				{
+					"language": "en-US", 
+					"message": "${label}  cannot contain numbers." 
+				},
+				{
+					"language": "pt-BR",
+					"message": "${label} não pode conter números."
+				}
+			]
+		},
+		{
+			"key": "replaceTagsInMessage",
+			"messages": [
+				{
+					"language": "en-US", 
+					"message": "Invalid tag list content." 
+				},
+				{
+					"language": "pt-BR",
+					"message": "Lista de tags é inválida."
 				}
 			]
 		}

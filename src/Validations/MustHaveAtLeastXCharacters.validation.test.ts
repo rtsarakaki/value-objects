@@ -2,6 +2,8 @@ import { describe, expect, test } from '@jest/globals';
 import InvalidValue from '../Errors/InvalidValue.error';
 import { MustHaveAtLeastXCharacters } from './MustHaveAtLeastXCharacters.validation';
 
+test.todo('convert test to test.each model');
+
 describe('MustHaveAtLeastXCharacters', () => {
 
 	test('Invalid values', () => {

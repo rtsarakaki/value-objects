@@ -1,6 +1,8 @@
 import { describe, expect, test } from '@jest/globals';
 import { createTitle } from './Title.type';
 
+test.todo('convert test to test.each model');
+
 describe('Title value object', () => {
 	test('Valid Title Values.', () => {
 		const arrayOfValidNames = [

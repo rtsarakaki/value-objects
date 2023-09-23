@@ -2,6 +2,8 @@ import { describe, expect, test } from '@jest/globals';
 import InvalidValue from '../Errors/InvalidValue.error';
 import { CannotStartWithZero } from './CannotStartWithZero.validation';
 
+test.todo('convert test to test.each model');
+
 describe('CannotStartWithZero', () => {
 
 	test('Invalid values', () => {

@@ -2,6 +2,8 @@ import { describe, expect, test } from '@jest/globals';
 import InvalidValue from '../Errors/InvalidValue.error';
 import { MustHaveOnlyOneWord } from './MustHaveOnlyOneWord.validation';
 
+test.todo('convert test to test.each model');
+
 describe('MustHaveOnlyOneWord', () => {
 
 	test('Invalid values', () => {

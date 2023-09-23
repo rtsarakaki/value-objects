@@ -2,6 +2,8 @@ import { describe, expect, test } from '@jest/globals';
 import InvalidValue from '../Errors/InvalidValue.error';
 import { MustBeContainedInEnum } from './MustBeContainedInEnum.validation';
 
+test.todo('convert test to test.each model');
+
 enum CardinalDirections {
 	North,
 	East,

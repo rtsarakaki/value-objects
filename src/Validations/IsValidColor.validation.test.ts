@@ -2,6 +2,8 @@ import { describe, expect, test } from '@jest/globals';
 import InvalidValue from '../Errors/InvalidValue.error';
 import { IsValidColor } from './IsValidColor.validation';
 
+test.todo('convert test to test.each model');
+
 describe('IsValidColor', () => {
 
 	test('Invalid values', () => {
