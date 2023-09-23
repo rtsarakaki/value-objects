@@ -1,4 +1,4 @@
-name: ts-value-objects
+name: value-objects
 
 on:
   push:
@@ -25,3 +25,5 @@ jobs:
         working-directory: ./packages/ts-value-objects
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+
