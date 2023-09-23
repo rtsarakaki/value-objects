@@ -1,4 +1,4 @@
-name: value-objects
+name: smart-value-objects
 
 on:
   push:
@@ -14,7 +14,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 16.x
-      - run: npm install npm run build npm publish --access public
+      - run: npm install && npm run build && npm publish --access public
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
