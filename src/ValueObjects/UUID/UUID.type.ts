@@ -40,6 +40,7 @@ export class UUID extends GenericType {
   }
 }
 
+// why?
 export function createUUID(value: string | null, label: string) {
   if (!value || value.trim() === '') {
     return GenerateUUID(label);
