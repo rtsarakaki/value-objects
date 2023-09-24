@@ -14,6 +14,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 16.x
-      - run: npm install && npm run build && npm publish --access public
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
+      - name: Publish package to NPM
+        run: npm install && npm run build && npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
