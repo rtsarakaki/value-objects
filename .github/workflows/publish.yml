@@ -15,10 +15,6 @@ jobs:
         with:
           node-version: 16.x
       - name: Publish package to NPM
-        run: |
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
-          echo "Enter OTP:"
-          read OTP
-          npm publish --otp $OTP
+        run: npm install && npm run build && npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
