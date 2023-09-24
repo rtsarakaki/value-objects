@@ -6,7 +6,7 @@ class GenericEntity extends GenericType_type_1.GenericType {
     constructor() {
         super(null);
     }
-    initProp = (object, value, required = true) => {
+    initProp(object, value, required = true) {
         const isString = typeof value?.value === 'string';
         const isRequired = required === undefined || required;
         const hasValue = isString ? value?.value === undefined || value?.value.length > 0 : false;
@@ -18,7 +18,7 @@ class GenericEntity extends GenericType_type_1.GenericType {
             object.errors = object.errors.concat(value.errors);
         }
         return value;
-    };
+    }
     get id() {
         return '';
     }
