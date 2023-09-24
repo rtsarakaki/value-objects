@@ -5,8 +5,7 @@ export class GenericEntity extends GenericType {
     super(null);
   }
 
-  initProp = (object: any, value: GenericType, required: boolean = true) => {
-
+  public initProp(object: any, value: GenericType, required: boolean = true): GenericType {
     const isString = typeof value?.value === 'string';
     const isRequired = required === undefined || required;
     const hasValue = isString ? value?.value === undefined || value?.value.length > 0 : false;
@@ -21,9 +20,9 @@ export class GenericEntity extends GenericType {
     }
 
     return value;
-  };
+  }
 
-  get id() {
+  public get id() {
     return '';
   }
 }

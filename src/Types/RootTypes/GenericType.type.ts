@@ -9,22 +9,22 @@ export class GenericType {
     this.value = value;
   }
 
-  get isValid(): boolean {
+  public get isValid(): boolean {
     return this.errors?.length === 0;
   }
 
-  accumulateErrors(callback: any) {
+  public accumulateErrors(callback: any) {
     const res = callback();
     if (res) {
       this.errors.push(res);
     }
   }
 
-  validate(validationList: any[]) {
+  public validate(validationList: any[]) {
     validationList.forEach(validation => this.accumulateErrors(validation));
   }
 
-  toJson() {
+  public toJson() {
     return {};
   }
   
