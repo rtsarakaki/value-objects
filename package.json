@@ -7,7 +7,8 @@
   "scripts": {
     "test": "jest",
     "build": "tsc --declaration",
-    "dev": "nodemon --watch \"src//\" --exec \"ts-node src/index.ts\" -e ts"
+    "dev": "nodemon --watch \"src//\" --exec \"ts-node src/index.ts\" -e ts",
+    "publish": "npm publish --access public"
   },
   "keywords": [],
   "author": "Ricardo Tadeu Sinhei Arakaki",
