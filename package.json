@@ -9,7 +9,8 @@
     "build": "tsc --declaration",
     "dev": "nodemon --watch \"src//\" --exec \"ts-node src/index.ts\" -e ts",
     "push": "git push && npm run build && npm publish --access public",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "commit": "git add . & cz"
   },
   "keywords": [],
   "author": "Ricardo Tadeu Sinhei Arakaki",
