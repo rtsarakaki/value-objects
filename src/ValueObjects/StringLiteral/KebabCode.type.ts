@@ -6,17 +6,17 @@ import { MustHaveOnlyOneWord } from "../../Validations/MustHaveOnlyOneWord.valid
 import { MustStartWithAlphaNumeric } from "../../Validations/MustStartWithAlphaNumeric.validation";
 
 export class KebabCode extends GenericType {
-  constructor(value: string, label: string | null = null, ...customValidators: GenericValidation[]) {
+  constructor(value: string, label: string | null = null, required = true, ...customValidators: GenericValidation[]) {
     const msg = label ?? 'Kebab Code';
     super(value);
     const formatedValue = formatValue(value)
     const defaultValidators = [
-      () => CannotBeBlank(formatedValue, msg),
+      () => CannotBeBlank(formatedValue, msg, required),
       () => MustHaveAtLeastXCharacters(formatedValue, msg, 1),
       () => CannotHaveMoreThanXCharacters(formatedValue, msg, 50),
       () => MustHaveOnlyOneWord(value, msg),
       () => MustStartWithAlphaNumeric(formatedValue, msg),
-      () => RegexMatch(formatedValue, '^[a-z0-9]+(-[a-z0-9]+)*$', 'must contain only letters, numbers or non-consecutive dashes', 'kebab code'),
+      () => RegexMatch(formatedValue, '^[a-z0-9]+(-[a-z0-9]+)*$', 'must contain only letters, numbers or non-consecutive dashes', msg),
     ];
     const validators = customValidators.length > 0 ? [...defaultValidators, ...customValidators] : defaultValidators;
     this.validate(validators);

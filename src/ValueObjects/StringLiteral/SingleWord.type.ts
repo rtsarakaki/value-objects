@@ -6,11 +6,11 @@ import { MustHaveOnlyOneWord } from "../../Validations/MustHaveOnlyOneWord.valid
 
 
 export class SingleWord extends GenericType {
-  constructor(value: string, label: string | null = null, ...customValidators: GenericValidation[]) {
+  constructor(value: string, label: string | null = null, required = true, ...customValidators: GenericValidation[]) {
     const msg = label ?? 'One Word';
     super(value);
     const defaultValidators = [
-      () => CannotBeBlank(value, msg),
+      () => CannotBeBlank(value, msg, required),
       () => MustHaveAtLeastXCharacters(value, msg, 1),
       () => CannotHaveMoreThanXCharacters(value, msg, 50),
       () => MustHaveOnlyOneWord(value, msg),
