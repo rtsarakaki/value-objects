@@ -9,6 +9,8 @@ export { SingleWord } from './StringLiteral/SingleWord.type'
 export { createSingleWord } from './StringLiteral/SingleWord.type'
 export { Title } from './StringLiteral/Title.type'
 export { createTitle } from './StringLiteral/Title.type'
+export { KebabCode } from './StringLiteral/KebabCode.type'
+export { createKebabCode } from './StringLiteral/KebabCode.type'
 
 export { UUID } from './UUID/UUID.type'
 export { createUUID } from './UUID/UUID.type'

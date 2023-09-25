@@ -1,2 +1,7 @@
+import { InvalidValue } from "../Errors";
 import { GenericValidation } from "../Types";
-export declare const CannotContainNumbers: GenericValidation;
+interface CannotContainNumbersInterface extends GenericValidation {
+    (value: string, label: string, language?: string): InvalidValue | null;
+}
+export declare const CannotContainNumbers: CannotContainNumbersInterface;
+export {};

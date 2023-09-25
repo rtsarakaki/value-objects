@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createUUID = exports.UUID = exports.createTitle = exports.Title = exports.createSingleWord = exports.SingleWord = exports.createShortDescription = exports.ShortDescription = exports.createLongDescription = exports.LongDescription = exports.createFullName = exports.FullName = void 0;
+exports.createUUID = exports.UUID = exports.createKebabCode = exports.KebabCode = exports.createTitle = exports.Title = exports.createSingleWord = exports.SingleWord = exports.createShortDescription = exports.ShortDescription = exports.createLongDescription = exports.LongDescription = exports.createFullName = exports.FullName = void 0;
 var FullName_type_1 = require("./Person/FullName.type");
 Object.defineProperty(exports, "FullName", { enumerable: true, get: function () { return FullName_type_1.FullName; } });
 var FullName_type_2 = require("./Person/FullName.type");
@@ -21,6 +21,10 @@ var Title_type_1 = require("./StringLiteral/Title.type");
 Object.defineProperty(exports, "Title", { enumerable: true, get: function () { return Title_type_1.Title; } });
 var Title_type_2 = require("./StringLiteral/Title.type");
 Object.defineProperty(exports, "createTitle", { enumerable: true, get: function () { return Title_type_2.createTitle; } });
+var KebabCode_type_1 = require("./StringLiteral/KebabCode.type");
+Object.defineProperty(exports, "KebabCode", { enumerable: true, get: function () { return KebabCode_type_1.KebabCode; } });
+var KebabCode_type_2 = require("./StringLiteral/KebabCode.type");
+Object.defineProperty(exports, "createKebabCode", { enumerable: true, get: function () { return KebabCode_type_2.createKebabCode; } });
 var UUID_type_1 = require("./UUID/UUID.type");
 Object.defineProperty(exports, "UUID", { enumerable: true, get: function () { return UUID_type_1.UUID; } });
 var UUID_type_2 = require("./UUID/UUID.type");
