@@ -5,8 +5,8 @@ on:
     branches:
       - main
 jobs:
-  release:
-    name: release
+  main:
+    name: main
     permissions:
       contents: write
       issues: write
