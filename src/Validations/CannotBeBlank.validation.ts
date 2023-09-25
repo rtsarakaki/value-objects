@@ -3,10 +3,14 @@ import { getResourceMessageByKey } from "../Resources/Messages.resource";
 import { GenericValidation } from "../Types";
 import { validateLabel } from "./ValidationsTools";
 
-export const CannotBeBlank: GenericValidation = (
+interface CannotBeBlankInterface extends GenericValidation {
+	(value: string, label: string, required?: boolean, language?: string): InvalidValue | null;
+}
+
+export const CannotBeBlank: CannotBeBlankInterface = (
 	value: string,
 	label: string,
-	required = true,
+	required: boolean = true,
 	language: string = 'en-US'
 ) => {
 	const labelValidation = validateLabel(label)

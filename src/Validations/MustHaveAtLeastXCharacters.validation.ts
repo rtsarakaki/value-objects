@@ -3,7 +3,11 @@ import { getResourceMessageByKey } from "../Resources/Messages.resource";
 import { GenericValidation } from "../Types";
 import { validateLabel } from "./ValidationsTools";
 
-export const MustHaveAtLeastXCharacters: GenericValidation = (
+interface MustHaveAtLeastXCharactersInterface extends GenericValidation {
+	(value: string, label: string, charactersNumber: number, language?: string): InvalidValue | null;
+}
+
+export const MustHaveAtLeastXCharacters: MustHaveAtLeastXCharactersInterface = (
 	value: string,
 	label: string,
 	charactersNumber: number,

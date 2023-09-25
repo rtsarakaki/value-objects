@@ -3,9 +3,11 @@ import { getResourceMessageByKey } from "../Resources/Messages.resource";
 import { GenericValidation } from "../Types";
 import { validateLabel } from "./ValidationsTools";
 
+interface MustBeContainedInEnumInterface extends GenericValidation {
+	(value: string, label: string, enumeration: any, language?: string): InvalidValue | null;
+}
 
-
-export const MustBeContainedInEnum: GenericValidation = (
+export const MustBeContainedInEnum: MustBeContainedInEnumInterface = (
 	value: string,
 	label: string,
 	enumeration: any,

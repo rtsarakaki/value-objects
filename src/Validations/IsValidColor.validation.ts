@@ -4,7 +4,11 @@ import { getResourceMessageByKey } from "../Resources/Messages.resource";
 import { validateLabel } from "./ValidationsTools";
 import { GenericValidation } from "../Types";
 
-export const IsValidColor: GenericValidation = (value: string, label: string, language: string = 'en-US') => {
+interface IsValidColorInterface extends GenericValidation {
+	(value: string, label: string, language?: string): InvalidValue | null;
+}
+
+export const IsValidColor: IsValidColorInterface = (value: string, label: string, language: string = 'en-US') => {
 	const labelValidation = validateLabel(label)
 	if (labelValidation !== null) return labelValidation
 

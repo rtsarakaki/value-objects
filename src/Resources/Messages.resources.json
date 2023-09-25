@@ -234,6 +234,19 @@
 					"message": "${label} ${regex}."
 				}
 			]
+		},
+		{
+			"key": "MustStartWithAlphaNumeric",
+			"messages": [
+				{
+					"language": "en-US", 
+					"message": "${label} must start with a letter or number." 
+				},
+				{
+					"language": "pt-BR",
+					"message": "${label} deve iniciar com letra ou número."
+				}
+			]
 		}
 	]
 }

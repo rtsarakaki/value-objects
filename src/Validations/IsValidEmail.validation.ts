@@ -3,7 +3,11 @@ import { getResourceMessageByKey } from "../Resources/Messages.resource";
 import { GenericValidation } from "../Types";
 import { validateLabel } from "./ValidationsTools";
 
-export const IsValidEmail: GenericValidation = (valor: string, label: string, language: string = 'en-US') => {
+interface IsValidEmailInterface extends GenericValidation {
+	(value: string, label: string, language?: string): InvalidValue | null;
+}
+
+export const IsValidEmail: IsValidEmailInterface = (valor: string, label: string, language: string = 'en-US') => {
 	const labelValidation = validateLabel(label)
 	if (labelValidation !== null) return labelValidation
 

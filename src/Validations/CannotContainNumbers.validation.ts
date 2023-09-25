@@ -3,7 +3,11 @@ import { getResourceMessageByKey } from "../Resources/Messages.resource";
 import { GenericValidation } from "../Types";
 import { validateLabel } from "./ValidationsTools";
 
-export const CannotContainNumbers: GenericValidation = (value: string, label: string, language: string = 'en-US') => {
+interface CannotContainNumbersInterface extends GenericValidation {
+	(value: string, label: string, language?: string): InvalidValue | null;
+}
+
+export const CannotContainNumbers: CannotContainNumbersInterface = (value: string, label: string, language: string = 'en-US') => {
 
 	const labelValidation = validateLabel(label)
 	if (labelValidation !== null) return labelValidation
