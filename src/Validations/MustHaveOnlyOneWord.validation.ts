@@ -1,8 +1,9 @@
 import { InvalidValue } from "../Errors";
 import { getResourceMessageByKey } from "../Resources/Messages.resource";
+import { GenericValidation } from "../Types";
 import { validateLabel } from "./ValidationsTools";
 
-export const MustHaveOnlyOneWord = (value: string, label: string, language: string = 'en-US') => {
+export const MustHaveOnlyOneWord: GenericValidation = (value: string, label: string, language: string = 'en-US') => {
 
 	const labelValidation = validateLabel(label)
 	if (labelValidation !== null) return labelValidation
@@ -10,7 +11,7 @@ export const MustHaveOnlyOneWord = (value: string, label: string, language: stri
 	const replaceList = [
 		{ tag: '${label}', value: label },
 	]
-	const errorMessage = getResourceMessageByKey(MustHaveOnlyOneWord.name, language, replaceList)
+	const errorMessage = getResourceMessageByKey("MustHaveOnlyOneWord", language, replaceList)
 
 	try {
 		const haveSpace = value?.trim().indexOf(' ') != -1

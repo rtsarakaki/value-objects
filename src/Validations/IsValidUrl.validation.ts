@@ -1,8 +1,9 @@
 import { InvalidValue } from "../Errors/InvalidValue.error";
 import { getResourceMessageByKey } from "../Resources/Messages.resource";
+import { GenericValidation } from "../Types";
 import { validateLabel } from "./ValidationsTools";
 
-export const IsValidUrl = (valor: string, label: string, language: string = 'en-US') => {
+export const IsValidUrl: GenericValidation = (valor: string, label: string, language: string = 'en-US') => {
 
 	const labelValidation = validateLabel(label)
 	if (labelValidation !== null) return labelValidation
@@ -10,7 +11,7 @@ export const IsValidUrl = (valor: string, label: string, language: string = 'en-
 	const replaceList = [
 		{ tag: '${label}', value: label },
 	]
-	const errorMessage = getResourceMessageByKey(IsValidUrl.name, language, replaceList)
+	const errorMessage = getResourceMessageByKey("IsValidUrl", language, replaceList)
 
 	function validateUrl(url: string) {
 		try {

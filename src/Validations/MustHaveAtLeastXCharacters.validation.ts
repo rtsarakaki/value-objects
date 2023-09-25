@@ -1,8 +1,9 @@
 import { InvalidValue } from "../Errors/InvalidValue.error";
 import { getResourceMessageByKey } from "../Resources/Messages.resource";
+import { GenericValidation } from "../Types";
 import { validateLabel } from "./ValidationsTools";
 
-export const MustHaveAtLeastXCharacters = (
+export const MustHaveAtLeastXCharacters: GenericValidation = (
 	value: string,
 	label: string,
 	charactersNumber: number,
@@ -16,7 +17,7 @@ export const MustHaveAtLeastXCharacters = (
 		{ tag: '${label}', value: label },
 		{ tag: '${charactersNumber}', value: charactersNumber.toString() }
 	]
-	const errorMessage = getResourceMessageByKey(MustHaveAtLeastXCharacters.name, language, replaceList)
+	const errorMessage = getResourceMessageByKey("MustHaveAtLeastXCharacters", language, replaceList)
 
 	try {
 		if (typeof value !== 'string') throw new InvalidValue(errorMessage);

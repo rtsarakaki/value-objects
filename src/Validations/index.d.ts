@@ -12,4 +12,5 @@ export { MustContainOnlyNumbers } from './MustContainOnlyNumbers.validation'
 export { MustHaveAtLeastXCharacters } from './MustHaveAtLeastXCharacters.validation'
 export { MustHaveOnlyOneWord } from './MustHaveOnlyOneWord.validation'
 export { MustHaveTheSameStructureThan } from './MustHaveTheSameStructureThan.validation'
+export { RegexMatch } from './RegexMatch.validation'
 

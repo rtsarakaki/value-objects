@@ -208,6 +208,32 @@
 					"message": "Lista de tags é inválida."
 				}
 			]
+		},
+		{
+			"key": "validateRegex",
+			"messages": [
+				{
+					"language": "en-US", 
+					"message": "Regex '${regex}' is invalid." 
+				},
+				{
+					"language": "pt-BR",
+					"message": "A expressão regular ${regex} não é válida."
+				}
+			]
+		},
+		{
+			"key": "RegexMatch",
+			"messages": [
+				{
+					"language": "en-US", 
+					"message": "${label} ${regex}." 
+				},
+				{
+					"language": "pt-BR",
+					"message": "${label} ${regex}."
+				}
+			]
 		}
 	]
 }

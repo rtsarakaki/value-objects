@@ -1,19 +1,21 @@
-import { GenericType } from "../../Types";
+import { GenericType, GenericValidation } from "../../Types";
 import { CannotBeBlank } from "../../Validations/CannotBeBlank.validation";
 import { CannotHaveMoreThanXCharacters } from "../../Validations/CannotHaveMoreThanXCharacters.validation";
 import { MustHaveAtLeastXCharacters } from "../../Validations/MustHaveAtLeastXCharacters.validation";
 
 export class FullName extends GenericType {
-  constructor(name: string, label: string, required = true) {
+  constructor(name: string, label: string, required = true, ...customValidators: GenericValidation[]) {
     const msg = label ?? 'Name';
     super(name);
     if (name !== undefined) {
       const formatedName = formatFullName(name);
-      this.validate([
+      const defaultValidators = [
         () => CannotBeBlank(formatedName, msg, required),
         () => MustHaveAtLeastXCharacters(formatedName, msg, 2),
         () => CannotHaveMoreThanXCharacters(formatedName, msg, 50),
-      ]);
+      ]
+      const validators = customValidators.length > 0 ? [...defaultValidators, ...customValidators] : defaultValidators;
+      this.validate(validators);
       this.value = formatedName;
     }
   }
@@ -34,7 +36,7 @@ export class FullName extends GenericType {
 
   get middleName(): string {
     if (this._nameParts.length < 3) return ''
-    return this._nameParts.slice(1, this._nameParts.length -1).join(' ') ?? '';
+    return this._nameParts.slice(1, this._nameParts.length - 1).join(' ') ?? '';
   }
 }
 

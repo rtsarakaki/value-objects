@@ -1,10 +1,11 @@
 import { InvalidValue } from "../Errors/InvalidValue.error";
 import { getResourceMessageByKey } from "../Resources/Messages.resource";
+import { GenericValidation } from "../Types";
 import { validateLabel } from "./ValidationsTools";
 
 
 
-export const MustBeContainedInEnum = (
+export const MustBeContainedInEnum: GenericValidation = (
 	value: string,
 	label: string,
 	enumeration: any,
@@ -24,7 +25,7 @@ export const MustBeContainedInEnum = (
 		{ tag: '${label}', value: label },
 		{ tag: "${JSON.stringify('model')}", value: JSON.stringify('model') },
 	]
-	const errorMessage = getResourceMessageByKey(MustBeContainedInEnum.name, language, replaceList)
+	const errorMessage = getResourceMessageByKey("MustBeContainedInEnum", language, replaceList)
 
 	if (typeof value !== 'string') return new InvalidValue(errorMessage);
 

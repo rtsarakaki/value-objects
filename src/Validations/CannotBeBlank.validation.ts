@@ -1,8 +1,9 @@
 import { InvalidValue } from "../Errors/InvalidValue.error";
 import { getResourceMessageByKey } from "../Resources/Messages.resource";
+import { GenericValidation } from "../Types";
 import { validateLabel } from "./ValidationsTools";
 
-export const CannotBeBlank = (
+export const CannotBeBlank: GenericValidation = (
 	value: string,
 	label: string,
 	required = true,

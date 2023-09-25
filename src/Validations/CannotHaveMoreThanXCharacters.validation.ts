@@ -1,8 +1,9 @@
 import { InvalidValue } from "../Errors";
 import { getResourceMessageByKey } from "../Resources/Messages.resource";
+import { GenericValidation } from "../Types";
 import { validateLabel } from "./ValidationsTools";
 
-export const CannotHaveMoreThanXCharacters = (
+export const CannotHaveMoreThanXCharacters: GenericValidation = (
 	value: string,
 	label: string,
 	charactersNumber: number,

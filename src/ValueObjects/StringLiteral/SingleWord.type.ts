@@ -1,4 +1,4 @@
-import { GenericType } from "../../Types";
+import { GenericType, GenericValidation } from "../../Types";
 import { CannotBeBlank } from "../../Validations";
 import { CannotHaveMoreThanXCharacters } from "../../Validations/CannotHaveMoreThanXCharacters.validation";
 import { MustHaveAtLeastXCharacters } from "../../Validations/MustHaveAtLeastXCharacters.validation";
@@ -6,15 +6,17 @@ import { MustHaveOnlyOneWord } from "../../Validations/MustHaveOnlyOneWord.valid
 
 
 export class SingleWord extends GenericType {
-  constructor(value: string, label: string | null = null) {
+  constructor(value: string, label: string | null = null, ...customValidators: GenericValidation[]) {
     const msg = label ?? 'One Word';
     super(value);
-    this.validate([
+    const defaultValidators = [
       () => CannotBeBlank(value, msg),
       () => MustHaveAtLeastXCharacters(value, msg, 1),
       () => CannotHaveMoreThanXCharacters(value, msg, 50),
       () => MustHaveOnlyOneWord(value, msg),
-    ]);
+    ];
+    const validators = customValidators.length > 0 ? [...defaultValidators, ...customValidators] : defaultValidators;
+    this.validate(validators);
     if (this.errors.length === 0) {
       this.value = value?.trim().toLowerCase();
     }

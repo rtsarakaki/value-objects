@@ -1,4 +1,4 @@
-import { GenericType } from '../../Types';
+import { GenericType, GenericValidation } from '../../Types';
 import { CannotBeBlank, MustHaveOnlyOneWord } from '../../Validations';
 
 function S4() {
@@ -26,14 +26,16 @@ export function GenerateUUID(label: string) {
 }
 
 export class UUID extends GenericType {
-  constructor(value: string, label: string) {
+  constructor(value: string, label: string, ...customValidators: GenericValidation[]) {
     const msg = label ?? 'Id';
     super(value);
     if (value !== null) {
-      this.validate([
+      const defaultValidators = [
         () => CannotBeBlank(value, msg),
         () => MustHaveOnlyOneWord(value, msg),
-      ]);
+      ]
+      const validators = customValidators.length > 0 ? [...defaultValidators, ...customValidators] : defaultValidators;
+      this.validate(validators);
     } else {
       this.valor = GenerateUUID(label);
     }

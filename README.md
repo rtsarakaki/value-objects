@@ -9,6 +9,8 @@ A Typescript library of classes aimed to help developers using and undestanding 
 
 You are invited to build other value objects with me and together we can expand the scope of this lib. Feel free to contribute code or your opinions.
 
+https://github.com/rtsarakaki/value-objects
+
 ## Installation
 ```
 yarn add smart-value-objects

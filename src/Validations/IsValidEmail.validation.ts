@@ -1,15 +1,16 @@
 import { InvalidValue } from "../Errors/InvalidValue.error";
 import { getResourceMessageByKey } from "../Resources/Messages.resource";
+import { GenericValidation } from "../Types";
 import { validateLabel } from "./ValidationsTools";
 
-export const IsValidEmail = (valor: string, label: string, language: string = 'en-US') => {
+export const IsValidEmail: GenericValidation = (valor: string, label: string, language: string = 'en-US') => {
 	const labelValidation = validateLabel(label)
 	if (labelValidation !== null) return labelValidation
 
 	const replaceList = [
 		{ tag: '${label}', value: label },
 	]
-	const errorMessage = getResourceMessageByKey(IsValidEmail.name, language, replaceList)
+	const errorMessage = getResourceMessageByKey("IsValidEmail", language, replaceList)
 
 	function validateEmail(email: string) {
 		try {
