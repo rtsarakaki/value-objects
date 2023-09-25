@@ -7,11 +7,11 @@ const CannotHaveMoreThanXCharacters_validation_1 = require("../../Validations/Ca
 const MustHaveAtLeastXCharacters_validation_1 = require("../../Validations/MustHaveAtLeastXCharacters.validation");
 const MustHaveOnlyOneWord_validation_1 = require("../../Validations/MustHaveOnlyOneWord.validation");
 class SingleWord extends Types_1.GenericType {
-    constructor(value, label = null, ...customValidators) {
+    constructor(value, label = null, required = true, ...customValidators) {
         const msg = label ?? 'One Word';
         super(value);
         const defaultValidators = [
-            () => (0, Validations_1.CannotBeBlank)(value, msg),
+            () => (0, Validations_1.CannotBeBlank)(value, msg, required),
             () => (0, MustHaveAtLeastXCharacters_validation_1.MustHaveAtLeastXCharacters)(value, msg, 1),
             () => (0, CannotHaveMoreThanXCharacters_validation_1.CannotHaveMoreThanXCharacters)(value, msg, 50),
             () => (0, MustHaveOnlyOneWord_validation_1.MustHaveOnlyOneWord)(value, msg),
