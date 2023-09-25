@@ -11,7 +11,7 @@ const MustContainOnlyNumbers = (value, label, language = 'en-US') => {
     const replaceList = [
         { tag: '${label}', value: label },
     ];
-    const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)(exports.MustContainOnlyNumbers.name, language, replaceList);
+    const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)("MustContainOnlyNumbers", language, replaceList);
     if (typeof value !== 'string')
         return new InvalidValue_error_1.InvalidValue(errorMessage);
     return isNaN(Number(value))

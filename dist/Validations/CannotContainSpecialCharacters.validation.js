@@ -11,7 +11,7 @@ const CannotContainSpecialCharacters = (value, label, language = 'en-US') => {
     const replaceList = [
         { tag: '${label}', value: label },
     ];
-    const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)(exports.CannotContainSpecialCharacters.name, language, replaceList);
+    const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)("CannotContainSpecialCharacters", language, replaceList);
     if (typeof value !== 'string')
         return new Errors_1.InvalidValue(errorMessage);
     let regex = /^[a-zA-Z0-9\s\p{L}]+$/u;

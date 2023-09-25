@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MustHaveTheSameStructureThan = exports.MustHaveOnlyOneWord = exports.MustHaveAtLeastXCharacters = exports.MustContainOnlyNumbers = exports.MustBeContainedInEnum = exports.IsValidUrl = exports.IsValidEmail = exports.IsValidColor = exports.CannotStartWithZero = exports.CannotHaveMoreThanXCharacters = exports.CannotContainSpecialCharacters = exports.CannotContainNumbers = exports.CannotBeBlank = void 0;
+exports.RegexMatch = exports.MustHaveTheSameStructureThan = exports.MustHaveOnlyOneWord = exports.MustHaveAtLeastXCharacters = exports.MustContainOnlyNumbers = exports.MustBeContainedInEnum = exports.IsValidUrl = exports.IsValidEmail = exports.IsValidColor = exports.CannotStartWithZero = exports.CannotHaveMoreThanXCharacters = exports.CannotContainSpecialCharacters = exports.CannotContainNumbers = exports.CannotBeBlank = void 0;
 var CannotBeBlank_validation_1 = require("./CannotBeBlank.validation");
 Object.defineProperty(exports, "CannotBeBlank", { enumerable: true, get: function () { return CannotBeBlank_validation_1.CannotBeBlank; } });
 var CannotContainNumbers_validation_1 = require("./CannotContainNumbers.validation");
@@ -27,3 +27,5 @@ var MustHaveOnlyOneWord_validation_1 = require("./MustHaveOnlyOneWord.validation
 Object.defineProperty(exports, "MustHaveOnlyOneWord", { enumerable: true, get: function () { return MustHaveOnlyOneWord_validation_1.MustHaveOnlyOneWord; } });
 var MustHaveTheSameStructureThan_validation_1 = require("./MustHaveTheSameStructureThan.validation");
 Object.defineProperty(exports, "MustHaveTheSameStructureThan", { enumerable: true, get: function () { return MustHaveTheSameStructureThan_validation_1.MustHaveTheSameStructureThan; } });
+var RegexMatch_validation_1 = require("./RegexMatch.validation");
+Object.defineProperty(exports, "RegexMatch", { enumerable: true, get: function () { return RegexMatch_validation_1.RegexMatch; } });

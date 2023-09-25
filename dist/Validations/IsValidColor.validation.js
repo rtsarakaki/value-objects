@@ -15,7 +15,7 @@ const IsValidColor = (value, label, language = 'en-US') => {
     const replaceList = [
         { tag: '${label}', value: label },
     ];
-    const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)(exports.IsValidColor.name, language, replaceList);
+    const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)("IsValidColor", language, replaceList);
     function colorValidation(color) {
         try {
             if (typeof color !== 'string')

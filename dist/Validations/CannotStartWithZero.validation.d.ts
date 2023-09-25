@@ -1,2 +1,2 @@
-import { InvalidValue } from "../Errors";
-export declare const CannotStartWithZero: (value: string, label: string, language?: string) => InvalidValue | null;
+import { GenericValidation } from "../Types";
+export declare const CannotStartWithZero: GenericValidation;

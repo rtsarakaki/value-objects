@@ -11,7 +11,7 @@ const CannotContainNumbers = (value, label, language = 'en-US') => {
     const replaceList = [
         { tag: '${label}', value: label },
     ];
-    const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)(exports.CannotContainNumbers.name, language, replaceList);
+    const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)("CannotContainNumbers", language, replaceList);
     if (typeof value !== 'string')
         return new Errors_1.InvalidValue(errorMessage);
     const regex = /\d/;

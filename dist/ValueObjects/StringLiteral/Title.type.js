@@ -6,14 +6,16 @@ const Validations_1 = require("../../Validations");
 const CannotHaveMoreThanXCharacters_validation_1 = require("../../Validations/CannotHaveMoreThanXCharacters.validation");
 const MustHaveAtLeastXCharacters_validation_1 = require("../../Validations/MustHaveAtLeastXCharacters.validation");
 class Title extends Types_1.GenericType {
-    constructor(value, label) {
+    constructor(value, label, ...customValidators) {
         const msg = label ?? 'Title';
         super(value);
-        this.validate([
+        const defaultValidators = [
             () => (0, Validations_1.CannotBeBlank)(value, msg),
             () => (0, MustHaveAtLeastXCharacters_validation_1.MustHaveAtLeastXCharacters)(value, msg, 2),
             () => (0, CannotHaveMoreThanXCharacters_validation_1.CannotHaveMoreThanXCharacters)(value, msg, 50),
-        ]);
+        ];
+        const validators = customValidators.length > 0 ? [...defaultValidators, ...customValidators] : defaultValidators;
+        this.validate(validators);
         this.value = capitalizeText(value.trim());
         ;
     }

@@ -1,2 +1,2 @@
-import { InvalidValue } from "../Errors/InvalidValue.error";
-export declare const IsValidUrl: (valor: string, label: string, language?: string) => InvalidValue | null;
+import { GenericValidation } from "../Types";
+export declare const IsValidUrl: GenericValidation;

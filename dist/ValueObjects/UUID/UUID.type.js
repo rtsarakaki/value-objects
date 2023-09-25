@@ -22,14 +22,16 @@ function GenerateUUID(label) {
 }
 exports.GenerateUUID = GenerateUUID;
 class UUID extends Types_1.GenericType {
-    constructor(value, label) {
+    constructor(value, label, ...customValidators) {
         const msg = label ?? 'Id';
         super(value);
         if (value !== null) {
-            this.validate([
+            const defaultValidators = [
                 () => (0, Validations_1.CannotBeBlank)(value, msg),
                 () => (0, Validations_1.MustHaveOnlyOneWord)(value, msg),
-            ]);
+            ];
+            const validators = customValidators.length > 0 ? [...defaultValidators, ...customValidators] : defaultValidators;
+            this.validate(validators);
         }
         else {
             this.valor = GenerateUUID(label);

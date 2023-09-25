@@ -18,7 +18,7 @@ const MustBeContainedInEnum = (value, label, enumeration, language = 'en-US') =>
         { tag: '${label}', value: label },
         { tag: "${JSON.stringify('model')}", value: JSON.stringify('model') },
     ];
-    const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)(exports.MustBeContainedInEnum.name, language, replaceList);
+    const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)("MustBeContainedInEnum", language, replaceList);
     if (typeof value !== 'string')
         return new InvalidValue_error_1.InvalidValue(errorMessage);
     const resultado = Object.keys(enumeration).some(v => {

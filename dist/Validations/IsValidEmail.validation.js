@@ -11,7 +11,7 @@ const IsValidEmail = (valor, label, language = 'en-US') => {
     const replaceList = [
         { tag: '${label}', value: label },
     ];
-    const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)(exports.IsValidEmail.name, language, replaceList);
+    const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)("IsValidEmail", language, replaceList);
     function validateEmail(email) {
         try {
             if (typeof email !== 'string')

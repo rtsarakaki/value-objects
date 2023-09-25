@@ -1,6 +1,6 @@
-import { GenericType } from "../../Types";
+import { GenericType, GenericValidation } from "../../Types";
 export declare class Title extends GenericType {
-    constructor(value: string, label: string);
+    constructor(value: string, label: string, ...customValidators: GenericValidation[]);
 }
 export declare function createTitle(value: string, label: string): Title;
 export declare function capitalizeText(value: string): string;

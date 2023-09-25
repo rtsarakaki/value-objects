@@ -11,7 +11,7 @@ const CannotStartWithZero = (value, label, language = 'en-US') => {
     const replaceList = [
         { tag: '${label}', value: label },
     ];
-    const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)(exports.CannotStartWithZero.name, language, replaceList);
+    const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)("CannotStartWithZero", language, replaceList);
     if (typeof value !== 'string')
         return new Errors_1.InvalidValue(errorMessage);
     return value.trim()[0] === '0' ? new Errors_1.InvalidValue(errorMessage) : null;

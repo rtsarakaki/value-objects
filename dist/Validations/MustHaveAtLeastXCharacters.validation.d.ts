@@ -1,2 +1,2 @@
-import { InvalidValue } from "../Errors/InvalidValue.error";
-export declare const MustHaveAtLeastXCharacters: (value: string, label: string, charactersNumber: number, language?: string) => InvalidValue | null;
+import { GenericValidation } from "../Types";
+export declare const MustHaveAtLeastXCharacters: GenericValidation;

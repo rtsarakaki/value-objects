@@ -1,6 +1,6 @@
-import { GenericType } from "../../Types";
+import { GenericType, GenericValidation } from "../../Types";
 export declare class FullName extends GenericType {
-    constructor(name: string, label: string, required?: boolean);
+    constructor(name: string, label: string, required?: boolean, ...customValidators: GenericValidation[]);
     private get _nameParts();
     get firstName(): string;
     get lastName(): string;

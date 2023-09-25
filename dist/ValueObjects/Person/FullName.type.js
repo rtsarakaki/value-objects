@@ -6,16 +6,18 @@ const CannotBeBlank_validation_1 = require("../../Validations/CannotBeBlank.vali
 const CannotHaveMoreThanXCharacters_validation_1 = require("../../Validations/CannotHaveMoreThanXCharacters.validation");
 const MustHaveAtLeastXCharacters_validation_1 = require("../../Validations/MustHaveAtLeastXCharacters.validation");
 class FullName extends Types_1.GenericType {
-    constructor(name, label, required = true) {
+    constructor(name, label, required = true, ...customValidators) {
         const msg = label ?? 'Name';
         super(name);
         if (name !== undefined) {
             const formatedName = formatFullName(name);
-            this.validate([
+            const defaultValidators = [
                 () => (0, CannotBeBlank_validation_1.CannotBeBlank)(formatedName, msg, required),
                 () => (0, MustHaveAtLeastXCharacters_validation_1.MustHaveAtLeastXCharacters)(formatedName, msg, 2),
                 () => (0, CannotHaveMoreThanXCharacters_validation_1.CannotHaveMoreThanXCharacters)(formatedName, msg, 50),
-            ]);
+            ];
+            const validators = customValidators.length > 0 ? [...defaultValidators, ...customValidators] : defaultValidators;
+            this.validate(validators);
             this.value = formatedName;
         }
     }

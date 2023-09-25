@@ -11,7 +11,7 @@ const IsValidUrl = (valor, label, language = 'en-US') => {
     const replaceList = [
         { tag: '${label}', value: label },
     ];
-    const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)(exports.IsValidUrl.name, language, replaceList);
+    const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)("IsValidUrl", language, replaceList);
     function validateUrl(url) {
         try {
             if (typeof url !== 'string')

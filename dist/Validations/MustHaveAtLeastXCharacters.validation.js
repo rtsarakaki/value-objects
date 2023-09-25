@@ -12,7 +12,7 @@ const MustHaveAtLeastXCharacters = (value, label, charactersNumber, language = '
         { tag: '${label}', value: label },
         { tag: '${charactersNumber}', value: charactersNumber.toString() }
     ];
-    const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)(exports.MustHaveAtLeastXCharacters.name, language, replaceList);
+    const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)("MustHaveAtLeastXCharacters", language, replaceList);
     try {
         if (typeof value !== 'string')
             throw new InvalidValue_error_1.InvalidValue(errorMessage);

@@ -11,7 +11,7 @@ const MustHaveOnlyOneWord = (value, label, language = 'en-US') => {
     const replaceList = [
         { tag: '${label}', value: label },
     ];
-    const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)(exports.MustHaveOnlyOneWord.name, language, replaceList);
+    const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)("MustHaveOnlyOneWord", language, replaceList);
     try {
         const haveSpace = value?.trim().indexOf(' ') != -1;
         const haveTab = value?.trim().indexOf('	') != -1;
