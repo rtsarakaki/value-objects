@@ -12,9 +12,7 @@ export class Title extends GenericType {
       () => MustHaveAtLeastXCharacters(value, msg, 2),
       () => CannotHaveMoreThanXCharacters(value, msg, 50),
     ]);
-    if (this.errors.length === 0) {
-      this.value = capitalizeText(value.trim());;
-    }
+    this.value = capitalizeText(value.trim());;
   }
 }
 
