@@ -7,6 +7,8 @@
 # smart-value-objects
 A Typescript library of classes aimed to help developers using and undestanding immutable objects.
 
+You are invited to build other value objects with me and together we can expand the scope of this lib. Feel free to contribute code or your opinions.
+
 ## Installation
 ```
 yarn add smart-value-objects

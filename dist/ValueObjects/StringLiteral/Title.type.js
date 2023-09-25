@@ -14,10 +14,8 @@ class Title extends Types_1.GenericType {
             () => (0, MustHaveAtLeastXCharacters_validation_1.MustHaveAtLeastXCharacters)(value, msg, 2),
             () => (0, CannotHaveMoreThanXCharacters_validation_1.CannotHaveMoreThanXCharacters)(value, msg, 50),
         ]);
-        if (this.errors.length === 0) {
-            this.value = capitalizeText(value.trim());
-            ;
-        }
+        this.value = capitalizeText(value.trim());
+        ;
     }
 }
 exports.Title = Title;
