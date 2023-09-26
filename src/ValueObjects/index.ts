@@ -1,3 +1,6 @@
+export { ShortDate } from './Date/ShortDate.type';
+export { createShortDate } from './Date/ShortDate.type';
+
 export { FullName } from './Person/FullName.type';
 export { createFullName } from './Person/FullName.type';
 

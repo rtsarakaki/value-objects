@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MustStartWithAlphaNumeric = exports.RegexMatch = exports.MustHaveTheSameStructureThan = exports.MustHaveOnlyOneWord = exports.MustHaveAtLeastXCharacters = exports.MustContainOnlyNumbers = exports.MustBeContainedInEnum = exports.IsValidUrl = exports.IsValidEmail = exports.IsValidColor = exports.CannotStartWithZero = exports.CannotHaveMoreThanXCharacters = exports.CannotContainSpecialCharacters = exports.CannotContainNumbers = exports.CannotBeBlank = void 0;
+exports.IsValidDate = exports.MustEndWithAlphaNumeric = exports.MustStartWithAlphaNumeric = exports.RegexMatch = exports.MustHaveTheSameStructureThan = exports.MustHaveOnlyOneWord = exports.MustHaveAtLeastXCharacters = exports.MustContainOnlyNumbers = exports.MustBeContainedInEnum = exports.IsValidUrl = exports.IsValidEmail = exports.IsValidColor = exports.CannotStartWithZero = exports.CannotHaveMoreThanXCharacters = exports.CannotContainSpecialCharacters = exports.CannotContainNumbers = exports.CannotBeBlank = void 0;
 var CannotBeBlank_validation_1 = require("./CannotBeBlank.validation");
 Object.defineProperty(exports, "CannotBeBlank", { enumerable: true, get: function () { return CannotBeBlank_validation_1.CannotBeBlank; } });
 var CannotContainNumbers_validation_1 = require("./CannotContainNumbers.validation");
@@ -31,3 +31,7 @@ var RegexMatch_validation_1 = require("./RegexMatch.validation");
 Object.defineProperty(exports, "RegexMatch", { enumerable: true, get: function () { return RegexMatch_validation_1.RegexMatch; } });
 var MustStartWithAlphaNumeric_validation_1 = require("./MustStartWithAlphaNumeric.validation");
 Object.defineProperty(exports, "MustStartWithAlphaNumeric", { enumerable: true, get: function () { return MustStartWithAlphaNumeric_validation_1.MustStartWithAlphaNumeric; } });
+var MustEndWithAlphaNumeric_validation_1 = require("./MustEndWithAlphaNumeric.validation");
+Object.defineProperty(exports, "MustEndWithAlphaNumeric", { enumerable: true, get: function () { return MustEndWithAlphaNumeric_validation_1.MustEndWithAlphaNumeric; } });
+var IsValidDate_validation_1 = require("./IsValidDate.validation");
+Object.defineProperty(exports, "IsValidDate", { enumerable: true, get: function () { return IsValidDate_validation_1.IsValidDate; } });
