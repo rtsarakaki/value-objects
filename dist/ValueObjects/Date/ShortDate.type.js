@@ -5,9 +5,11 @@ const date_fns_1 = require("date-fns");
 const Types_1 = require("../../Types");
 const Validations_1 = require("../../Validations");
 class ShortDate extends Types_1.GenericType {
+    _outputFormat;
     constructor(value, label = null, outputFormat, required = true, ...customValidators) {
-        const msg = label ?? 'Short Date';
         super(value);
+        this._outputFormat = outputFormat;
+        const msg = label ?? 'Short Date';
         const defaultValidators = [
             () => (0, Validations_1.CannotBeBlank)(value, msg, required),
             () => (0, Validations_1.IsValidDate)(value, msg),
@@ -18,15 +20,11 @@ class ShortDate extends Types_1.GenericType {
             this.value = (0, date_fns_1.format)(new Date(value.trim()), outputFormat);
         }
     }
+    get formatedValue() {
+        return (0, date_fns_1.format)(new Date(this.value.trim()), this._outputFormat);
+    }
 }
 exports.ShortDate = ShortDate;
-function formatValue(value) {
-    if (value === null)
-        return '';
-    if (value === undefined)
-        return '';
-    return value.toString().trim().toLowerCase();
-}
 function createShortDate(value, label = null, outputFormat) {
     return new ShortDate(value, label, outputFormat);
 }
