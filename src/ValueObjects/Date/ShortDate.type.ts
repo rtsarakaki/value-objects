@@ -22,13 +22,21 @@ export class ShortDate extends GenericType {
 
 export function shortDateFormat(date: string, outputFormat: string) {
   const dateWithoutTime = date.replace(/T\d{2}:\d{2}:\d{2}\.\d{3}Z/, "T12:00:00.000Z");
+  console.log('shortDateFormat dateWithoutTime', dateWithoutTime)
   const dateObj = new Date(dateWithoutTime.trim())
+  console.log('shortDateFormat dateObj', dateObj)
   const day = (dateObj.getDate()).toString()
+  console.log('shortDateFormat day', day)
   const month = (dateObj.getMonth()+1).toString()
+  console.log('shortDateFormat month', month)
   const year = dateObj.getFullYear().toString()
+  console.log('shortDateFormat year', year)
   const dateReplacedDay = outputFormat.replace('dd', day.padStart(2, '0'))
+  console.log('shortDateFormat dateReplacedDay', dateReplacedDay)
   const dateReplacedMonth = dateReplacedDay.replace('MM', month.padStart(2, '0'))
+  console.log('shortDateFormat dateReplacedMonth', dateReplacedMonth)
   const formatedDate = dateReplacedMonth.replace('yyyy', year.padStart(4, '0'))
+  console.log('shortDateFormat formatedDate', formatedDate)
   return formatedDate
 }
 

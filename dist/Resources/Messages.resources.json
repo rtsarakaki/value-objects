@@ -266,11 +266,11 @@
             "messages": [
                 {
                     "language": "en-US",
-                    "message": "${label} must be a valid date."
+                    "message": "${label} ${value} is not a valid date."
                 },
                 {
                     "language": "pt-BR",
-                    "message": "${label} deve ser uma cor date."
+                    "message": "${label} ${value} não é uma data valida."
                 }
             ]
         }

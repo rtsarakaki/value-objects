@@ -1,5 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const ShortDate_type_1 = require("../ValueObjects/Date/ShortDate.type");
-const shortDate = new ShortDate_type_1.ShortDate('32/09/2023', 'label', 'dd/MM/yyyy');
-console.log(shortDate);
+const date = '2023-10-26T10:00:00.000Z';
+const firstReleaseDate = new ShortDate_type_1.ShortDate(date, 'first release date', 'yyyy-MM-dd');
+const formatedDate = firstReleaseDate.isValid ? (0, ShortDate_type_1.shortDateFormat)(date, 'yyyy-MM-dd') : '';
+const dateDay = new Date(date.trim()).getUTCDate();
+const firstReleaseDateDay = new Date(firstReleaseDate.value).getUTCDate();
+const formatedDateDay = new Date(formatedDate).getUTCDate();
+console.log(date, firstReleaseDate, formatedDate, dateDay, firstReleaseDateDay, formatedDateDay);

@@ -10,8 +10,9 @@ const IsValidDate = (value, label, language = 'en-US') => {
         return labelValidation;
     const replaceList = [
         { tag: '${label}', value: label },
+        { tag: '${value}', value: value },
     ];
-    const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)("IsValidColor", language, replaceList);
+    const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)("IsValidDate", language, replaceList);
     function colorValidation(date) {
         try {
             if (typeof date !== 'string')
@@ -21,7 +22,6 @@ const IsValidDate = (value, label, language = 'en-US') => {
             return isValid;
         }
         catch (err) {
-            console.log('houve erro', err);
             return false;
         }
     }

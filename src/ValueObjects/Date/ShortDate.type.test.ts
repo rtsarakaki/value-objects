@@ -4,7 +4,7 @@ import { InvalidValue } from '../../Errors';
 
 describe('Testing a list of valid dates', () => {
     const arrayOfValidDates = [
-        { date: ' 2023-09-01T00:00:00.000Z', format: 'dd/MM/yyyy', expected: '01/09/2023' },
+        { date: ' 2023-11-14T00:00:00.000Z', format: 'dd/MM/yyyy', expected: '14/11/2023' },
         { date: '2023-10-26T00:00:00.000Z', format: 'yyyy-MM-dd', expected: '2023-10-26' },
         { date: '2023-10-26T01:00:00.000Z', format: 'yyyy-MM-dd', expected: '2023-10-26' },
         { date: '2023-10-26T02:00:00.000Z', format: 'yyyy-MM-dd', expected: '2023-10-26' },
