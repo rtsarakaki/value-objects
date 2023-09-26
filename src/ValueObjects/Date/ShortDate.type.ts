@@ -3,9 +3,15 @@ import { GenericType, GenericValidation } from "../../Types";
 import { CannotBeBlank, IsValidDate } from "../../Validations";
 
 export class ShortDate extends GenericType {
+  _outputFormat: string;
+
   constructor(value: string, label: string | null = null, outputFormat: string, required = true, ...customValidators: GenericValidation[]) {
-    const msg = label ?? 'Short Date';
     super(value);
+    
+    this._outputFormat = outputFormat
+
+    const msg = label ?? 'Short Date';
+
     const defaultValidators = [
       () => CannotBeBlank(value, msg, required),
       () => IsValidDate(value, msg),
@@ -16,12 +22,10 @@ export class ShortDate extends GenericType {
       this.value = format(new Date(value.trim()), outputFormat);
     }
   }
-}
 
-function formatValue(value: string) {
-  if (value === null) return ''
-  if (value === undefined) return ''
-  return value.toString().trim().toLowerCase();
+  get formatedValue() {
+    return format(new Date(this.value.trim()), this._outputFormat);
+  }
 }
 
 export function createShortDate(value: string, label: string | null = null, outputFormat: string) {

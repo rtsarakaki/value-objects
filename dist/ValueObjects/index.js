@@ -1,6 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createUUID = exports.UUID = exports.createKebabCode = exports.KebabCode = exports.createTitle = exports.Title = exports.createSingleWord = exports.SingleWord = exports.createShortDescription = exports.ShortDescription = exports.createLongDescription = exports.LongDescription = exports.createFullName = exports.FullName = void 0;
+exports.createUUID = exports.UUID = exports.createKebabCode = exports.KebabCode = exports.createTitle = exports.Title = exports.createSingleWord = exports.SingleWord = exports.createShortDescription = exports.ShortDescription = exports.createLongDescription = exports.LongDescription = exports.createFullName = exports.FullName = exports.createShortDate = exports.ShortDate = void 0;
+var ShortDate_type_1 = require("./Date/ShortDate.type");
+Object.defineProperty(exports, "ShortDate", { enumerable: true, get: function () { return ShortDate_type_1.ShortDate; } });
+var ShortDate_type_2 = require("./Date/ShortDate.type");
+Object.defineProperty(exports, "createShortDate", { enumerable: true, get: function () { return ShortDate_type_2.createShortDate; } });
 var FullName_type_1 = require("./Person/FullName.type");
 Object.defineProperty(exports, "FullName", { enumerable: true, get: function () { return FullName_type_1.FullName; } });
 var FullName_type_2 = require("./Person/FullName.type");
