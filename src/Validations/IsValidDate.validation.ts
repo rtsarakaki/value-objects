@@ -13,18 +13,17 @@ export const IsValidDate: IsValidDateInterface = (value: string, label: string, 
 
 	const replaceList = [
 		{ tag: '${label}', value: label },
+		{ tag: '${value}', value: value },
 	]
-	const errorMessage = getResourceMessageByKey("IsValidColor", language, replaceList)
+	const errorMessage = getResourceMessageByKey("IsValidDate", language, replaceList)
 
 	function colorValidation(date: string) {
 		try {
 			if (typeof date !== 'string') return false;
 			const dateObj = new Date(date.trim())
 			const isValid = dateObj.toString() !== 'Invalid Date'
-			console.log('isValid', isValid)
 			return isValid
 		} catch (err) {
-			console.log('houve erro', err)
 			return false;
 		}
 	}

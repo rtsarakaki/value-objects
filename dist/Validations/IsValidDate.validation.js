@@ -18,7 +18,6 @@ const IsValidDate = (value, label, language = 'en-US') => {
                 return false;
             const dateObj = new Date(date.trim());
             const isValid = dateObj.toString() !== 'Invalid Date';
-            console.log('isValid', isValid);
             return isValid;
         }
         catch (err) {

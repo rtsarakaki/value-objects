@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createShortDate = exports.formatDate = exports.ShortDate = void 0;
+exports.createShortDate = exports.shortDateFormat = exports.ShortDate = void 0;
 const date_fns_1 = require("date-fns");
 const Types_1 = require("../../Types");
 const Validations_1 = require("../../Validations");
@@ -15,15 +15,15 @@ class ShortDate extends Types_1.GenericType {
         const validators = customValidators.length > 0 ? [...defaultValidators, ...customValidators] : defaultValidators;
         this.validate(validators);
         if (this.errors.length === 0) {
-            this.value = formatDate(value, outputFormat);
+            this.value = shortDateFormat(value, outputFormat);
         }
     }
 }
 exports.ShortDate = ShortDate;
-function formatDate(date, outputFormat) {
+function shortDateFormat(date, outputFormat) {
     return (0, date_fns_1.format)(new Date(date.trim()), outputFormat);
 }
-exports.formatDate = formatDate;
+exports.shortDateFormat = shortDateFormat;
 function createShortDate(value, label = null, outputFormat) {
     return new ShortDate(value, label, outputFormat);
 }
