@@ -1,9 +1,5 @@
 import { GenericType, GenericValidation } from "../../Types";
-import { CannotBeBlank, RegexMatch } from "../../Validations";
-import { CannotHaveMoreThanXCharacters } from "../../Validations/CannotHaveMoreThanXCharacters.validation";
-import { MustHaveAtLeastXCharacters } from "../../Validations/MustHaveAtLeastXCharacters.validation";
-import { MustHaveOnlyOneWord } from "../../Validations/MustHaveOnlyOneWord.validation";
-import { MustStartWithAlphaNumeric } from "../../Validations/MustStartWithAlphaNumeric.validation";
+import { CannotBeBlank, CannotHaveMoreThanXCharacters, MustEndWithAlphaNumeric, MustHaveAtLeastXCharacters, MustHaveOnlyOneWord, MustStartWithAlphaNumeric, RegexMatch } from "../../Validations";
 
 export class KebabCode extends GenericType {
   constructor(value: string, label: string | null = null, required = true, ...customValidators: GenericValidation[]) {
@@ -16,6 +12,7 @@ export class KebabCode extends GenericType {
       () => CannotHaveMoreThanXCharacters(formatedValue, msg, 50),
       () => MustHaveOnlyOneWord(value, msg),
       () => MustStartWithAlphaNumeric(formatedValue, msg),
+      () => MustEndWithAlphaNumeric(formatedValue, msg),
       () => RegexMatch(formatedValue, '^[a-z0-9]+(-[a-z0-9]+)*$', 'must contain only letters, numbers or non-consecutive dashes', msg),
     ];
     const validators = customValidators.length > 0 ? [...defaultValidators, ...customValidators] : defaultValidators;

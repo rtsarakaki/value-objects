@@ -14,4 +14,6 @@ export { MustHaveOnlyOneWord } from './MustHaveOnlyOneWord.validation'
 export { MustHaveTheSameStructureThan } from './MustHaveTheSameStructureThan.validation'
 export { RegexMatch } from './RegexMatch.validation'
 export { MustStartWithAlphaNumeric } from './MustStartWithAlphaNumeric.validation'
+export { MustEndWithAlphaNumeric } from './MustEndWithAlphaNumeric.validation'
+export { IsValidDate } from './IsValidDate.validation'
 

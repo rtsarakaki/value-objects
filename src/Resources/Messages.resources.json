@@ -247,6 +247,32 @@
 					"message": "${label} deve iniciar com letra ou número."
 				}
 			]
+		},
+		{
+			"key": "MustEndWithAlphaNumeric",
+			"messages": [
+				{
+					"language": "en-US", 
+					"message": "${label} must end with a letter or number." 
+				},
+				{
+					"language": "pt-BR",
+					"message": "${label} deve terminar com letra ou número."
+				}
+			]
+		},
+		{
+			"key": "IsValidDate",
+			"messages": [
+				{
+					"language": "en-US", 
+					"message": "${label} must be a valid date." 
+				},
+				{
+					"language": "pt-BR",
+					"message": "${label} deve ser uma cor date."
+				}
+			]
 		}
 	]
 }
