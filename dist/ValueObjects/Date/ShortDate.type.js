@@ -20,6 +20,9 @@ class ShortDate extends Types_1.GenericType {
             this.value = (0, date_fns_1.format)(new Date(value.trim()), outputFormat);
         }
     }
+    get outputFormat() {
+        return this._outputFormat;
+    }
     get formatedValue() {
         return (0, date_fns_1.format)(new Date(this.value.trim()), this._outputFormat);
     }
