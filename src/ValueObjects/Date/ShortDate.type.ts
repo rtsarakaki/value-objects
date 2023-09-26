@@ -16,12 +16,12 @@ export class ShortDate extends GenericType {
     const validators = customValidators.length > 0 ? [...defaultValidators, ...customValidators] : defaultValidators;
     this.validate(validators);
     if (this.errors.length === 0) {
-      this.value = formatDate(value, outputFormat);
+      this.value = shortDateFormat(value, outputFormat);
     }
   }
 }
 
-export function formatDate(date: string, outputFormat: string) {
+export function shortDateFormat(date: string, outputFormat: string) {
   return format(new Date(date.trim()), outputFormat);
 }
 
