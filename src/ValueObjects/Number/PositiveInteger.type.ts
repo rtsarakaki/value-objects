@@ -2,7 +2,7 @@ import { GenericType, GenericValidation } from "../../Types";
 import { IsPositiveInteger } from "../../Validations/IsPositiveInteger.validation";
 
 export class PositiveInteger extends GenericType {
-	constructor(value: number | string, label: string, required = true, ...customValidators: GenericValidation[]) {
+	constructor(value: number | string, label: string,  ...customValidators: GenericValidation[]) {
 		const msg = label ?? 'Positive Integer';
 		super(value);
 		const defaultValidators = [
