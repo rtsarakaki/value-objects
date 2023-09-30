@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createUUID = exports.UUID = exports.createKebabCode = exports.KebabCode = exports.createTitle = exports.Title = exports.createSingleWord = exports.SingleWord = exports.createShortDescription = exports.ShortDescription = exports.createLongDescription = exports.LongDescription = exports.createFullName = exports.FullName = exports.shortDateFormat = exports.createShortDate = exports.ShortDate = void 0;
+exports.createPositiveInteger = exports.PositiveInteger = exports.createUUID = exports.UUID = exports.createKebabCode = exports.KebabCode = exports.createTitle = exports.Title = exports.createSingleWord = exports.SingleWord = exports.createShortDescription = exports.ShortDescription = exports.createLongDescription = exports.LongDescription = exports.createFullName = exports.FullName = exports.shortDateFormat = exports.createShortDate = exports.ShortDate = void 0;
 var ShortDate_type_1 = require("./Date/ShortDate.type");
 Object.defineProperty(exports, "ShortDate", { enumerable: true, get: function () { return ShortDate_type_1.ShortDate; } });
 var ShortDate_type_2 = require("./Date/ShortDate.type");
@@ -35,3 +35,7 @@ var UUID_type_1 = require("./UUID/UUID.type");
 Object.defineProperty(exports, "UUID", { enumerable: true, get: function () { return UUID_type_1.UUID; } });
 var UUID_type_2 = require("./UUID/UUID.type");
 Object.defineProperty(exports, "createUUID", { enumerable: true, get: function () { return UUID_type_2.createUUID; } });
+var PositiveInteger_type_1 = require("./Number/PositiveInteger.type");
+Object.defineProperty(exports, "PositiveInteger", { enumerable: true, get: function () { return PositiveInteger_type_1.PositiveInteger; } });
+var PositiveInteger_type_2 = require("./Number/PositiveInteger.type");
+Object.defineProperty(exports, "createPositiveInteger", { enumerable: true, get: function () { return PositiveInteger_type_2.createPositiveInteger; } });

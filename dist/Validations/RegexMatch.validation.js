@@ -5,19 +5,21 @@ const Errors_1 = require("../Errors");
 const Messages_resource_1 = require("../Resources/Messages.resource");
 const ValidationsTools_1 = require("./ValidationsTools");
 const RegexMatch = (value, textRegex, regexExplanation, label, language = 'en-US') => {
-    const labelValidation = (0, ValidationsTools_1.validateLabel)(label);
-    if (labelValidation !== null)
-        return labelValidation;
-    const regexValidation = validateRegex(textRegex);
-    if (regexValidation !== null)
-        return regexValidation;
-    const regex = createRegexFromString(textRegex);
+    function validate(value, errorMessage) {
+        const labelValidation = (0, ValidationsTools_1.validateLabel)(label);
+        if (labelValidation !== null)
+            return labelValidation;
+        const regexValidation = validateRegex(textRegex);
+        if (regexValidation !== null)
+            return regexValidation;
+        const regex = createRegexFromString(textRegex);
+        return testRegex(regex, value, errorMessage);
+    }
     const replaceList = [
         { tag: '${label}', value: label },
         { tag: '${regex}', value: regexExplanation },
     ];
-    const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)("RegexMatch", language, replaceList);
-    return testRegex(regex, value, errorMessage);
+    return (0, ValidationsTools_1.validationAcceleratorSuggestion)(validate, value, label, "RegexMatch", language, replaceList);
 };
 exports.RegexMatch = RegexMatch;
 const createRegexFromString = (regexString) => {

@@ -2,26 +2,19 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.IsValidEmail = void 0;
 const InvalidValue_error_1 = require("../Errors/InvalidValue.error");
-const Messages_resource_1 = require("../Resources/Messages.resource");
 const ValidationsTools_1 = require("./ValidationsTools");
-const IsValidEmail = (valor, label, language = 'en-US') => {
-    const labelValidation = (0, ValidationsTools_1.validateLabel)(label);
-    if (labelValidation !== null)
-        return labelValidation;
-    const replaceList = [
-        { tag: '${label}', value: label },
-    ];
-    const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)("IsValidEmail", language, replaceList);
-    function validateEmail(email) {
+const IsValidEmail = (value, label, language = 'en-US') => {
+    function validateEmail(email, errorMessage) {
         try {
             if (typeof email !== 'string')
-                throw new InvalidValue_error_1.InvalidValue(errorMessage);
-            return /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i.test(email);
+                return new InvalidValue_error_1.InvalidValue(errorMessage);
+            return /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i.test(email) ? null : new InvalidValue_error_1.InvalidValue(errorMessage);
         }
         catch (err) {
-            return false;
+            return new InvalidValue_error_1.InvalidValue(errorMessage);
         }
     }
-    return !validateEmail(valor) ? new InvalidValue_error_1.InvalidValue(errorMessage) : null;
+    const replaceList = [{ tag: '${label}', value: label }];
+    return (0, ValidationsTools_1.validationAcceleratorSuggestion)(validateEmail, value, label, "IsValidEmail", language, replaceList);
 };
 exports.IsValidEmail = IsValidEmail;
