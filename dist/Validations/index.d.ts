@@ -15,3 +15,5 @@ export { RegexMatch } from './RegexMatch.validation';
 export { MustStartWithAlphaNumeric } from './MustStartWithAlphaNumeric.validation';
 export { MustEndWithAlphaNumeric } from './MustEndWithAlphaNumeric.validation';
 export { IsValidDate } from './IsValidDate.validation';
+export { IsPositiveInteger } from './IsPositiveInteger.validation';
+export { IsValidNumber } from './IsValidNumber.validation';

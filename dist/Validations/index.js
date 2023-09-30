@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.IsValidDate = exports.MustEndWithAlphaNumeric = exports.MustStartWithAlphaNumeric = exports.RegexMatch = exports.MustHaveTheSameStructureThan = exports.MustHaveOnlyOneWord = exports.MustHaveAtLeastXCharacters = exports.MustContainOnlyNumbers = exports.MustBeContainedInEnum = exports.IsValidUrl = exports.IsValidEmail = exports.IsValidColor = exports.CannotStartWithZero = exports.CannotHaveMoreThanXCharacters = exports.CannotContainSpecialCharacters = exports.CannotContainNumbers = exports.CannotBeBlank = void 0;
+exports.IsValidNumber = exports.IsPositiveInteger = exports.IsValidDate = exports.MustEndWithAlphaNumeric = exports.MustStartWithAlphaNumeric = exports.RegexMatch = exports.MustHaveTheSameStructureThan = exports.MustHaveOnlyOneWord = exports.MustHaveAtLeastXCharacters = exports.MustContainOnlyNumbers = exports.MustBeContainedInEnum = exports.IsValidUrl = exports.IsValidEmail = exports.IsValidColor = exports.CannotStartWithZero = exports.CannotHaveMoreThanXCharacters = exports.CannotContainSpecialCharacters = exports.CannotContainNumbers = exports.CannotBeBlank = void 0;
 var CannotBeBlank_validation_1 = require("./CannotBeBlank.validation");
 Object.defineProperty(exports, "CannotBeBlank", { enumerable: true, get: function () { return CannotBeBlank_validation_1.CannotBeBlank; } });
 var CannotContainNumbers_validation_1 = require("./CannotContainNumbers.validation");
@@ -35,3 +35,7 @@ var MustEndWithAlphaNumeric_validation_1 = require("./MustEndWithAlphaNumeric.va
 Object.defineProperty(exports, "MustEndWithAlphaNumeric", { enumerable: true, get: function () { return MustEndWithAlphaNumeric_validation_1.MustEndWithAlphaNumeric; } });
 var IsValidDate_validation_1 = require("./IsValidDate.validation");
 Object.defineProperty(exports, "IsValidDate", { enumerable: true, get: function () { return IsValidDate_validation_1.IsValidDate; } });
+var IsPositiveInteger_validation_1 = require("./IsPositiveInteger.validation");
+Object.defineProperty(exports, "IsPositiveInteger", { enumerable: true, get: function () { return IsPositiveInteger_validation_1.IsPositiveInteger; } });
+var IsValidNumber_validation_1 = require("./IsValidNumber.validation");
+Object.defineProperty(exports, "IsValidNumber", { enumerable: true, get: function () { return IsValidNumber_validation_1.IsValidNumber; } });
