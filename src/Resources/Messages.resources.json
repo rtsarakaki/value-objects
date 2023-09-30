@@ -273,6 +273,19 @@
 					"message": "${label} ${value} não é uma data valida."
 				}
 			]
+		},
+		{
+			"key": "IsPositiveInteger",
+			"messages": [
+				{
+					"language": "en-US", 
+					"message": "${label} is not a positive integer." 
+				},
+				{
+					"language": "pt-BR",
+					"message": "${label} não é um inteiro positivo."
+				}
+			]
 		}
 	]
 }

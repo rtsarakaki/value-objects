@@ -2,38 +2,40 @@ import { describe, expect, test } from '@jest/globals';
 import { validateLabel } from './ValidationsTools';
 import { InvalidValue } from '../Errors/InvalidValue.error';
 
-test.todo('convert test to test.each model');
+describe('validateLabel invalid values', () => {
+	const arrayOfInvalidLabels = [
+		null,
+		undefined,
+		0,
+		'',
+		'     '
+	]
 
-describe('ValidationsTools', () => {
-
-	test('validateLabel invalid values', () => {
-		const labels = [
-			null,
-			undefined,
-			0,
-			'',
-			'     '
-		]
-
-		labels.map(label => {
-			const result = validateLabel(label as string)
+	describe.each(arrayOfInvalidLabels)(`Label %p is invalid.`, (label) => {
+		
+		const result = validateLabel(label as string)
+		test(`Label %p generate an InvalidValue error`, () => {
 			expect(result).toBeInstanceOf(InvalidValue)
+		})
+
+		test(`Label %perror mesage is 'Label cannot be empty.'`, () => {
 			expect(result?.message).toEqual('Label cannot be empty.')
 		})
 	})
+})
 
-	test('validateLabel valid values', () => {
-		const labels = [
-			'name',
-			'first name',
-			'First Name',
-			'LAST NAME',
-			' LAST NAME ',
-		]
+describe('validateLabel valid values', () => {
+	const arrayOfValidLabels = [
+		'name',
+		'first name',
+		'First Name',
+		'LAST NAME',
+		' LAST NAME ',
+	]
 
-		labels.map(label => {
-			const result = validateLabel(label as string)
-			expect(result).toBeNull()
-		})
+	describe.each(arrayOfValidLabels)(`Label %p is valid.`, (label) => {
+		const result = validateLabel(label)
+		expect(result).toBeNull()
 	})
 })
+

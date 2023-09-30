@@ -18,3 +18,6 @@ export { createKebabCode } from './StringLiteral/KebabCode.type'
 
 export { UUID } from './UUID/UUID.type'
 export { createUUID } from './UUID/UUID.type'
+
+export { PositiveInteger } from './Number/PositiveInteger.type'
+export { createPositiveInteger } from './Number/PositiveInteger.type'

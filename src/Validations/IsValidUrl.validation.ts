@@ -1,31 +1,23 @@
 import { InvalidValue } from "../Errors/InvalidValue.error";
-import { getResourceMessageByKey } from "../Resources/Messages.resource";
 import { GenericValidation } from "../Types";
-import { validateLabel } from "./ValidationsTools";
+import { validationAcceleratorSuggestion } from "./ValidationsTools";
 
 interface IsValidUrlInterface extends GenericValidation {
 	(value: string, label: string, language?: string): InvalidValue | null;
 }
 
-export const IsValidUrl: IsValidUrlInterface = (valor: string, label: string, language: string = 'en-US') => {
+export const IsValidUrl: IsValidUrlInterface = (value: string, label: string, language: string = 'en-US') => {
 
-	const labelValidation = validateLabel(label)
-	if (labelValidation !== null) return labelValidation
-
-	const replaceList = [
-		{ tag: '${label}', value: label },
-	]
-	const errorMessage = getResourceMessageByKey("IsValidUrl", language, replaceList)
-
-	function validateUrl(url: string) {
+	function validateUrl(url: string, errorMessage: string) {
 		try {
-			if (typeof url !== 'string') throw new InvalidValue(errorMessage);
+			if (typeof url !== 'string') return new InvalidValue(errorMessage);
 			new URL(url);
-			return true;
+			return null;
 		} catch (err) {
-			return false;
+			return new InvalidValue(errorMessage);
 		}
 	}
-
-	return !validateUrl(valor) ? new InvalidValue(errorMessage) : null;
+	
+	const replaceList = [{ tag: '${label}', value: label }]
+	return validationAcceleratorSuggestion(validateUrl, value, label, "IsValidUrl", language, replaceList)
 };

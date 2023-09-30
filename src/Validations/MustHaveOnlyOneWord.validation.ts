@@ -1,7 +1,7 @@
 import { InvalidValue } from "../Errors";
 import { getResourceMessageByKey } from "../Resources/Messages.resource";
 import { GenericValidation } from "../Types";
-import { validateLabel } from "./ValidationsTools";
+import { validateLabel, validationAcceleratorSuggestion } from "./ValidationsTools";
 
 interface MustHaveOnlyOneWordInterface extends GenericValidation {
 	(value: string, label: string, language?: string): InvalidValue | null;
@@ -9,22 +9,22 @@ interface MustHaveOnlyOneWordInterface extends GenericValidation {
 
 export const MustHaveOnlyOneWord: MustHaveOnlyOneWordInterface = (value: string, label: string, language: string = 'en-US') => {
 
-	const labelValidation = validateLabel(label)
-	if (labelValidation !== null) return labelValidation
-
 	const replaceList = [
 		{ tag: '${label}', value: label },
 	]
-	const errorMessage = getResourceMessageByKey("MustHaveOnlyOneWord", language, replaceList)
 
-	try {
-		const haveSpace = value?.trim().indexOf(' ') != -1
-		const haveTab = value?.trim().indexOf('	') != -1
-		const haveReturn = value?.trim().indexOf(`
+	function validate(value: string, errorMessage: string) {
+		try {
+			const haveSpace = value?.trim().indexOf(' ') != -1
+			const haveTab = value?.trim().indexOf('	') != -1
+			const haveReturn = value?.trim().indexOf(`
 		`) != -1
-		return (haveSpace || haveReturn || haveTab) ? new InvalidValue(errorMessage) : null;
+			return (haveSpace || haveReturn || haveTab) ? new InvalidValue(errorMessage) : null;
+		}
+		catch (e) {
+			return new InvalidValue(errorMessage)
+		}
 	}
-	catch (e) {
-		return new InvalidValue(errorMessage)
-	}
+
+	return validationAcceleratorSuggestion(validate, value, label, "MustHaveOnlyOneWord", language, replaceList)
 };
