@@ -7,7 +7,7 @@ class KebabCode extends Types_1.GenericType {
     constructor(value, label = null, required = true, ...customValidators) {
         const msg = label ?? 'Kebab Code';
         super(value);
-        const formatedValue = this.formatValue(value);
+        const formatedValue = formatValue(value);
         const defaultValidators = [
             () => (0, Validations_1.CannotBeBlank)(formatedValue, msg, required),
             () => (0, Validations_1.MustHaveAtLeastXCharacters)(formatedValue, msg, 1),
@@ -23,15 +23,15 @@ class KebabCode extends Types_1.GenericType {
             this.value = formatedValue;
         }
     }
-    formatValue(value) {
-        if (value === null)
-            return '';
-        if (value === undefined)
-            return '';
-        return value.toString().trim().toLowerCase();
-    }
 }
 exports.KebabCode = KebabCode;
+function formatValue(value) {
+    if (value === null)
+        return '';
+    if (value === undefined)
+        return '';
+    return value.toString().trim().toLowerCase();
+}
 function createKebabCode(value, label = null) {
     return new KebabCode(value, label);
 }
