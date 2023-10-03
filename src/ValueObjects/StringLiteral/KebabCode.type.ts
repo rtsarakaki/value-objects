@@ -1,4 +1,4 @@
-import { GenericEntity, GenericType, GenericValidation, initializeClass } from "../../Types";
+import { GenericType, GenericValidation } from "../../Types";
 import { CannotBeBlank, CannotHaveMoreThanXCharacters, MustEndWithAlphaNumeric, MustHaveAtLeastXCharacters, MustHaveOnlyOneWord, MustStartWithAlphaNumeric, RegexMatch } from "../../Validations";
 
 export class KebabCode extends GenericType {

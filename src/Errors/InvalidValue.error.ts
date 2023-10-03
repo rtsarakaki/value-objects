@@ -6,3 +6,4 @@ export class InvalidValue extends GenericError {
 		Object.setPrototypeOf(this, InvalidValue.prototype);
 	}
 }
+

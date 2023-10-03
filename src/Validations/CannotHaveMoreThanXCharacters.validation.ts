@@ -24,3 +24,4 @@ export const CannotHaveMoreThanXCharacters: CannotHaveMoreThanXCharactersInterfa
 	]
 	return validationAcceleratorSuggestion(validate, value, label, "CannotHaveMoreThanXCharacters", language, replaceList)
 };
+
