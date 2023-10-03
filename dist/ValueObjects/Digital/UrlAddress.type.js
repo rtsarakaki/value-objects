@@ -5,10 +5,10 @@ const Types_1 = require("../../Types");
 const Validations_1 = require("../../Validations");
 const IsValidUrl_validation_1 = require("../../Validations/IsValidUrl.validation");
 class UrlAddress extends Types_1.GenericType {
-    _urlObject = null;
     constructor(url, label = null, required = true) {
         const msg = label ?? 'URL';
         super(url);
+        this._urlObject = null;
         const urlTrimmed = (typeof url !== 'string') ? '' : url.trim();
         const sanitezedUrl = addDefaultProtocol(urlTrimmed);
         this.validate([

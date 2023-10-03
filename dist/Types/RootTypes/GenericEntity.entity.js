@@ -7,6 +7,8 @@ class GenericEntity extends GenericType_type_1.GenericType {
         super(null);
     }
     initProp(object, value, required = true) {
+        if (!(value instanceof GenericType_type_1.GenericType))
+            return value;
         const isString = typeof value?.value === 'string';
         const isRequired = required === undefined || required;
         const hasValue = isString ? value?.value === undefined || value?.value.length > 0 : false;
