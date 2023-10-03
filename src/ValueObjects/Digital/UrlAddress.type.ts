@@ -17,9 +17,13 @@ export class UrlAddress extends GenericType {
       () => IsValidUrl(sanitezedUrl, msg),
     ]);
 
-    this.value = sanitezedUrl;
     if (this.errors.length === 0) {
+      this.value = sanitezedUrl;
       this._urlObject = new URL(this.value)
+    }
+    else {
+      this.value = '';
+      this._urlObject = null
     }
 
   }

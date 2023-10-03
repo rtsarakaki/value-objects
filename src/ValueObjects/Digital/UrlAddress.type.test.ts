@@ -75,6 +75,10 @@ describe(`Testing invalid URLs`, () => {
 			expect(result.errors.length).toBeGreaterThan(0);
 		})
 
+		test(`if ${value} results in error clean de value.`, () => {
+			expect(result.value).toEqual('');
+		})
+
 		if (result.errors.length > 0) {
 			test.each(result.errors)(`%p`, (error) => {
 				const result = true
