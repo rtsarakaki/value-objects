@@ -32,7 +32,7 @@
 			"messages": [
 				{
 					"language": "en-US", 
-					"message": "${label}  cannot contain special characters." 
+					"message": "${label} cannot contain special characters." 
 				},
 				{
 					"language": "pt-BR",
@@ -58,11 +58,11 @@
 			"messages": [
 				{
 					"language": "en-US", 
-					"message": "${label}  must be a valid color." 
+					"message": "${label} must be a valid color." 
 				},
 				{
 					"language": "pt-BR",
-					"message": "${label}  deve ser uma cor valida."
+					"message": "${label} deve ser uma cor valida."
 				}
 			]
 		},
@@ -71,11 +71,11 @@
 			"messages": [
 				{
 					"language": "en-US", 
-					"message": "${label}  must be a valid e-mail." 
+					"message": "${label} must be a valid e-mail." 
 				},
 				{
 					"language": "pt-BR",
-					"message": "${label}  deve ser um e-mail valido."
+					"message": "${label} deve ser um e-mail valido."
 				}
 			]
 		},
@@ -84,11 +84,11 @@
 			"messages": [
 				{
 					"language": "en-US", 
-					"message": "${label}  must be a valid URL." 
+					"message": "${label} must be a valid URL." 
 				},
 				{
 					"language": "pt-BR",
-					"message": "${label}  deve ser uma URL valida."
+					"message": "${label} deve ser uma URL valida."
 				}
 			]
 		},
@@ -97,11 +97,11 @@
 			"messages": [
 				{
 					"language": "en-US", 
-					"message": "${label}  must be among the following values ${JSON.stringify('model')}." 
+					"message": "${label} must be among the following values ${JSON.stringify('model')}." 
 				},
 				{
 					"language": "pt-BR",
-					"message": "${label}  (${value}) deve ter estar entre os seguintes valores ${lista}"
+					"message": "${label} (${value}) deve ter estar entre os seguintes valores ${lista}"
 				}
 			]
 		},
@@ -114,7 +114,7 @@
 				},
 				{
 					"language": "pt-BR",
-					"message": "${label}  deve conter apenas números."
+					"message": "${label} deve conter apenas números."
 				}
 			]
 		},
@@ -127,7 +127,7 @@
 				},
 				{
 					"language": "pt-BR",
-					"message": "${label}  deve ter pelo menos ${charactersNumber} caracteres."
+					"message": "${label} deve ter pelo menos ${charactersNumber} caracteres."
 				}
 			]
 		},
@@ -136,11 +136,11 @@
 			"messages": [
 				{
 					"language": "en-US", 
-					"message": "${label}  cannot contain spaces." 
+					"message": "${label} cannot contain spaces." 
 				},
 				{
 					"language": "pt-BR",
-					"message": "${label}  não pode conter espaços."
+					"message": "${label} não pode conter espaços."
 				}
 			]
 		},
@@ -149,11 +149,11 @@
 			"messages": [
 				{
 					"language": "en-US", 
-					"message": "${label}  must have the same structure than ${JSON.stringify('model')}." 
+					"message": "${label} must have the same structure than ${JSON.stringify('model')}." 
 				},
 				{
 					"language": "pt-BR",
-					"message": "${label}  deve ter a mesma estrutura que ${JSON.stringify('model')}."
+					"message": "${label} deve ter a mesma estrutura que ${JSON.stringify('model')}."
 				}
 			]
 		},
@@ -188,7 +188,7 @@
 			"messages": [
 				{
 					"language": "en-US", 
-					"message": "${label}  cannot contain numbers." 
+					"message": "${label} cannot contain numbers." 
 				},
 				{
 					"language": "pt-BR",

@@ -76,7 +76,7 @@ describe('Test a list of invalid colors', () => {
 		})
 
 		test(`Error returned is ${result?.message}.`, () => {
-			expect(result?.message).toEqual(`${label}  must be a valid color.`)
+			expect(result?.message).toEqual(`${label} must be a valid color.`)
 		})
 	})
 

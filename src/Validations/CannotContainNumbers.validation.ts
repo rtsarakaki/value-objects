@@ -19,3 +19,5 @@ export const CannotContainNumbers: CannotContainNumbersInterface = (value: strin
 	const replaceList = [{ tag: '${label}', value: label }]
 	return validationAcceleratorSuggestion(validate, value, label, "CannotContainNumbers", language, replaceList)
 };
+
+

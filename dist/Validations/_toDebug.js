@@ -1,4 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const IsValidNumber_validation_1 = require("./IsValidNumber.validation");
-console.log((0, IsValidNumber_validation_1.convertStringToNumber)("12.123,01"));
+const ValueObjects_1 = require("../ValueObjects");
+const url = (0, ValueObjects_1.createUrlAddress)('https://www.mydomain.org/', 'debug');
+console.log(url);

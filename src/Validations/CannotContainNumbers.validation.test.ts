@@ -24,7 +24,7 @@ describe('Test a list of invalid values', () => {
 			expect(result).toBeInstanceOf(InvalidValue)
 		});
 
-		const errorMessage = `${label}  cannot contain numbers.`
+		const errorMessage = `${label} cannot contain numbers.`
 		test(`Returned error message is "${errorMessage}"`, () => {
 			expect(result?.message).toEqual(errorMessage)
 		});

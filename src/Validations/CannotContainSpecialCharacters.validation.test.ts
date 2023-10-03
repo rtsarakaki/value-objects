@@ -53,7 +53,7 @@ describe('CannotHaveSpecialCharacters', () => {
 		invalidValues.map(({ value, label }) => {
 			const result = CannotContainSpecialCharacters(value as string, label)
 			expect(result).toBeInstanceOf(InvalidValue)
-			expect(result?.message).toEqual(`${label}  cannot contain special characters.`)
+			expect(result?.message).toEqual(`${label} cannot contain special characters.`)
 		})
 	})
 

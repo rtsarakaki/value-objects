@@ -9,15 +9,12 @@ interface CannotBeBlankInterface extends GenericValidation {
 export const CannotBeBlank: CannotBeBlankInterface = (value: string, label: string, required: boolean = true, language: string = 'en-US') => {
 
 	function validate(value: string, errorMessage: string) {
-		try {
-			if (typeof value !== 'string') throw new InvalidValue(errorMessage);
-			return required && (value == undefined || value.length === 0 || value?.trim() === '') ? new InvalidValue(errorMessage) : null;
-		}
-		catch (e) {
-			return new InvalidValue(errorMessage)
-		}
+		if (typeof value !== 'string') return new InvalidValue(errorMessage);
+		return required && (value == undefined || value.length === 0 || value?.trim() === '') ? new InvalidValue(errorMessage) : null;
 	}
-	
+
 	const replaceList = [{ tag: '${label}', value: label }]
 	return validationAcceleratorSuggestion(validate, value, label, "CannotBeBlank", language, replaceList)
 };
+
+

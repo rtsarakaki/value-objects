@@ -1,7 +1,7 @@
 // import { addDefaultProtocol } from "../ValueObjects/Digital/Url.type";
 
 import { createUrlAddress } from "../ValueObjects";
-import { validateProtocol } from "./IsValidUrl.validation";
+import { validateProtocol } from "../Validations/IsValidUrl.validation";
 
 // console.log(addDefaultProtocol("data:text/plain;base64,SGVsbG8sIFdvcmxkIQ%3D%3D"))
 

@@ -18,7 +18,7 @@ describe('MustHaveOnlyOneWord', () => {
 		invalidValues.map(({ value, label }) => {
 			const result = MustHaveOnlyOneWord(value as string, label)
 			expect(result).toBeInstanceOf(InvalidValue)
-			expect(result?.message).toEqual(`${label}  cannot contain spaces.`)
+			expect(result?.message).toEqual(`${label} cannot contain spaces.`)
 		})
 	})
 

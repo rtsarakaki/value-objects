@@ -24,7 +24,7 @@ describe('MustBeContainedInEnum', () => {
 		invalidValues.map(({ value, label }) => {
 			const result = MustBeContainedInEnum(value as string, label, CardinalDirections)
 			expect(result).toBeInstanceOf(InvalidValue)
-			expect(result?.message).toEqual(`${label}  must be among the following values ${JSON.stringify('model')}.`)
+			expect(result?.message).toEqual(`${label} must be among the following values ${JSON.stringify('model')}.`)
 		})
 	})
 

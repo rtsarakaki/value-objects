@@ -1,5 +1,6 @@
 //VALIDATIONS
 export { CannotBeBlank } from './CannotBeBlank.validation'
+
 export { CannotContainNumbers } from './CannotContainNumbers.validation'
 export { CannotContainSpecialCharacters } from './CannotContainSpecialCharacters.validation'
 export { CannotHaveMoreThanXCharacters } from './CannotHaveMoreThanXCharacters.validation'
@@ -18,4 +19,6 @@ export { MustEndWithAlphaNumeric } from './MustEndWithAlphaNumeric.validation'
 export { IsValidDate } from './IsValidDate.validation'
 export { IsPositiveInteger } from './IsPositiveInteger.validation'
 export { IsValidNumber } from './IsValidNumber.validation'
+
+
 

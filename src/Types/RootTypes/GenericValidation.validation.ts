@@ -1,5 +1,7 @@
 import { InvalidValue } from "../../Errors";
 
 export interface GenericValidation {
-	// (value: string, ...args: any[]): InvalidValue | null;
+	(value: string, label: string): InvalidValue | null;
 }
+
+

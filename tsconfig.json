@@ -4,6 +4,8 @@
 		"target": "ES2022",
 		"module": "CommonJS",
 		"outDir": "./dist",
+		"experimentalDecorators": true,
+		"useDefineForClassFields": false,
     "rootDir": "./src",
     "removeComments": true,
     "noEmitOnError": true,

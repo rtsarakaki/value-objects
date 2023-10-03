@@ -31,7 +31,7 @@ describe('IsValidEmail', () => {
 		invalidValues.map(({ value, label }) => {
 			const result = IsValidEmail(value as string, label)
 			expect(result).toBeInstanceOf(InvalidValue)
-			expect(result?.message).toEqual(`${label}  must be a valid e-mail.`)
+			expect(result?.message).toEqual(`${label} must be a valid e-mail.`)
 		})
 	})
 

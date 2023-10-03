@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createNumber = exports.Number = exports.createPositiveInteger = exports.PositiveInteger = exports.createUUID = exports.UUID = exports.createKebabCode = exports.KebabCode = exports.createTitle = exports.Title = exports.createSingleWord = exports.SingleWord = exports.createShortDescription = exports.ShortDescription = exports.createLongDescription = exports.LongDescription = exports.createFullName = exports.FullName = exports.shortDateFormat = exports.createShortDate = exports.ShortDate = void 0;
+exports.createUrlAddress = exports.UrlAddress = exports.createNumber = exports.Number = exports.createPositiveInteger = exports.PositiveInteger = exports.createUUID = exports.UUID = exports.createKebabCode = exports.KebabCode = exports.createTitle = exports.Title = exports.createSingleWord = exports.SingleWord = exports.createShortDescription = exports.ShortDescription = exports.createLongDescription = exports.LongDescription = exports.createFullName = exports.FullName = exports.shortDateFormat = exports.createShortDate = exports.ShortDate = void 0;
 var ShortDate_type_1 = require("./Date/ShortDate.type");
 Object.defineProperty(exports, "ShortDate", { enumerable: true, get: function () { return ShortDate_type_1.ShortDate; } });
 var ShortDate_type_2 = require("./Date/ShortDate.type");
@@ -43,3 +43,7 @@ var Number_type_1 = require("./Number/Number.type");
 Object.defineProperty(exports, "Number", { enumerable: true, get: function () { return Number_type_1.Number; } });
 var Number_type_2 = require("./Number/Number.type");
 Object.defineProperty(exports, "createNumber", { enumerable: true, get: function () { return Number_type_2.createNumber; } });
+var UrlAddress_type_1 = require("./Digital/UrlAddress.type");
+Object.defineProperty(exports, "UrlAddress", { enumerable: true, get: function () { return UrlAddress_type_1.UrlAddress; } });
+var UrlAddress_type_2 = require("./Digital/UrlAddress.type");
+Object.defineProperty(exports, "createUrlAddress", { enumerable: true, get: function () { return UrlAddress_type_2.createUrlAddress; } });

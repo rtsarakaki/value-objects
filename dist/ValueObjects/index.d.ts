@@ -19,3 +19,5 @@ export { PositiveInteger } from './Number/PositiveInteger.type';
 export { createPositiveInteger } from './Number/PositiveInteger.type';
 export { Number } from './Number/Number.type';
 export { createNumber } from './Number/Number.type';
+export { UrlAddress } from './Digital/UrlAddress.type';
+export { createUrlAddress } from './Digital/UrlAddress.type';
