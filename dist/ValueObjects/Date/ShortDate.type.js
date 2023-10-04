@@ -6,15 +6,16 @@ const Validations_1 = require("../../Validations");
 class ShortDate extends Types_1.GenericType {
     constructor(value, label = null, outputFormat, required = true, language = 'en-US', ...customValidators) {
         super(value);
+        const convertedToString = value instanceof Date ? value.toISOString() : value.toString();
         const msg = label ?? 'Short Date';
         const defaultValidators = [
-            () => (0, Validations_1.CannotBeBlank)(value, msg, required, language),
-            () => (0, Validations_1.IsValidDate)(value, msg, required, language),
+            () => (0, Validations_1.CannotBeBlank)(convertedToString, msg, required, language),
+            () => (0, Validations_1.IsValidDate)(convertedToString, msg, required, language),
         ];
         const validators = customValidators.length > 0 ? [...defaultValidators, ...customValidators] : defaultValidators;
         this.validate(validators);
         if (this.errors.length === 0) {
-            this.value = shortDateFormat(value, outputFormat);
+            this.value = shortDateFormat(convertedToString, outputFormat);
         }
     }
 }
