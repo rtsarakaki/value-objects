@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.MustHaveOnlyOneWord = void 0;
 const Errors_1 = require("../Errors");
 const ValidationsTools_1 = require("./ValidationsTools");
-const MustHaveOnlyOneWord = (value, label, language = 'en-US') => {
+const MustHaveOnlyOneWord = (value, label, required = true, language = 'en-US') => {
     const replaceList = [
         { tag: '${label}', value: label },
     ];
@@ -19,6 +19,6 @@ const MustHaveOnlyOneWord = (value, label, language = 'en-US') => {
             return new Errors_1.InvalidValue(errorMessage);
         }
     }
-    return (0, ValidationsTools_1.validationAcceleratorSuggestion)(validate, value, label, "MustHaveOnlyOneWord", language, replaceList);
+    return (0, ValidationsTools_1.validationAcceleratorSuggestion)(validate, value, label, required, "MustHaveOnlyOneWord", language, replaceList);
 };
 exports.MustHaveOnlyOneWord = MustHaveOnlyOneWord;

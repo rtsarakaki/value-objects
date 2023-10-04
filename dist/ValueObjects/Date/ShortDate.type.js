@@ -4,12 +4,12 @@ exports.createShortDate = exports.shortDateFormat = exports.ShortDate = void 0;
 const Types_1 = require("../../Types");
 const Validations_1 = require("../../Validations");
 class ShortDate extends Types_1.GenericType {
-    constructor(value, label = null, outputFormat, required = true, ...customValidators) {
+    constructor(value, label = null, outputFormat, required = true, language = 'en-US', ...customValidators) {
         super(value);
         const msg = label ?? 'Short Date';
         const defaultValidators = [
-            () => (0, Validations_1.CannotBeBlank)(value, msg, required),
-            () => (0, Validations_1.IsValidDate)(value, msg),
+            () => (0, Validations_1.CannotBeBlank)(value, msg, required, language),
+            () => (0, Validations_1.IsValidDate)(value, msg, required, language),
         ];
         const validators = customValidators.length > 0 ? [...defaultValidators, ...customValidators] : defaultValidators;
         this.validate(validators);

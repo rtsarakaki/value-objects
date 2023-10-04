@@ -5,16 +5,18 @@ const Types_1 = require("../../Types");
 const Validations_1 = require("../../Validations");
 const IsValidUrl_validation_1 = require("../../Validations/IsValidUrl.validation");
 class UrlAddress extends Types_1.GenericType {
-    constructor(url, label = null, required = true) {
+    constructor(url, label = null, required = true, language = 'en-US', ...customValidators) {
         const msg = label ?? 'URL';
         super(url);
         this._urlObject = null;
         const urlTrimmed = (typeof url !== 'string') ? '' : url.trim();
         const sanitezedUrl = addDefaultProtocol(urlTrimmed);
-        this.validate([
-            () => (0, Validations_1.CannotBeBlank)(urlTrimmed, msg, required),
-            () => (0, Validations_1.IsValidUrl)(sanitezedUrl, msg),
-        ]);
+        const defaultValidators = [
+            () => (0, Validations_1.CannotBeBlank)(urlTrimmed, msg, required, language),
+            () => (0, Validations_1.IsValidUrl)(sanitezedUrl, msg, required, language),
+        ];
+        const validators = customValidators.length > 0 ? [...defaultValidators, ...customValidators] : defaultValidators;
+        this.validate(validators);
         if (this.errors.length === 0) {
             this.value = sanitezedUrl;
             this._urlObject = new URL(this.value);

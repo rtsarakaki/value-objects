@@ -4,7 +4,7 @@ exports.MustBeContainedInEnum = void 0;
 const InvalidValue_error_1 = require("../Errors/InvalidValue.error");
 const Messages_resource_1 = require("../Resources/Messages.resource");
 const ValidationsTools_1 = require("./ValidationsTools");
-const MustBeContainedInEnum = (value, label, enumeration, language = 'en-US') => {
+const MustBeContainedInEnum = (value, label, enumeration, required = true, language = 'en-US') => {
     function validateEnum(value, errorMessage) {
         const enumErrorMessage = (0, Messages_resource_1.getResourceMessageByKey)('enumError', language);
         if (typeof enumeration !== "object")
@@ -25,6 +25,6 @@ const MustBeContainedInEnum = (value, label, enumeration, language = 'en-US') =>
         { tag: '${label}', value: label },
         { tag: "${JSON.stringify('model')}", value: JSON.stringify('model') },
     ];
-    return (0, ValidationsTools_1.validationAcceleratorSuggestion)(validateEnum, value, label, "MustBeContainedInEnum", language, replaceList);
+    return (0, ValidationsTools_1.validationAcceleratorSuggestion)(validateEnum, value, label, required, "MustBeContainedInEnum", language, replaceList);
 };
 exports.MustBeContainedInEnum = MustBeContainedInEnum;

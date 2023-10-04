@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.MustHaveAtLeastXCharacters = void 0;
 const InvalidValue_error_1 = require("../Errors/InvalidValue.error");
 const ValidationsTools_1 = require("./ValidationsTools");
-const MustHaveAtLeastXCharacters = (value, label, charactersNumber, language = 'en-US') => {
+const MustHaveAtLeastXCharacters = (value, label, charactersNumber, required = true, language = 'en-US') => {
     function validate(value, errorMessage) {
         try {
             if (typeof value !== 'string')
@@ -18,6 +18,6 @@ const MustHaveAtLeastXCharacters = (value, label, charactersNumber, language = '
         { tag: '${label}', value: label },
         { tag: '${charactersNumber}', value: charactersNumber.toString() }
     ];
-    return (0, ValidationsTools_1.validationAcceleratorSuggestion)(validate, value, label, "MustHaveAtLeastXCharacters", language, replaceList);
+    return (0, ValidationsTools_1.validationAcceleratorSuggestion)(validate, value, label, required, "MustHaveAtLeastXCharacters", language, replaceList);
 };
 exports.MustHaveAtLeastXCharacters = MustHaveAtLeastXCharacters;

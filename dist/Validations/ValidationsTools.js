@@ -12,11 +12,17 @@ function validateLabel(value, language = 'en-US') {
     return null;
 }
 exports.validateLabel = validateLabel;
-function validationAcceleratorSuggestion(validationCallback, value, label, messageKey, language, replaceList) {
+function validationAcceleratorSuggestion(validationCallback, value, label, required = false, messageKey, language, replaceList) {
+    const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)(messageKey, language, replaceList);
     const labelValidation = validateLabel(label);
     if (labelValidation !== null)
         return labelValidation;
-    const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)(messageKey, language, replaceList);
+    if (typeof value !== 'string')
+        return new Errors_1.InvalidValue(errorMessage);
+    const valueUndefinedNullOrEmpty = (value === null || value === undefined || value.length === 0 || value?.trim() === '');
+    const mustValidate = required || !valueUndefinedNullOrEmpty;
+    if (!mustValidate)
+        return null;
     return validationCallback(value, errorMessage);
 }
 exports.validationAcceleratorSuggestion = validationAcceleratorSuggestion;

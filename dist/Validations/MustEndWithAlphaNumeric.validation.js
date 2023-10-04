@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.MustEndWithAlphaNumeric = void 0;
 const Errors_1 = require("../Errors");
 const ValidationsTools_1 = require("./ValidationsTools");
-const MustEndWithAlphaNumeric = (value, label, language = 'en-US') => {
+const MustEndWithAlphaNumeric = (value, label, required = true, language = 'en-US') => {
     function validate(value, errorMessage) {
         if (value === undefined || value === null || typeof value !== 'string') {
             return new Errors_1.InvalidValue(errorMessage);
@@ -19,6 +19,6 @@ const MustEndWithAlphaNumeric = (value, label, language = 'en-US') => {
         return null;
     }
     const replaceList = [{ tag: '${label}', value: label }];
-    return (0, ValidationsTools_1.validationAcceleratorSuggestion)(validate, value, label, "MustEndWithAlphaNumeric", language, replaceList);
+    return (0, ValidationsTools_1.validationAcceleratorSuggestion)(validate, value, label, required, "MustEndWithAlphaNumeric", language, replaceList);
 };
 exports.MustEndWithAlphaNumeric = MustEndWithAlphaNumeric;

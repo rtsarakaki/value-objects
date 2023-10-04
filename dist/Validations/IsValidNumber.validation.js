@@ -3,7 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.convertStringToNumber = exports.IsValidNumber = void 0;
 const InvalidValue_error_1 = require("../Errors/InvalidValue.error");
 const ValidationsTools_1 = require("./ValidationsTools");
-const IsValidNumber = (value, label, language = 'en-US') => {
+const IsValidNumber = (value, label, required = true, language = 'en-US') => {
+    const numberToString = value?.toString() ?? undefined;
     function validate(value, errorMessage) {
         const convertedToNumber = convertStringToNumber(value);
         if (convertedToNumber instanceof InvalidValue_error_1.InvalidValue)
@@ -11,7 +12,7 @@ const IsValidNumber = (value, label, language = 'en-US') => {
         return null;
     }
     const replaceList = [{ tag: '${label}', value: label }];
-    return (0, ValidationsTools_1.validationAcceleratorSuggestion)(validate, value, label, "IsPositiveInteger", language, replaceList);
+    return (0, ValidationsTools_1.validationAcceleratorSuggestion)(validate, numberToString, label, required, "IsPositiveInteger", language, replaceList);
 };
 exports.IsValidNumber = IsValidNumber;
 function convertStringToNumber(value) {

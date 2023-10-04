@@ -4,18 +4,18 @@ exports.createKebabCode = exports.KebabCode = void 0;
 const Types_1 = require("../../Types");
 const Validations_1 = require("../../Validations");
 class KebabCode extends Types_1.GenericType {
-    constructor(value, label = null, required = true, ...customValidators) {
+    constructor(value, label = null, required = true, language = 'en-US', ...customValidators) {
         const msg = label ?? 'Kebab Code';
         super(value);
         const formatedValue = formatValue(value);
         const defaultValidators = [
-            () => (0, Validations_1.CannotBeBlank)(formatedValue, msg, required),
-            () => (0, Validations_1.MustHaveAtLeastXCharacters)(formatedValue, msg, 1),
-            () => (0, Validations_1.CannotHaveMoreThanXCharacters)(formatedValue, msg, 50),
-            () => (0, Validations_1.MustHaveOnlyOneWord)(value, msg),
-            () => (0, Validations_1.MustStartWithAlphaNumeric)(formatedValue, msg),
-            () => (0, Validations_1.MustEndWithAlphaNumeric)(formatedValue, msg),
-            () => (0, Validations_1.RegexMatch)(formatedValue, '^[a-z0-9]+(-[a-z0-9]+)*$', 'must contain only letters, numbers or non-consecutive dashes', msg),
+            () => (0, Validations_1.CannotBeBlank)(formatedValue, msg, required, language),
+            () => (0, Validations_1.MustHaveAtLeastXCharacters)(formatedValue, msg, 1, required, language),
+            () => (0, Validations_1.CannotHaveMoreThanXCharacters)(formatedValue, msg, 50, required, language),
+            () => (0, Validations_1.MustHaveOnlyOneWord)(value, msg, required, language),
+            () => (0, Validations_1.MustStartWithAlphaNumeric)(formatedValue, msg, required, language),
+            () => (0, Validations_1.MustEndWithAlphaNumeric)(formatedValue, msg, required, language),
+            () => (0, Validations_1.RegexMatch)(formatedValue, msg, '^[a-z0-9]+(-[a-z0-9]+)*$', 'must contain only letters, numbers or non-consecutive dashes', required, language),
         ];
         const validators = customValidators.length > 0 ? [...defaultValidators, ...customValidators] : defaultValidators;
         this.validate(validators);

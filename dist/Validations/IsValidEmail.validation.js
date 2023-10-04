@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.IsValidEmail = void 0;
 const InvalidValue_error_1 = require("../Errors/InvalidValue.error");
 const ValidationsTools_1 = require("./ValidationsTools");
-const IsValidEmail = (value, label, language = 'en-US') => {
+const IsValidEmail = (value, label, required = true, language = 'en-US') => {
     function validateEmail(email, errorMessage) {
         try {
             if (typeof email !== 'string')
@@ -15,6 +15,6 @@ const IsValidEmail = (value, label, language = 'en-US') => {
         }
     }
     const replaceList = [{ tag: '${label}', value: label }];
-    return (0, ValidationsTools_1.validationAcceleratorSuggestion)(validateEmail, value, label, "IsValidEmail", language, replaceList);
+    return (0, ValidationsTools_1.validationAcceleratorSuggestion)(validateEmail, value, label, required, "IsValidEmail", language, replaceList);
 };
 exports.IsValidEmail = IsValidEmail;

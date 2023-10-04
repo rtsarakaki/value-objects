@@ -4,7 +4,7 @@ exports.RegexMatch = void 0;
 const Errors_1 = require("../Errors");
 const Messages_resource_1 = require("../Resources/Messages.resource");
 const ValidationsTools_1 = require("./ValidationsTools");
-const RegexMatch = (value, textRegex, regexExplanation, label, language = 'en-US') => {
+const RegexMatch = (value, label, textRegex, regexExplanation, required = true, language = 'en-US') => {
     function validate(value, errorMessage) {
         const labelValidation = (0, ValidationsTools_1.validateLabel)(label);
         if (labelValidation !== null)
@@ -19,7 +19,7 @@ const RegexMatch = (value, textRegex, regexExplanation, label, language = 'en-US
         { tag: '${label}', value: label },
         { tag: '${regex}', value: regexExplanation },
     ];
-    return (0, ValidationsTools_1.validationAcceleratorSuggestion)(validate, value, label, "RegexMatch", language, replaceList);
+    return (0, ValidationsTools_1.validationAcceleratorSuggestion)(validate, value, label, required, "RegexMatch", language, replaceList);
 };
 exports.RegexMatch = RegexMatch;
 const createRegexFromString = (regexString) => {

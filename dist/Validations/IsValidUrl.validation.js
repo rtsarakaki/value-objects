@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.validateProtocol = exports.isMailToFormat = exports.isDataFormat = exports.isFilePathFormat = exports.IsValidUrl = void 0;
 const InvalidValue_error_1 = require("../Errors/InvalidValue.error");
 const ValidationsTools_1 = require("./ValidationsTools");
-const IsValidUrl = (value, label, language = 'en-US') => {
+const IsValidUrl = (value, label, required = true, language = 'en-US') => {
     if (typeof value !== 'string')
         return new InvalidValue_error_1.InvalidValue('Invalid URL.');
     if (value.length === 0)
@@ -25,7 +25,7 @@ const IsValidUrl = (value, label, language = 'en-US') => {
         }
     }
     const replaceList = [{ tag: '${label}', value: label }];
-    return (0, ValidationsTools_1.validationAcceleratorSuggestion)(validateUrl, value, label, "IsValidUrl", language, replaceList);
+    return (0, ValidationsTools_1.validationAcceleratorSuggestion)(validateUrl, value, label, required, "IsValidUrl", language, replaceList);
 };
 exports.IsValidUrl = IsValidUrl;
 function isFilePathFormat(url) {

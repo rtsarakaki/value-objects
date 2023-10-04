@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CannotHaveMoreThanXCharacters = void 0;
 const Errors_1 = require("../Errors");
 const ValidationsTools_1 = require("./ValidationsTools");
-const CannotHaveMoreThanXCharacters = (value, label, charactersNumber, language = 'en-US') => {
+const CannotHaveMoreThanXCharacters = (value, label, charactersNumber, required = true, language = 'en-US') => {
     function validate(value, errorMessage) {
         try {
             if (typeof value !== 'string')
@@ -18,6 +18,6 @@ const CannotHaveMoreThanXCharacters = (value, label, charactersNumber, language 
         { tag: '${label}', value: label },
         { tag: '${charactersNumber}', value: charactersNumber.toString() }
     ];
-    return (0, ValidationsTools_1.validationAcceleratorSuggestion)(validate, value, label, "CannotHaveMoreThanXCharacters", language, replaceList);
+    return (0, ValidationsTools_1.validationAcceleratorSuggestion)(validate, value, label, required, "CannotHaveMoreThanXCharacters", language, replaceList);
 };
 exports.CannotHaveMoreThanXCharacters = CannotHaveMoreThanXCharacters;

@@ -7,7 +7,7 @@ exports.IsValidColor = void 0;
 const validate_color_1 = __importDefault(require("validate-color"));
 const InvalidValue_error_1 = require("../Errors/InvalidValue.error");
 const ValidationsTools_1 = require("./ValidationsTools");
-const IsValidColor = (value, label, language = 'en-US') => {
+const IsValidColor = (value, label, required = true, language = 'en-US') => {
     function colorValidation(color, errorMessage) {
         try {
             if (typeof color !== 'string')
@@ -19,6 +19,6 @@ const IsValidColor = (value, label, language = 'en-US') => {
         }
     }
     const replaceList = [{ tag: '${label}', value: label }];
-    return (0, ValidationsTools_1.validationAcceleratorSuggestion)(colorValidation, value, label, "IsValidColor", language, replaceList);
+    return (0, ValidationsTools_1.validationAcceleratorSuggestion)(colorValidation, value, label, required, "IsValidColor", language, replaceList);
 };
 exports.IsValidColor = IsValidColor;

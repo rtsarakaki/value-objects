@@ -1,7 +1,7 @@
-import { GenericType } from "../../Types";
+import { GenericType, GenericValidation } from "../../Types";
 export declare class UrlAddress extends GenericType {
     private _urlObject;
-    constructor(url: string, label?: string | null, required?: boolean);
+    constructor(url: string, label?: string | null, required?: boolean, language?: string, ...customValidators: GenericValidation[]);
     get hostname(): string;
     get host(): string;
     get pathname(): string;
