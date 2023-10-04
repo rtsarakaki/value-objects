@@ -10,7 +10,12 @@ export class UrlAddress extends GenericType {
     const msg = label ?? 'URL';
     super(url);
     const urlTrimmed = (typeof url !== 'string') ? '' : url.trim()
-    if (!required && urlTrimmed.length === 0) return
+    if (!required && urlTrimmed.length === 0) {
+      console.log('Not required and empty')
+      this.value = '';
+      this._urlObject = null
+      return
+    }
     
     const sanitezedUrl = addDefaultProtocol(urlTrimmed)
 
