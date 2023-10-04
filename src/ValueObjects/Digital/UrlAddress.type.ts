@@ -1,7 +1,6 @@
-import { InvalidValue } from "../../Errors";
 import { GenericType, GenericValidation } from "../../Types";
 import { CannotBeBlank, IsValidUrl } from "../../Validations";
-import { isDataFormat, isFilePathFormat, isMailToFormat, validateProtocol } from "../../Validations/IsValidUrl.validation";
+import { isDataFormat, isMailToFormat } from "../../Validations/IsValidUrl.validation";
 
 export class UrlAddress extends GenericType {
 
@@ -11,6 +10,8 @@ export class UrlAddress extends GenericType {
     const msg = label ?? 'URL';
     super(url);
     const urlTrimmed = (typeof url !== 'string') ? '' : url.trim()
+    if (!required && urlTrimmed.length === 0) return
+    
     const sanitezedUrl = addDefaultProtocol(urlTrimmed)
 
     const defaultValidators = [

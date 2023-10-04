@@ -9,6 +9,8 @@ interface IsValidNumberInterface extends GenericValidation {
 export const IsValidNumber: IsValidNumberInterface = (value: number | string, label: string, required: boolean = true, language: string = 'en-US') => {
 
 	const numberToString = value?.toString() ?? undefined;
+
+	console.log('numberToString', numberToString)
 	
 	function validate(value: number | string, errorMessage: string) {
 

@@ -1,4 +1,5 @@
 import { GenericType, GenericValidation } from "../../Types";
+import { CannotBeBlank } from "../../Validations";
 import { IsValidNumber } from "../../Validations/IsValidNumber.validation";
 
 export class Number extends GenericType {
@@ -6,6 +7,7 @@ export class Number extends GenericType {
 		const msg = label ?? 'Number';
 		super(value);
 		const defaultValidators = [
+			() => CannotBeBlank(value as string, msg, required, language),
 			() => IsValidNumber(value, msg, required, language),
 		]
 		const validators = customValidators.length > 0 ? [...defaultValidators, ...customValidators] : defaultValidators;

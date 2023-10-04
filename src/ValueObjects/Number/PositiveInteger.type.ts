@@ -1,4 +1,5 @@
 import { GenericType, GenericValidation } from "../../Types";
+import { CannotBeBlank } from "../../Validations";
 import { IsPositiveInteger } from "../../Validations/IsPositiveInteger.validation";
 
 export class PositiveInteger extends GenericType {
@@ -6,6 +7,7 @@ export class PositiveInteger extends GenericType {
 		const msg = label ?? 'Positive Integer';
 		super(value);
 		const defaultValidators = [
+			() => CannotBeBlank(value as string, msg, required, language),
 			() => IsPositiveInteger(value, msg, required, language),
 		]
 		const validators = customValidators.length > 0 ? [...defaultValidators, ...customValidators] : defaultValidators;

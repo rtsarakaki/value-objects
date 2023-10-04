@@ -10,7 +10,6 @@ describe('Invalid values', () => {
 		{ value: '\n', label: 'name' },
 		{ value: null, label: 'code' },
 		{ value: undefined, label: 'code' },
-		{ value: 1, label: 'code' },
 		{
 			value: `
 			`, label: 'name'

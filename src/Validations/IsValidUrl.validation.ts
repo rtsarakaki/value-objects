@@ -8,10 +8,8 @@ interface IsValidUrlInterface extends GenericValidation {
 
 export const IsValidUrl: IsValidUrlInterface = (value: string, label: string, required: boolean = true, language: string = 'en-US') => {
 
-	if (typeof value !== 'string') return new InvalidValue('Invalid URL.')
-	if (value.length === 0) return new InvalidValue('Invalid URL.')
-
 	function validateUrl(url: string): InvalidValue | null {
+
 		const protocolRegex = /^((http|https|ftp|sftp|file|data|mailto):\/\/).*/
 		const protocolMatch = url.match(protocolRegex)
 
