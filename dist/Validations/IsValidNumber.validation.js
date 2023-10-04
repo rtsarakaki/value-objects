@@ -5,6 +5,7 @@ const InvalidValue_error_1 = require("../Errors/InvalidValue.error");
 const ValidationsTools_1 = require("./ValidationsTools");
 const IsValidNumber = (value, label, required = true, language = 'en-US') => {
     const numberToString = value?.toString() ?? undefined;
+    console.log('numberToString', numberToString);
     function validate(value, errorMessage) {
         const convertedToNumber = convertStringToNumber(value);
         if (convertedToNumber instanceof InvalidValue_error_1.InvalidValue)

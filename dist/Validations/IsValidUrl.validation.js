@@ -4,10 +4,6 @@ exports.validateProtocol = exports.isMailToFormat = exports.isDataFormat = expor
 const InvalidValue_error_1 = require("../Errors/InvalidValue.error");
 const ValidationsTools_1 = require("./ValidationsTools");
 const IsValidUrl = (value, label, required = true, language = 'en-US') => {
-    if (typeof value !== 'string')
-        return new InvalidValue_error_1.InvalidValue('Invalid URL.');
-    if (value.length === 0)
-        return new InvalidValue_error_1.InvalidValue('Invalid URL.');
     function validateUrl(url) {
         const protocolRegex = /^((http|https|ftp|sftp|file|data|mailto):\/\/).*/;
         const protocolMatch = url.match(protocolRegex);

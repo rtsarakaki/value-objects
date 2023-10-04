@@ -10,6 +10,8 @@ class UrlAddress extends Types_1.GenericType {
         super(url);
         this._urlObject = null;
         const urlTrimmed = (typeof url !== 'string') ? '' : url.trim();
+        if (!required && urlTrimmed.length === 0)
+            return;
         const sanitezedUrl = addDefaultProtocol(urlTrimmed);
         const defaultValidators = [
             () => (0, Validations_1.CannotBeBlank)(urlTrimmed, msg, required, language),
