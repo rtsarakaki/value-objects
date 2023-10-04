@@ -3,10 +3,10 @@ import { GenericValidation } from "../Types";
 import { validationAcceleratorSuggestion } from "./ValidationsTools";
 
 interface IsValidUrlInterface extends GenericValidation {
-	(value: string, label: string, language?: string): InvalidValue | null;
+	(value: string, label: string, required?: boolean, language?: string): InvalidValue | null;
 }
 
-export const IsValidUrl: IsValidUrlInterface = (value: string, label: string, language: string = 'en-US') => {
+export const IsValidUrl: IsValidUrlInterface = (value: string, label: string, required: boolean = true, language: string = 'en-US') => {
 
 	if (typeof value !== 'string') return new InvalidValue('Invalid URL.')
 	if (value.length === 0) return new InvalidValue('Invalid URL.')
@@ -30,7 +30,7 @@ export const IsValidUrl: IsValidUrlInterface = (value: string, label: string, la
 		}
 	}
 	const replaceList = [{ tag: '${label}', value: label }]
-	return validationAcceleratorSuggestion(validateUrl, value, label, "IsValidUrl", language, replaceList)
+	return validationAcceleratorSuggestion(validateUrl, value, label, required, "IsValidUrl", language, replaceList)
 };
 
 export function isFilePathFormat(url: string) {

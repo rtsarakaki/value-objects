@@ -3,10 +3,10 @@ import { GenericValidation } from "../Types";
 import { validationAcceleratorSuggestion } from "./ValidationsTools";
 
 interface CannotStartWithZeroInterface extends GenericValidation {
-	(value: string, label: string, language?: string): InvalidValue | null;
+	(value: string, label: string, required?: boolean, language?: string): InvalidValue | null;
 }
 
-export const CannotStartWithZero: CannotStartWithZeroInterface = (value: string, label: string, language: string = 'en-US') => {
+export const CannotStartWithZero: CannotStartWithZeroInterface = (value: string, label: string, required: boolean = true, language: string = 'en-US') => {
 
 	function validate(value: string, errorMessage: string) {
 		if (typeof value !== 'string') return new InvalidValue(errorMessage);
@@ -14,5 +14,5 @@ export const CannotStartWithZero: CannotStartWithZeroInterface = (value: string,
 	}
 
 	const replaceList = [{ tag: '${label}', value: label }]
-	return validationAcceleratorSuggestion(validate, value, label, "CannotStartWithZero", language, replaceList)
+	return validationAcceleratorSuggestion(validate, value, label, required, "CannotStartWithZero", language, replaceList)
 };

@@ -19,7 +19,7 @@ const arrayOfInvalidValues = [
 
 describe('Test a list of invalid values', () => {
 	describe.each(arrayOfInvalidValues)('"$value" is invalid.', ({ value, label }) => {
-		const result = CannotContainNumbers(value as string, label)
+		const result = CannotContainNumbers(value as string, label, true)
 		test('Returns an invalid value error.', () => {
 			expect(result).toBeInstanceOf(InvalidValue)
 		});
@@ -42,7 +42,7 @@ const arrayOfValidValues = [
 
 describe('Test a list of valid values', () => {
 	test.each(arrayOfValidValues)('"$value" is valid.', ({ value, label }) => {
-		const result = CannotContainNumbers(value as string, label)
+		const result = CannotContainNumbers(value as string, label, true)
 		expect(result).toBeNull()
 	});
 });
@@ -59,7 +59,7 @@ const arrayOfInvalidLabels = [
 describe('Test a list of invalid labels.', () => {
 	describe.each(arrayOfInvalidLabels)('"%s" is an invalid label.', (label) => {
 		
-		const result = CannotContainNumbers('North', label as string)
+		const result = CannotContainNumbers('North', label as string, true)
 		test(`Returns an invalid value error.`, () => {
 			expect(result).toBeInstanceOf(InvalidValue)
 		});

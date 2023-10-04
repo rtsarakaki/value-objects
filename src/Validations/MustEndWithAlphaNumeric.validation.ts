@@ -1,13 +1,12 @@
 import { InvalidValue } from "../Errors";
-import { getResourceMessageByKey } from "../Resources/Messages.resource";
 import { GenericValidation } from "../Types";
-import { validateLabel, validationAcceleratorSuggestion } from "./ValidationsTools";
+import { validationAcceleratorSuggestion } from "./ValidationsTools";
 
 interface MustEndWithAlphaNumericInterface extends GenericValidation {
-	(value: string, label: string, language?: string): InvalidValue | null;
+	(value: string, label: string, required?: boolean, language?: string): InvalidValue | null;
 }
 
-export const MustEndWithAlphaNumeric: MustEndWithAlphaNumericInterface = (value: string, label: string, language: string = 'en-US') => {
+export const MustEndWithAlphaNumeric: MustEndWithAlphaNumericInterface = (value: string, label: string, required: boolean = true, language: string = 'en-US') => {
 
 	function validate(value: string, errorMessage: string) {
 
@@ -29,5 +28,5 @@ export const MustEndWithAlphaNumeric: MustEndWithAlphaNumericInterface = (value:
 	}
 
 	const replaceList = [{ tag: '${label}', value: label }]
-	return validationAcceleratorSuggestion(validate, value, label, "MustEndWithAlphaNumeric", language, replaceList)
+	return validationAcceleratorSuggestion(validate, value, label, required, "MustEndWithAlphaNumeric", language, replaceList)
 };

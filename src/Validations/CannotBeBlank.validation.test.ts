@@ -1,11 +1,9 @@
 import { describe, expect, test } from '@jest/globals';
-import{ InvalidValue } from '../Errors';
+import { InvalidValue } from '../Errors';
 import { CannotBeBlank } from './CannotBeBlank.validation';
 
-test.todo('convert test to test.each model');
-
-test('Invalid values', () => {
-	const invalidValues = [
+describe('Invalid values', () => {
+	const arrayOfInvalidValues = [
 		{ value: '', label: 'name' },
 		{ value: ' ', label: 'name' },
 		{ value: '      ', label: 'name' },
@@ -23,37 +21,22 @@ test('Invalid values', () => {
 		}
 	]
 
-	invalidValues.map(({ value, label }) => {
-		const result = CannotBeBlank(value as string, label)
-		expect(result).toBeInstanceOf(InvalidValue)
-		expect(result?.message).toEqual(`${label} cannot be blank.`)
-	})
+	describe.each(arrayOfInvalidValues)(`Testing %p.`, ({ value, label }) => {
+		const result = CannotBeBlank(value as string, label, true)
+
+		test(`${value} is valid`, () => {
+			expect(result).toBeInstanceOf(InvalidValue)
+		});
+
+		test(`${value} is valid`, () => {
+			expect(result?.message).toEqual(`${label} cannot be blank.`)
+		});
+	});
 })
 
-test('Invalid values but ignore validation', () => {
-	const invalidValues = [
-		{ value: '', label: 'name' },
-		{ value: ' ', label: 'name' },
-		{ value: '      ', label: 'name' },
-		{ value: '\n', label: 'name' },
-		{
-			value: `
-			`, label: 'name'
-		},
-		{
-			value: `
-			     `, label: 'name'
-		}
-	]
 
-	invalidValues.map(({ value, label }) => {
-		const result = CannotBeBlank(value, label, false)
-		expect(result).toBeNull()
-	})
-})
-
-test('Valid values', () => {
-	const validValues = [
+describe('Valid values', () => {
+	const arrayOfInvalidValues = [
 		{ value: 'not empty string', label: 'name' },
 		{ value: '.', label: 'name' },
 		{ value: '@', label: 'other' },
@@ -68,14 +51,14 @@ test('Valid values', () => {
 		{ value: 'UPERCASE VALUE', label: 'any text' },
 	]
 
-	validValues.map(({ value, label }) => {
+	test.each(arrayOfInvalidValues)(`%p is valid.`, ({ value, label }) => {
 		const result = CannotBeBlank(value, label)
 		expect(result).toBeNull()
-	})
+	});
 })
 
-test('Invalid label', () => {
-	const labels = [
+describe('Invalid label', () => {
+	const arrayOfValidLabels = [
 		null,
 		undefined,
 		0,
@@ -83,9 +66,16 @@ test('Invalid label', () => {
 		'     '
 	]
 
-	labels.map(label => {
-		const result = CannotBeBlank('North', label as string)
-		expect(result).toBeInstanceOf(InvalidValue)
-		expect(result?.message).toEqual('Label cannot be empty.')
-	})
+	describe.each(arrayOfValidLabels)(`Testing invalid label %p.`, (label) => {
+
+		const result = CannotBeBlank('North', label as string, true)
+
+		test(`Generate an InvalidValue error.`, () => {
+			expect(result).toBeInstanceOf(InvalidValue)
+		})
+		test(`Generate an InvalidValue error.`, () => {
+			expect(result?.message).toEqual('Label cannot be empty.')
+		})
+	});
+
 })

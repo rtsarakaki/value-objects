@@ -3,10 +3,10 @@ import { GenericValidation } from "../Types";
 import { validationAcceleratorSuggestion } from "./ValidationsTools";
 
 interface IsValidDateInterface extends GenericValidation {
-	(value: string, label: string, language?: string): InvalidValue | null;
+	(value: string, label: string, required?: boolean, language?: string): InvalidValue | null;
 }
 
-export const IsValidDate: IsValidDateInterface = (value: string, label: string, language: string = 'en-US') => {
+export const IsValidDate: IsValidDateInterface = (value: string, label: string, required: boolean = true, language: string = 'en-US') => {
 
 	function dateValidation(date: string, errorMessage: string) {
 		try {
@@ -23,5 +23,5 @@ export const IsValidDate: IsValidDateInterface = (value: string, label: string, 
 		{ tag: '${label}', value: label },
 		{ tag: '${value}', value: value },
 	]
-	return validationAcceleratorSuggestion(dateValidation, value, label, "IsValidDate", language, replaceList)
+	return validationAcceleratorSuggestion(dateValidation, value, label, required, "IsValidDate", language, replaceList)
 };

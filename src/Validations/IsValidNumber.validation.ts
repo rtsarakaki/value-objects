@@ -3,11 +3,13 @@ import { GenericValidation } from "../Types";
 import { validationAcceleratorSuggestion } from "./ValidationsTools";
 
 interface IsValidNumberInterface extends GenericValidation {
-	(value: number | string, label: string, language?: string): InvalidValue | null;
+	(value: number | string, label: string, required?: boolean, language?: string): InvalidValue | null;
 }
 
-export const IsValidNumber: IsValidNumberInterface = (value: number | string, label: string, language: string = 'en-US') => {
+export const IsValidNumber: IsValidNumberInterface = (value: number | string, label: string, required: boolean = true, language: string = 'en-US') => {
 
+	const numberToString = value?.toString() ?? undefined;
+	
 	function validate(value: number | string, errorMessage: string) {
 
 		const convertedToNumber = convertStringToNumber(value);
@@ -18,7 +20,7 @@ export const IsValidNumber: IsValidNumberInterface = (value: number | string, la
 	}
 
 	const replaceList = [{ tag: '${label}', value: label }]
-	return validationAcceleratorSuggestion(validate, value, label, "IsPositiveInteger", language, replaceList)
+	return validationAcceleratorSuggestion(validate, numberToString, label, required, "IsPositiveInteger", language, replaceList)
 };
 
 

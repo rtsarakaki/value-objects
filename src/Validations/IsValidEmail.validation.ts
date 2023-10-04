@@ -3,10 +3,10 @@ import { GenericValidation } from "../Types";
 import { validationAcceleratorSuggestion } from "./ValidationsTools";
 
 interface IsValidEmailInterface extends GenericValidation {
-	(value: string, label: string, language?: string): InvalidValue | null;
+	(value: string, label: string, required?: boolean, language?: string): InvalidValue | null;
 }
 
-export const IsValidEmail: IsValidEmailInterface = (value: string, label: string, language: string = 'en-US') => {
+export const IsValidEmail: IsValidEmailInterface = (value: string, label: string, required: boolean = true, language: string = 'en-US') => {
 
 	function validateEmail(email: string, errorMessage: string) {
 		try {
@@ -18,5 +18,5 @@ export const IsValidEmail: IsValidEmailInterface = (value: string, label: string
 	}
 	
 	const replaceList = [{ tag: '${label}', value: label }]
-	return validationAcceleratorSuggestion(validateEmail, value, label, "IsValidEmail", language, replaceList)
+	return validationAcceleratorSuggestion(validateEmail, value, label, required, "IsValidEmail", language, replaceList)
 };

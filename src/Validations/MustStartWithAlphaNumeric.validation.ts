@@ -1,13 +1,12 @@
 import { InvalidValue } from "../Errors";
-import { getResourceMessageByKey } from "../Resources/Messages.resource";
 import { GenericValidation } from "../Types";
-import { validateLabel, validationAcceleratorSuggestion } from "./ValidationsTools";
+import { validationAcceleratorSuggestion } from "./ValidationsTools";
 
 interface MustStartWithAlphaNumericInterface extends GenericValidation {
-	(value: string, label: string, language?: string): InvalidValue | null;
+	(value: string, label: string, required?: boolean, language?: string): InvalidValue | null;
 }
 
-export const MustStartWithAlphaNumeric: MustStartWithAlphaNumericInterface = (value: string, label: string, language: string = 'en-US') => {
+export const MustStartWithAlphaNumeric: MustStartWithAlphaNumericInterface = (value: string, label: string, required: boolean = true, language: string = 'en-US') => {
 
 	function validate(value: string, errorMessage: string) {
 		if (value === undefined || value === null || typeof value !== 'string') {
@@ -28,5 +27,5 @@ export const MustStartWithAlphaNumeric: MustStartWithAlphaNumericInterface = (va
 	}
 
 	const replaceList = [{ tag: '${label}', value: label }]
-	return validationAcceleratorSuggestion(validate, value, label, "MustStartWithAlphaNumeric", language, replaceList)
+	return validationAcceleratorSuggestion(validate, value, label, required, "MustStartWithAlphaNumeric", language, replaceList)
 };

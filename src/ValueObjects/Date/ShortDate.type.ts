@@ -3,14 +3,14 @@ import { CannotBeBlank, IsValidDate } from "../../Validations";
 
 export class ShortDate extends GenericType {
 
-  constructor(value: string, label: string | null = null, outputFormat: string, required = true, ...customValidators: GenericValidation[]) {
+  constructor(value: string, label: string | null = null, outputFormat: string, required = true, language: string = 'en-US', ...customValidators: GenericValidation[]) {
     super(value);
 
     const msg = label ?? 'Short Date';
 
     const defaultValidators = [
-      () => CannotBeBlank(value, msg, required),
-      () => IsValidDate(value, msg),
+      () => CannotBeBlank(value, msg, required, language),
+      () => IsValidDate(value, msg, required, language),
     ];
     const validators = customValidators.length > 0 ? [...defaultValidators, ...customValidators] : defaultValidators;
     this.validate(validators);

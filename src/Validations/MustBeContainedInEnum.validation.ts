@@ -4,13 +4,14 @@ import { GenericValidation } from "../Types";
 import { validationAcceleratorSuggestion } from "./ValidationsTools";
 
 interface MustBeContainedInEnumInterface extends GenericValidation {
-	(value: string, label: string, enumeration: any, language?: string): InvalidValue | null;
+	(value: string, label: string, enumeration: any, required?: boolean, language?: string): InvalidValue | null;
 }
 
 export const MustBeContainedInEnum: MustBeContainedInEnumInterface = (
 	value: string,
 	label: string,
 	enumeration: any,
+	required: boolean = true, 
 	language: string = 'en-US'
 ) => {
 
@@ -38,5 +39,5 @@ export const MustBeContainedInEnum: MustBeContainedInEnumInterface = (
 		{ tag: '${label}', value: label },
 		{ tag: "${JSON.stringify('model')}", value: JSON.stringify('model') },
 	]
-	return validationAcceleratorSuggestion(validateEnum, value, label, "MustBeContainedInEnum", language, replaceList)
+	return validationAcceleratorSuggestion(validateEnum, value, label, required, "MustBeContainedInEnum", language, replaceList)
 };

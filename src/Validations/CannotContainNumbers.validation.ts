@@ -3,21 +3,19 @@ import { GenericValidation } from "../Types";
 import { validationAcceleratorSuggestion } from "./ValidationsTools";
 
 interface CannotContainNumbersInterface extends GenericValidation {
-	(value: string, label: string, language?: string): InvalidValue | null;
+	(value: string, label: string, required?: boolean, language?: string): InvalidValue | null;
 }
 
-export const CannotContainNumbers: CannotContainNumbersInterface = (value: string, label: string, language: string = 'en-US') => {
+export const CannotContainNumbers: CannotContainNumbersInterface = (value: string, label: string, required: boolean = true, language: string = 'en-US') => {
 
 	function validate(value: string, errorMessage: string) {
-
-		if (typeof value !== 'string') return new InvalidValue(errorMessage);
-
+		console.log('call')
 		const regex = /\d/;
 		return regex.test(value) ? new InvalidValue(errorMessage) : null;
 	}
 
 	const replaceList = [{ tag: '${label}', value: label }]
-	return validationAcceleratorSuggestion(validate, value, label, "CannotContainNumbers", language, replaceList)
+	return validationAcceleratorSuggestion(validate, value, label, required, "CannotContainNumbers", language, replaceList)
 };
 
 

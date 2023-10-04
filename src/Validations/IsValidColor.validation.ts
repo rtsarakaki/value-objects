@@ -4,10 +4,10 @@ import { GenericValidation } from "../Types";
 import { validationAcceleratorSuggestion } from "./ValidationsTools";
 
 interface IsValidColorInterface extends GenericValidation {
-	(value: string, label: string, language?: string): InvalidValue | null;
+	(value: string, label: string, required?: boolean, language?: string): InvalidValue | null;
 }
 
-export const IsValidColor: IsValidColorInterface = (value: string, label: string, language: string = 'en-US') => {
+export const IsValidColor: IsValidColorInterface = (value: string, label: string, required: boolean = true, language: string = 'en-US') => {
 
 	function colorValidation(color: string, errorMessage: string) {
 		try {
@@ -20,5 +20,5 @@ export const IsValidColor: IsValidColorInterface = (value: string, label: string
 	}
 	
 	const replaceList = [{ tag: '${label}', value: label }]
-	return validationAcceleratorSuggestion(colorValidation, value, label, "IsValidColor", language, replaceList)
+	return validationAcceleratorSuggestion(colorValidation, value, label, required, "IsValidColor", language, replaceList)
 };

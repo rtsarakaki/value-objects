@@ -14,7 +14,7 @@ describe(`List of valid values and expressions regex.`, () => {
 	]
 	describe.each(arrayOfValidValuesAndRegex)(`%j is valid.`, ({ value, regex, label, explanation }) => {
 
-		const result = RegexMatch(value, regex, explanation, label)
+		const result = RegexMatch(value, label, regex, explanation)
 
 		test(`Regex '${regex}' is valid.`, () => {
 			expect(result?.message).not.toBe(`Regex '${regex}' is invalid.`)
@@ -39,7 +39,7 @@ describe(`List of invalid values and expressions regex.`, () => {
 	]
 	describe.each(arrayOfInvalidValuesAndRegex)(`%j is invalid.`, ({ value, regex, label, explanation }) => {
 
-		const result = RegexMatch(value, regex, explanation, label)
+		const result = RegexMatch(value, label, regex, explanation)
 
 		test(`Regex '${regex}' is valid.`, () => {
 			expect(result?.message).not.toBe(`Regex '${regex}' is invalid.`)
@@ -64,7 +64,7 @@ describe('Invalid regex.', () => {
 	]
 
 	test.each(arrayOfInvalidRegex)(`%p is invalid.`, (regex) => {
-		const result = RegexMatch('smart-valueobjects', regex, 'North', 'my lib')
+		const result = RegexMatch('smart-valueobjects', 'my lib', regex, 'North')
 		expect(result).toBeInstanceOf(InvalidValue)
 		expect(result?.message).toBe(`Regex '${regex}' is invalid.`)
 	})
@@ -80,7 +80,7 @@ describe('Invalid label', () => {
 	]
 
 	test.each(arrayOfInvalidLabels)(`%p is valid.`, (label) => {
-		const result = RegexMatch('smart-valueobjects', '^[a-z0-9-]+$', 'North', label as string)
+		const result = RegexMatch('smart-valueobjects', label as string, '^[a-z0-9-]+$', 'North')
 		expect(result).toBeInstanceOf(InvalidValue)
 		expect(result?.message).toEqual('Label cannot be empty.')
 	})

@@ -12,15 +12,15 @@ describe('Testing a list of valid numbers', () => {
 
 	describe.each(arrayOfValidNumbers)('"$number" is a valid number.', ({ number }) => {
 
-		const positiveInteger = createNumber(number, "number")
+		const stringNumber = createNumber(number, "number")
 
 		test(`No errors found, so the "${number}" is valid.`, () => {
-			expect(positiveInteger.errors.length).toBe(0)
+			expect(stringNumber.errors.length).toBe(0)
 		});
 
-		if (positiveInteger.errors.length > 0) {
+		if (stringNumber.errors.length > 0) {
 			describe('Listing errors', () => {
-				positiveInteger.errors.map((err: any) => {
+				stringNumber.errors.map((err: any) => {
 					test.each(err.errors)(`${err.errors}`, (suberror) => {
 						const result = true
 						expect(result).toBeTruthy()

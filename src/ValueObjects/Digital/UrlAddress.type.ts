@@ -1,5 +1,5 @@
 import { InvalidValue } from "../../Errors";
-import { GenericType } from "../../Types";
+import { GenericType, GenericValidation } from "../../Types";
 import { CannotBeBlank, IsValidUrl } from "../../Validations";
 import { isDataFormat, isFilePathFormat, isMailToFormat, validateProtocol } from "../../Validations/IsValidUrl.validation";
 
@@ -7,15 +7,18 @@ export class UrlAddress extends GenericType {
 
   private _urlObject: URL | null = null;
 
-  constructor(url: string, label: string | null = null, required: boolean = true) {
+  constructor(url: string, label: string | null = null, required: boolean = true, language: string = 'en-US', ...customValidators: GenericValidation[]) {
     const msg = label ?? 'URL';
     super(url);
-    const urlTrimmed =  (typeof url !== 'string') ? '' : url.trim()
+    const urlTrimmed = (typeof url !== 'string') ? '' : url.trim()
     const sanitezedUrl = addDefaultProtocol(urlTrimmed)
-    this.validate([
-      () => CannotBeBlank(urlTrimmed, msg, required),
-      () => IsValidUrl(sanitezedUrl, msg),
-    ]);
+
+    const defaultValidators = [
+      () => CannotBeBlank(urlTrimmed, msg, required, language),
+      () => IsValidUrl(sanitezedUrl, msg, required, language),
+    ];
+    const validators = customValidators.length > 0 ? [...defaultValidators, ...customValidators] : defaultValidators;
+    this.validate(validators);
 
     if (this.errors.length === 0) {
       this.value = sanitezedUrl;

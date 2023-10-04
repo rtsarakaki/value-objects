@@ -52,20 +52,13 @@ describe('Test a list of invalid labels.', () => {
 describe('Test a list of invalid colors', () => {
 	const arrayOfInvalidColors = [
 		{ value: 'amarelo', label: 'name' },
-		{ value: ' ', label: 'name' },
-		{ value: '      ', label: 'name' },
 		{ value: '123456', label: 'name' },
 		{ value: 'word', label: 'name' },
 		{ value: 'color', label: 'name' },
-		{ value: '\n', label: 'name' },
 		{ value: '0RANGE', label: 'name' },
 		{ value: null, label: 'code' },
 		{ value: undefined, label: 'code' },
 		{ value: 1, label: 'code' },
-		{
-			value: `
-			`, label: 'name'
-		}
 	]
 
 	describe.each(arrayOfInvalidColors)('$value is invalid.', ({ value, label }) => {

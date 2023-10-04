@@ -1,16 +1,16 @@
 import { InvalidValue } from "../Errors/InvalidValue.error";
-import { getResourceMessageByKey } from "../Resources/Messages.resource";
 import { GenericValidation } from "../Types";
-import { validateLabel, validationAcceleratorSuggestion } from "./ValidationsTools";
+import { validationAcceleratorSuggestion } from "./ValidationsTools";
 
 interface MustHaveAtLeastXCharactersInterface extends GenericValidation {
-	(value: string, label: string, charactersNumber: number, language?: string): InvalidValue | null;
+	(value: string, label: string, charactersNumber: number, required?: boolean, language?: string): InvalidValue | null;
 }
 
 export const MustHaveAtLeastXCharacters: MustHaveAtLeastXCharactersInterface = (
 	value: string,
 	label: string,
 	charactersNumber: number,
+	required: boolean = true,
 	language: string = 'en-US'
 ) => {
 
@@ -29,5 +29,5 @@ export const MustHaveAtLeastXCharacters: MustHaveAtLeastXCharactersInterface = (
 		{ tag: '${label}', value: label },
 		{ tag: '${charactersNumber}', value: charactersNumber.toString() }
 	]
-	return validationAcceleratorSuggestion(validate, value, label, "MustHaveAtLeastXCharacters", language, replaceList)
+	return validationAcceleratorSuggestion(validate, value, label, required, "MustHaveAtLeastXCharacters", language, replaceList)
 };

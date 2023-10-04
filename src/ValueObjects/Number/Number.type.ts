@@ -2,11 +2,11 @@ import { GenericType, GenericValidation } from "../../Types";
 import { IsValidNumber } from "../../Validations/IsValidNumber.validation";
 
 export class Number extends GenericType {
-	constructor(value: number | string, label: string, ...customValidators: GenericValidation[]) {
+	constructor(value: number | string, label: string, required: boolean = true, language: string = 'en-US', ...customValidators: GenericValidation[]) {
 		const msg = label ?? 'Number';
 		super(value);
 		const defaultValidators = [
-			() => IsValidNumber(value, msg),
+			() => IsValidNumber(value, msg, required, language),
 		]
 		const validators = customValidators.length > 0 ? [...defaultValidators, ...customValidators] : defaultValidators;
 		this.validate(validators);

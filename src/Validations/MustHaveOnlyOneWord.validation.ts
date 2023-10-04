@@ -1,13 +1,12 @@
 import { InvalidValue } from "../Errors";
-import { getResourceMessageByKey } from "../Resources/Messages.resource";
 import { GenericValidation } from "../Types";
-import { validateLabel, validationAcceleratorSuggestion } from "./ValidationsTools";
+import { validationAcceleratorSuggestion } from "./ValidationsTools";
 
 interface MustHaveOnlyOneWordInterface extends GenericValidation {
-	(value: string, label: string, language?: string): InvalidValue | null;
+	(value: string, label: string, required?: boolean, language?: string): InvalidValue | null;
 }
 
-export const MustHaveOnlyOneWord: MustHaveOnlyOneWordInterface = (value: string, label: string, language: string = 'en-US') => {
+export const MustHaveOnlyOneWord: MustHaveOnlyOneWordInterface = (value: string, label: string, required: boolean = true, language: string = 'en-US') => {
 
 	const replaceList = [
 		{ tag: '${label}', value: label },
@@ -26,5 +25,5 @@ export const MustHaveOnlyOneWord: MustHaveOnlyOneWordInterface = (value: string,
 		}
 	}
 
-	return validationAcceleratorSuggestion(validate, value, label, "MustHaveOnlyOneWord", language, replaceList)
+	return validationAcceleratorSuggestion(validate, value, label, required, "MustHaveOnlyOneWord", language, replaceList)
 };

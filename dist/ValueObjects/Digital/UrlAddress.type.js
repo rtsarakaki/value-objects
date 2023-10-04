@@ -15,9 +15,13 @@ class UrlAddress extends Types_1.GenericType {
             () => (0, Validations_1.CannotBeBlank)(urlTrimmed, msg, required),
             () => (0, Validations_1.IsValidUrl)(sanitezedUrl, msg),
         ]);
-        this.value = sanitezedUrl;
         if (this.errors.length === 0) {
+            this.value = sanitezedUrl;
             this._urlObject = new URL(this.value);
+        }
+        else {
+            this.value = '';
+            this._urlObject = null;
         }
     }
     get hostname() {

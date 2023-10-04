@@ -4,10 +4,10 @@ import { GenericValidation } from "../Types";
 import { validateLabel, validationAcceleratorSuggestion } from "./ValidationsTools";
 
 interface RegexMatchInterface extends GenericValidation {
-	(value: string, textRegex: string, regexExplanation: string, label: string, language?: string): InvalidValue | null;
+	(value: string, label: string, textRegex: string, regexExplanation: string, required?: boolean, language?: string): InvalidValue | null;
 }
 
-export const RegexMatch: RegexMatchInterface = (value: string, textRegex: string, regexExplanation: string, label: string, language: string = 'en-US') => {
+export const RegexMatch: RegexMatchInterface = (value: string, label: string, textRegex: string, regexExplanation: string, required: boolean = true, language: string = 'en-US') => {
 
 	function validate(value: string, errorMessage: string) {
 
@@ -26,7 +26,7 @@ export const RegexMatch: RegexMatchInterface = (value: string, textRegex: string
 		{ tag: '${label}', value: label },
 		{ tag: '${regex}', value: regexExplanation },
 	]
-	return validationAcceleratorSuggestion(validate, value, label, "RegexMatch", language, replaceList)
+	return validationAcceleratorSuggestion(validate, value, label, required, "RegexMatch", language, replaceList)
 };
 
 const createRegexFromString = (regexString: string): RegExp => {

@@ -51,7 +51,7 @@ describe('CannotHaveSpecialCharacters', () => {
 		]
 
 		invalidValues.map(({ value, label }) => {
-			const result = CannotContainSpecialCharacters(value as string, label)
+			const result = CannotContainSpecialCharacters(value as string, label, true)
 			expect(result).toBeInstanceOf(InvalidValue)
 			expect(result?.message).toEqual(`${label} cannot contain special characters.`)
 		})
@@ -77,7 +77,7 @@ deserunt mollit anim id est laborum`, label: 'name'
 		]
 
 		validValues.map(({ value, label }) => {
-			const result = CannotContainSpecialCharacters(value, label)
+			const result = CannotContainSpecialCharacters(value, label, true)
 			expect(result).toBeNull()
 		})
 	})
@@ -92,7 +92,7 @@ deserunt mollit anim id est laborum`, label: 'name'
 		]
 
 		labels.map(label => {
-			const result = CannotContainSpecialCharacters('North', label as string)
+			const result = CannotContainSpecialCharacters('North', label as string, true)
 			expect(result).toBeInstanceOf(InvalidValue)
 			expect(result?.message).toEqual('Label cannot be empty.')
 		})

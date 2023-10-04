@@ -3,12 +3,12 @@ import { CannotBeBlank } from "../../Validations/CannotBeBlank.validation";
 import { MustHaveAtLeastXCharacters } from "../../Validations/MustHaveAtLeastXCharacters.validation";
 
 export class LongDescription extends GenericType {
-  constructor(value: string, label: string, required = true, ...customValidators: GenericValidation[]) {
+  constructor(value: string, label: string, required = true, language: string = 'en-US', ...customValidators: GenericValidation[]) {
     const msg = label ?? 'Long Description';
     super(value);
     const defaultValidators = [
-      () => CannotBeBlank(value, msg, required),
-      () => MustHaveAtLeastXCharacters(value, msg, 2),
+      () => CannotBeBlank(value, msg, required, language),
+      () => MustHaveAtLeastXCharacters(value, msg, 2, required, language),
     ]
     const validators = customValidators.length > 0 ? [...defaultValidators, ...customValidators] : defaultValidators;
     this.validate(validators);

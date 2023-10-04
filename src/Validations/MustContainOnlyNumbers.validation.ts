@@ -3,10 +3,10 @@ import { GenericValidation } from "../Types";
 import { validationAcceleratorSuggestion } from "./ValidationsTools";
 
 interface MustContainOnlyNumbersInterface extends GenericValidation {
-	(value: string, label: string, language?: string): InvalidValue | null;
+	(value: string, label: string, required?: boolean, language?: string): InvalidValue | null;
 }
 
-export const MustContainOnlyNumbers: MustContainOnlyNumbersInterface = (value: string, label: string, language: string = 'en-US') => {
+export const MustContainOnlyNumbers: MustContainOnlyNumbersInterface = (value: string, label: string, required: boolean = true, language: string = 'en-US') => {
 
 	function validate(value: string, errorMessage: string) {
 		if (typeof value !== 'string') return new InvalidValue(errorMessage);
@@ -16,5 +16,5 @@ export const MustContainOnlyNumbers: MustContainOnlyNumbersInterface = (value: s
 	}
 
 	const replaceList = [{ tag: '${label}', value: label }]
-	return validationAcceleratorSuggestion(validate, value, label, "MustContainOnlyNumbers", language, replaceList)
+	return validationAcceleratorSuggestion(validate, value, label, required, "MustContainOnlyNumbers", language, replaceList)
 };

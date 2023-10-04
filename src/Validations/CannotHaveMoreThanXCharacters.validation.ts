@@ -3,10 +3,10 @@ import { GenericValidation } from "../Types";
 import { validationAcceleratorSuggestion } from "./ValidationsTools";
 
 interface CannotHaveMoreThanXCharactersInterface extends GenericValidation {
-	(value: string, label: string, charactersNumber: number, language?: string): InvalidValue | null;
+	(value: string, label: string, charactersNumber: number, required?: boolean, language?: string): InvalidValue | null;
 }
 
-export const CannotHaveMoreThanXCharacters: CannotHaveMoreThanXCharactersInterface = (value: string, label: string, charactersNumber: number, language: string = 'en-US') => {
+export const CannotHaveMoreThanXCharacters: CannotHaveMoreThanXCharactersInterface = (value: string, label: string, charactersNumber: number, required: boolean = true, language: string = 'en-US') => {
 
 	function validate(value: string, errorMessage: string) {
 		try {
@@ -22,6 +22,6 @@ export const CannotHaveMoreThanXCharacters: CannotHaveMoreThanXCharactersInterfa
 		{ tag: '${label}', value: label },
 		{ tag: '${charactersNumber}', value: charactersNumber.toString() }
 	]
-	return validationAcceleratorSuggestion(validate, value, label, "CannotHaveMoreThanXCharacters", language, replaceList)
+	return validationAcceleratorSuggestion(validate, value, label, required, "CannotHaveMoreThanXCharacters", language, replaceList)
 };
 
