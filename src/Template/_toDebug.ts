@@ -1,5 +1,5 @@
-const value: Date | string = new Date()
+// const value: Date | string = new Date()
 
-const convertedToString = value instanceof Date ? value.toISOString() : value.toString()
+// const convertedToString = value instanceof Date ? value.toISOString() : value.toString()
 
-console.log(convertedToString)
+// console.log(convertedToString)
