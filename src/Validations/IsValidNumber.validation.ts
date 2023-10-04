@@ -10,8 +10,6 @@ export const IsValidNumber: IsValidNumberInterface = (value: number | string, la
 
 	const numberToString = value?.toString() ?? undefined;
 
-	console.log('numberToString', numberToString)
-	
 	function validate(value: number | string, errorMessage: string) {
 
 		const convertedToNumber = convertStringToNumber(value);

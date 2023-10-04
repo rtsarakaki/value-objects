@@ -15,12 +15,9 @@ export const IsPositiveInteger: IsPositiveIntegerInterface = (value: number | st
 
 		const convertedToNumber = convertStringToNumber(value);
 
-		console.log(convertedToNumber)
-
 		if (convertedToNumber instanceof InvalidValue) return new InvalidValue(errorMessage, convertedToNumber) 
 
 		const isInteger = Number.isInteger(convertedToNumber)
-		console.log(isInteger)
 		if (!isInteger) return new InvalidValue(errorMessage, new InvalidValue(`Value '${value}' is not an integer`))
 
 		const isPositive = convertedToNumber >= 0;

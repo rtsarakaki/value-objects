@@ -11,9 +11,8 @@ export class UrlAddress extends GenericType {
     super(url);
 
     const urlTrimmed = (typeof url !== 'string') ? '' : url.trim()
-    console.log(`Required ${required} and Length ${urlTrimmed.length}`)
-    if (!required && urlTrimmed.length === 0) {
-      console.log('Not required and empty')
+    const isEmpty = (urlTrimmed.length === 0 || urlTrimmed === 'http://')
+    if (!required && isEmpty) {
       this.value = '';
       this._urlObject = null
       return

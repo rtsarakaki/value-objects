@@ -13,7 +13,6 @@ export const ValidationDecorator: ValidationDecoratorInterface = (label: string,
 		const addError = (error: Error) => {
 			value = error;
 			let errors = target['errors'];
-			console.log(target);
 			if (!errors) {
 				errors = [];
 			}

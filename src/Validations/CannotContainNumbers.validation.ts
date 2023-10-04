@@ -9,7 +9,6 @@ interface CannotContainNumbersInterface extends GenericValidation {
 export const CannotContainNumbers: CannotContainNumbersInterface = (value: string, label: string, required: boolean = true, language: string = 'en-US') => {
 
 	function validate(value: string, errorMessage: string) {
-		console.log('call')
 		const regex = /\d/;
 		return regex.test(value) ? new InvalidValue(errorMessage) : null;
 	}

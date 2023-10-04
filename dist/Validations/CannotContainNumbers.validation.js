@@ -5,7 +5,6 @@ const Errors_1 = require("../Errors");
 const ValidationsTools_1 = require("./ValidationsTools");
 const CannotContainNumbers = (value, label, required = true, language = 'en-US') => {
     function validate(value, errorMessage) {
-        console.log('call');
         const regex = /\d/;
         return regex.test(value) ? new Errors_1.InvalidValue(errorMessage) : null;
     }

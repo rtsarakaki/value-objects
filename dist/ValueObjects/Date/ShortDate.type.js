@@ -20,8 +20,9 @@ class ShortDate extends Types_1.GenericType {
     }
 }
 exports.ShortDate = ShortDate;
-function shortDateFormat(date, outputFormat) {
-    const dateWithoutTime = date.replace(/T\d{2}:\d{2}:\d{2}\.\d{3}Z/, "T00:00:00.000Z");
+function shortDateFormat(value, outputFormat) {
+    const convertedToString = value instanceof Date ? value.toISOString() : value.toString();
+    const dateWithoutTime = convertedToString.replace(/T\d{2}:\d{2}:\d{2}\.\d{3}Z/, "T00:00:00.000Z");
     const dateObj = new Date(dateWithoutTime.trim());
     const day = (dateObj.getUTCDate()).toString();
     const month = (dateObj.getUTCMonth() + 1).toString();

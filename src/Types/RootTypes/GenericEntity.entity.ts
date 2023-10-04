@@ -6,7 +6,6 @@ export class GenericEntity extends GenericType {
   }
 
   public initProp(object: any, value: GenericType, required: boolean = true): GenericType {
-    // console.log('GenericEntity initProp - ', value)
     if (!(value instanceof GenericType)) return value
     const isString = typeof value?.value === 'string';
     const isRequired = required === undefined || required;

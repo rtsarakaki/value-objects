@@ -8,11 +8,9 @@ const IsPositiveInteger = (value, label, required = true, language = 'en-US') =>
     const numberToString = value?.toString() ?? undefined;
     function validate(value, errorMessage) {
         const convertedToNumber = (0, IsValidNumber_validation_1.convertStringToNumber)(value);
-        console.log(convertedToNumber);
         if (convertedToNumber instanceof InvalidValue_error_1.InvalidValue)
             return new InvalidValue_error_1.InvalidValue(errorMessage, convertedToNumber);
         const isInteger = Number.isInteger(convertedToNumber);
-        console.log(isInteger);
         if (!isInteger)
             return new InvalidValue_error_1.InvalidValue(errorMessage, new InvalidValue_error_1.InvalidValue(`Value '${value}' is not an integer`));
         const isPositive = convertedToNumber >= 0;

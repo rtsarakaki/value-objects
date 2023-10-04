@@ -8,7 +8,6 @@ const ValidationDecorator = (label, required, validation) => {
         const addError = (error) => {
             value = error;
             let errors = target['errors'];
-            console.log(target);
             if (!errors) {
                 errors = [];
             }
