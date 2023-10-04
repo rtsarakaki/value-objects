@@ -1,4 +1,3 @@
-import { InvalidValue } from "../../Errors";
 import { GenericError } from "../../Errors/GenericError.error";
 
 export class GenericType {

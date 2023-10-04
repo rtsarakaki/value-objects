@@ -1,5 +1,5 @@
-import { IsValidColor } from "../Validations"
-import { UrlAddress } from "../ValueObjects"
+const value: Date | string = new Date()
 
-const result = new UrlAddress('', 'label of number', false)
-console.log(result)
+const convertedToString = value instanceof Date ? value.toISOString() : value.toString()
+
+console.log(convertedToString)

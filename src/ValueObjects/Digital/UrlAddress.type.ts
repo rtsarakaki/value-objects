@@ -9,7 +9,9 @@ export class UrlAddress extends GenericType {
   constructor(url: string, label: string | null = null, required: boolean = true, language: string = 'en-US', ...customValidators: GenericValidation[]) {
     const msg = label ?? 'URL';
     super(url);
+
     const urlTrimmed = (typeof url !== 'string') ? '' : url.trim()
+    console.log(`Required ${required} and Length ${urlTrimmed.length}`)
     if (!required && urlTrimmed.length === 0) {
       console.log('Not required and empty')
       this.value = '';

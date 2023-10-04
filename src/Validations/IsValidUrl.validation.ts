@@ -93,11 +93,9 @@ export function validateProtocol(protocol: string, url: string): InvalidValue | 
 	];
 
 	const validation = protocolValidations.find((pv) => pv.protocol === protocol);
-	console.log('validation', validation, protocol)
 	if (validation === undefined) return null
 
 	const validationResult =  validation.regex.test(url) 
-	console.log('validationResult', validationResult)
 	return validationResult ? null : new InvalidValue(validation.errorMessage)
 
 }
