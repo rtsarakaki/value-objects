@@ -1,5 +1,4 @@
-// const value: Date | string = new Date()
+import { ShortDate, UrlAddress } from "../ValueObjects"
 
-// const convertedToString = value instanceof Date ? value.toISOString() : value.toString()
-
-// console.log(convertedToString)
+const result = new ShortDate('2023-11-15', 'lebal')
+console.log(result)

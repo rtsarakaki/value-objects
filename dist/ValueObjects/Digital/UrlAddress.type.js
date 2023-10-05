@@ -10,7 +10,8 @@ class UrlAddress extends Types_1.GenericType {
         super(url);
         this._urlObject = null;
         const urlTrimmed = (typeof url !== 'string') ? '' : url.trim();
-        if (!required && urlTrimmed.length === 0) {
+        const isEmpty = (urlTrimmed.length === 0 || urlTrimmed === 'http://');
+        if (!required && isEmpty) {
             this.value = '';
             this._urlObject = null;
             return;

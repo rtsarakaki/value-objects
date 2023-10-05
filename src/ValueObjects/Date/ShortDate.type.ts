@@ -5,7 +5,7 @@ type inputAccepted = string | Date;
 
 export class ShortDate extends GenericType {
 
-  constructor(value: inputAccepted, label: string | null = null, outputFormat: string, required = true, language: string = 'en-US', ...customValidators: GenericValidation[]) {
+  constructor(value: inputAccepted, label: string | null = null, outputFormat: string = 'yyyy-MM-dd', required = true, language: string = 'en-US', ...customValidators: GenericValidation[]) {
     super(value);
 
     const convertedToString = value instanceof Date ? value.toISOString() : value.toString()
@@ -24,7 +24,7 @@ export class ShortDate extends GenericType {
   }
 }
 
-export function shortDateFormat(value: inputAccepted, outputFormat: string) {
+export function shortDateFormat(value: inputAccepted, outputFormat: string = 'yyyy-MM-dd') {
   const convertedToString = value instanceof Date ? value.toISOString() : value.toString()
 
   const dateWithoutTime = convertedToString.replace(/T\d{2}:\d{2}:\d{2}\.\d{3}Z/, "T00:00:00.000Z");
