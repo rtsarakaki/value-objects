@@ -20,6 +20,6 @@ export class Number extends GenericType {
 	}
 }
 
-export function createNumber(value: number | string, label: string) {
-	return new Number(value, label);
+export function createNumber(value: number | string, label: string, required: boolean = true, language: string = 'en-US', ...customValidators: GenericValidation[]) {
+	return new Number(value, label, required, language, ...customValidators);
 }

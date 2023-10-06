@@ -11,7 +11,8 @@ export const IsValidEmail: IsValidEmailInterface = (value: string, label: string
 	function validateEmail(email: string, errorMessage: string) {
 		try {
 			if (typeof email !== 'string') return new InvalidValue(errorMessage);
-			return /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i.test(email) ? null : new InvalidValue(errorMessage);
+			return /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i.test(email) && !/^[.-]|[-.]$|([.-]{2,})/i.test(email) ? null : new InvalidValue(errorMessage);
+			
 		} catch (err) {
 			return new InvalidValue(errorMessage);
 		}

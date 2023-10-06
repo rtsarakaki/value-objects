@@ -1,4 +1,5 @@
-import { ShortDate, UrlAddress } from "../ValueObjects"
+import { PhoneNumberBR } from "../ValueObjects/Contact/PhoneNumberBR.type";
 
-const result = new ShortDate('2023-11-15', 'lebal')
+const result = new PhoneNumberBR('(21) 9999-9999', 'Phone number');
 console.log(result)
+

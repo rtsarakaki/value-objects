@@ -23,6 +23,6 @@ export class SingleWord extends GenericType {
   }
 }
 
-export function createSingleWord(value: string, label: string | null = null) {
-  return new SingleWord(value, label);
+export function createSingleWord(value: string, label: string | null = null, required: boolean = true, language: string = 'en-US', ...customValidators: GenericValidation[]) {
+  return new SingleWord(value, label, required, language, ...customValidators);
 }

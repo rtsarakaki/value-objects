@@ -5,7 +5,7 @@ function S4() {
   return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
 }
 
-export function GenerateUUID(label: string) {
+export function GenerateUUID(label: string, required: boolean = true, language: string = 'en-US', ...customValidators: GenericValidation[]) {
   return new UUID(
     (
       S4() +
@@ -21,7 +21,7 @@ export function GenerateUUID(label: string) {
       S4() +
       S4()
     ).toLowerCase(),
-    label,
+    label, required, language, ...customValidators
   );
 }
 
@@ -43,10 +43,10 @@ export class UUID extends GenericType {
 }
 
 // why?
-export function createUUID(value: string | null, label: string) {
+export function createUUID(value: string | null, label: string, required: boolean = true, language: string = 'en-US', ...customValidators: GenericValidation[]) {
   if (!value || value.trim() === '') {
-    return GenerateUUID(label);
+    return GenerateUUID(label, required, language, ...customValidators);
   } else {
-    return new UUID(value, label);
+    return new UUID(value, label, required, language, ...customValidators);
   }
 }

@@ -76,8 +76,8 @@ export class UrlAddress extends GenericType {
 
 }
 
-export function createUrlAddress(value: string, label: string | null = null) {
-  return new UrlAddress(value, label);
+export function createUrlAddress(value: string, label: string | null = null, required: boolean = true, language: string = 'en-US', ...customValidators: GenericValidation[]) {
+  return new UrlAddress(value, label, required, language, ...customValidators);
 }
 
 export function addDefaultProtocol(url: string): string {

@@ -18,8 +18,8 @@ export class Title extends GenericType {
   }
 }
 
-export function createTitle(value: string, label: string) {
-  return new Title(value, label);
+export function createTitle(value: string, label: string, required: boolean = true, language: string = 'en-US', ...customValidators: GenericValidation[]) {
+  return new Title(value, label, required, language, ...customValidators);
 }
 
 export function capitalizeText(value: string) {

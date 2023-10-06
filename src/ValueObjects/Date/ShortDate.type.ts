@@ -38,6 +38,6 @@ export function shortDateFormat(value: inputAccepted, outputFormat: string = 'yy
   return formatedDate
 }
 
-export function createShortDate(value: inputAccepted, label: string | null = null, outputFormat: string) {
-  return new ShortDate(value, label, outputFormat);
+export function createShortDate(value: inputAccepted, label: string | null = null, outputFormat: string, required: boolean = true, language: string = 'en-US', ...customValidators: GenericValidation[]) {
+  return new ShortDate(value, label, outputFormat, required, language, ...customValidators);
 }

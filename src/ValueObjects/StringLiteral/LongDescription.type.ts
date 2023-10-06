@@ -18,6 +18,6 @@ export class LongDescription extends GenericType {
   }
 }
 
-export function createLongDescription(value: string, label: string) {
-  return new LongDescription(value, label);
+export function createLongDescription(value: string, label: string, required: boolean = true, language: string = 'en-US', ...customValidators: GenericValidation[]) {
+  return new LongDescription(value, label, required, language, ...customValidators);
 }

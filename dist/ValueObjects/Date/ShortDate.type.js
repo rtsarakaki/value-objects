@@ -4,7 +4,7 @@ exports.createShortDate = exports.shortDateFormat = exports.ShortDate = void 0;
 const Types_1 = require("../../Types");
 const Validations_1 = require("../../Validations");
 class ShortDate extends Types_1.GenericType {
-    constructor(value, label = null, outputFormat, required = true, language = 'en-US', ...customValidators) {
+    constructor(value, label = null, outputFormat = 'yyyy-MM-dd', required = true, language = 'en-US', ...customValidators) {
         super(value);
         const convertedToString = value instanceof Date ? value.toISOString() : value.toString();
         const msg = label ?? 'Short Date';
@@ -20,7 +20,7 @@ class ShortDate extends Types_1.GenericType {
     }
 }
 exports.ShortDate = ShortDate;
-function shortDateFormat(value, outputFormat) {
+function shortDateFormat(value, outputFormat = 'yyyy-MM-dd') {
     const convertedToString = value instanceof Date ? value.toISOString() : value.toString();
     const dateWithoutTime = convertedToString.replace(/T\d{2}:\d{2}:\d{2}\.\d{3}Z/, "T00:00:00.000Z");
     const dateObj = new Date(dateWithoutTime.trim());

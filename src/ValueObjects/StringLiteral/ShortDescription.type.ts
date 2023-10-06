@@ -22,6 +22,6 @@ export class ShortDescription extends GenericType {
   }
 }
 
-export function createShortDescription(value: string, label: string) {
-  return new ShortDescription(value, label);
+export function createShortDescription(value: string, label: string, required: boolean = true, language: string = 'en-US', ...customValidators: GenericValidation[]) {
+  return new ShortDescription(value, label, required, language, ...customValidators);
 }

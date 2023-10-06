@@ -29,6 +29,6 @@ function formatValue(value: string) {
   return value.toString().trim().toLowerCase();
 }
 
-export function createKebabCode(value: string, label: string | null = null) {
-  return new KebabCode(value, label);
+export function createKebabCode(value: string, label: string | null = null, required: boolean = true, language: string = 'en-US', ...customValidators: GenericValidation[]) {
+  return new KebabCode(value, label, required, language, ...customValidators);
 }

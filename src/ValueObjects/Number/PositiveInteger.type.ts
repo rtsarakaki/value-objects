@@ -20,6 +20,6 @@ export class PositiveInteger extends GenericType {
 	}
 }
 
-export function createPositiveInteger(value: number | string, label: string) {
-	return new PositiveInteger(value, label);
+export function createPositiveInteger(value: number | string, label: string, required: boolean = true, language: string = 'en-US', ...customValidators: GenericValidation[]) {
+	return new PositiveInteger(value, label, required, language, ...customValidators);
 }
