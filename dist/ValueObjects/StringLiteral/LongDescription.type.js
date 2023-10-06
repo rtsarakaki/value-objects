@@ -20,7 +20,7 @@ class LongDescription extends Types_1.GenericType {
     }
 }
 exports.LongDescription = LongDescription;
-function createLongDescription(value, label) {
-    return new LongDescription(value, label);
+function createLongDescription(value, label, required = true, language = 'en-US', ...customValidators) {
+    return new LongDescription(value, label, required, language, ...customValidators);
 }
 exports.createLongDescription = createLongDescription;

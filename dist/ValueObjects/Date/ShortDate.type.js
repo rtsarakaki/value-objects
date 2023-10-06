@@ -33,7 +33,7 @@ function shortDateFormat(value, outputFormat = 'yyyy-MM-dd') {
     return formatedDate;
 }
 exports.shortDateFormat = shortDateFormat;
-function createShortDate(value, label = null, outputFormat) {
-    return new ShortDate(value, label, outputFormat);
+function createShortDate(value, label = null, outputFormat, required = true, language = 'en-US', ...customValidators) {
+    return new ShortDate(value, label, outputFormat, required, language, ...customValidators);
 }
 exports.createShortDate = createShortDate;

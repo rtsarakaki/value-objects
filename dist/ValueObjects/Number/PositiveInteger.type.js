@@ -20,7 +20,7 @@ class PositiveInteger extends Types_1.GenericType {
     }
 }
 exports.PositiveInteger = PositiveInteger;
-function createPositiveInteger(value, label) {
-    return new PositiveInteger(value, label);
+function createPositiveInteger(value, label, required = true, language = 'en-US', ...customValidators) {
+    return new PositiveInteger(value, label, required, language, ...customValidators);
 }
 exports.createPositiveInteger = createPositiveInteger;

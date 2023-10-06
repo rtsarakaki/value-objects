@@ -26,3 +26,12 @@ export { createNumber } from './Number/Number.type'
 
 export { UrlAddress } from './Digital/UrlAddress.type'
 export { createUrlAddress } from './Digital/UrlAddress.type'
+
+export { Email } from './Contact/Email.type'
+export { createEmail } from './Contact/Email.type'
+
+export { SlackChannelPattern } from './Contact/SlackChannelPattern.type'
+export { createSlackChannelPattern } from './Contact/SlackChannelPattern.type'
+
+export { PhoneNumberBR } from './Contact/PhoneNumberBR.type'
+export { createPhoneNumberBR } from './Contact/PhoneNumberBR.type'

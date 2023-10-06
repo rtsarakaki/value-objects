@@ -24,7 +24,7 @@ class SingleWord extends Types_1.GenericType {
     }
 }
 exports.SingleWord = SingleWord;
-function createSingleWord(value, label = null) {
-    return new SingleWord(value, label);
+function createSingleWord(value, label = null, required = true, language = 'en-US', ...customValidators) {
+    return new SingleWord(value, label, required, language, ...customValidators);
 }
 exports.createSingleWord = createSingleWord;

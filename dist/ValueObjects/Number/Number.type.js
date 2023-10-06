@@ -20,7 +20,7 @@ class Number extends Types_1.GenericType {
     }
 }
 exports.Number = Number;
-function createNumber(value, label) {
-    return new Number(value, label);
+function createNumber(value, label, required = true, language = 'en-US', ...customValidators) {
+    return new Number(value, label, required, language, ...customValidators);
 }
 exports.createNumber = createNumber;

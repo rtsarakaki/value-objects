@@ -21,3 +21,5 @@ export { Number } from './Number/Number.type';
 export { createNumber } from './Number/Number.type';
 export { UrlAddress } from './Digital/UrlAddress.type';
 export { createUrlAddress } from './Digital/UrlAddress.type';
+export { Email } from './Contact/Email.type';
+export { createEmail } from './Contact/Email.type';

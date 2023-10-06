@@ -22,7 +22,7 @@ class ShortDescription extends Types_1.GenericType {
     }
 }
 exports.ShortDescription = ShortDescription;
-function createShortDescription(value, label) {
-    return new ShortDescription(value, label);
+function createShortDescription(value, label, required = true, language = 'en-US', ...customValidators) {
+    return new ShortDescription(value, label, required, language, ...customValidators);
 }
 exports.createShortDescription = createShortDescription;

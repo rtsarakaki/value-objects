@@ -8,7 +8,7 @@ const IsValidEmail = (value, label, required = true, language = 'en-US') => {
         try {
             if (typeof email !== 'string')
                 return new InvalidValue_error_1.InvalidValue(errorMessage);
-            return /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i.test(email) ? null : new InvalidValue_error_1.InvalidValue(errorMessage);
+            return /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i.test(email) && !/^[.-]|[-.]$|([.-]{2,})/i.test(email) ? null : new InvalidValue_error_1.InvalidValue(errorMessage);
         }
         catch (err) {
             return new InvalidValue_error_1.InvalidValue(errorMessage);

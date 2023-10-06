@@ -6,7 +6,7 @@ const Validations_1 = require("../../Validations");
 function S4() {
     return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
 }
-function GenerateUUID(label) {
+function GenerateUUID(label, required = true, language = 'en-US', ...customValidators) {
     return new UUID((S4() +
         S4() +
         '-' +
@@ -18,7 +18,7 @@ function GenerateUUID(label) {
         '-' +
         S4() +
         S4() +
-        S4()).toLowerCase(), label);
+        S4()).toLowerCase(), label, required, language, ...customValidators);
 }
 exports.GenerateUUID = GenerateUUID;
 class UUID extends Types_1.GenericType {
@@ -39,12 +39,12 @@ class UUID extends Types_1.GenericType {
     }
 }
 exports.UUID = UUID;
-function createUUID(value, label) {
+function createUUID(value, label, required = true, language = 'en-US', ...customValidators) {
     if (!value || value.trim() === '') {
-        return GenerateUUID(label);
+        return GenerateUUID(label, required, language, ...customValidators);
     }
     else {
-        return new UUID(value, label);
+        return new UUID(value, label, required, language, ...customValidators);
     }
 }
 exports.createUUID = createUUID;

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createUrlAddress = exports.UrlAddress = exports.createNumber = exports.Number = exports.createPositiveInteger = exports.PositiveInteger = exports.createUUID = exports.UUID = exports.createKebabCode = exports.KebabCode = exports.createTitle = exports.Title = exports.createSingleWord = exports.SingleWord = exports.createShortDescription = exports.ShortDescription = exports.createLongDescription = exports.LongDescription = exports.createFullName = exports.FullName = exports.shortDateFormat = exports.createShortDate = exports.ShortDate = void 0;
+exports.createEmail = exports.Email = exports.createUrlAddress = exports.UrlAddress = exports.createNumber = exports.Number = exports.createPositiveInteger = exports.PositiveInteger = exports.createUUID = exports.UUID = exports.createKebabCode = exports.KebabCode = exports.createTitle = exports.Title = exports.createSingleWord = exports.SingleWord = exports.createShortDescription = exports.ShortDescription = exports.createLongDescription = exports.LongDescription = exports.createFullName = exports.FullName = exports.shortDateFormat = exports.createShortDate = exports.ShortDate = void 0;
 var ShortDate_type_1 = require("./Date/ShortDate.type");
 Object.defineProperty(exports, "ShortDate", { enumerable: true, get: function () { return ShortDate_type_1.ShortDate; } });
 var ShortDate_type_2 = require("./Date/ShortDate.type");
@@ -47,3 +47,7 @@ var UrlAddress_type_1 = require("./Digital/UrlAddress.type");
 Object.defineProperty(exports, "UrlAddress", { enumerable: true, get: function () { return UrlAddress_type_1.UrlAddress; } });
 var UrlAddress_type_2 = require("./Digital/UrlAddress.type");
 Object.defineProperty(exports, "createUrlAddress", { enumerable: true, get: function () { return UrlAddress_type_2.createUrlAddress; } });
+var Email_type_1 = require("./Contact/Email.type");
+Object.defineProperty(exports, "Email", { enumerable: true, get: function () { return Email_type_1.Email; } });
+var Email_type_2 = require("./Contact/Email.type");
+Object.defineProperty(exports, "createEmail", { enumerable: true, get: function () { return Email_type_2.createEmail; } });

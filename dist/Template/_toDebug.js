@@ -1,5 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const ValueObjects_1 = require("../ValueObjects");
-const result = new ValueObjects_1.ShortDate('2023-11-15', 'lebal');
+const PhoneNumberBR_type_1 = require("../ValueObjects/Contact/PhoneNumberBR.type");
+const result = new PhoneNumberBR_type_1.PhoneNumberBR('(21) 9999-9999', 'Phone number');
 console.log(result);

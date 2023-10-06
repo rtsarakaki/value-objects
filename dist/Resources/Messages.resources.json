@@ -286,6 +286,32 @@
                     "message": "${label} não é um inteiro positivo."
                 }
             ]
+        },
+        {
+            "key": "IsValidSlackChannel",
+            "messages": [
+                {
+                    "language": "en-US",
+                    "message": "${label} is not a valid slack channel format."
+                },
+                {
+                    "language": "pt-BR",
+                    "message": "${label} não é um formato válido para canal slack."
+                }
+            ]
+        },
+        {
+            "key": "IsValidMobilePhoneNumberBR",
+            "messages": [
+                {
+                    "language": "en-US",
+                    "message": "${label} is not a valid mobile phone number in Brazil."
+                },
+                {
+                    "language": "pt-BR",
+                    "message": "${label} não é um formato válido para telefone celular."
+                }
+            ]
         }
     ]
 }

@@ -32,7 +32,7 @@ function formatValue(value) {
         return '';
     return value.toString().trim().toLowerCase();
 }
-function createKebabCode(value, label = null) {
-    return new KebabCode(value, label);
+function createKebabCode(value, label = null, required = true, language = 'en-US', ...customValidators) {
+    return new KebabCode(value, label, required, language, ...customValidators);
 }
 exports.createKebabCode = createKebabCode;

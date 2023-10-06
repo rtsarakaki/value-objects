@@ -12,5 +12,5 @@ export declare class UrlAddress extends GenericType {
     get search(): string;
     get params(): URLSearchParams | undefined;
 }
-export declare function createUrlAddress(value: string, label?: string | null): UrlAddress;
+export declare function createUrlAddress(value: string, label?: string | null, required?: boolean, language?: string, ...customValidators: GenericValidation[]): UrlAddress;
 export declare function addDefaultProtocol(url: string): string;

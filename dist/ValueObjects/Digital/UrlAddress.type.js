@@ -61,8 +61,8 @@ class UrlAddress extends Types_1.GenericType {
     }
 }
 exports.UrlAddress = UrlAddress;
-function createUrlAddress(value, label = null) {
-    return new UrlAddress(value, label);
+function createUrlAddress(value, label = null, required = true, language = 'en-US', ...customValidators) {
+    return new UrlAddress(value, label, required, language, ...customValidators);
 }
 exports.createUrlAddress = createUrlAddress;
 function addDefaultProtocol(url) {

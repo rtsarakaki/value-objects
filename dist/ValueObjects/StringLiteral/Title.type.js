@@ -21,8 +21,8 @@ class Title extends Types_1.GenericType {
     }
 }
 exports.Title = Title;
-function createTitle(value, label) {
-    return new Title(value, label);
+function createTitle(value, label, required = true, language = 'en-US', ...customValidators) {
+    return new Title(value, label, required, language, ...customValidators);
 }
 exports.createTitle = createTitle;
 function capitalizeText(value) {
