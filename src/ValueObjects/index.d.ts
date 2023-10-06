@@ -35,3 +35,6 @@ export { createSlackChannelPattern } from './Contact/SlackChannelPattern.type'
 
 export { PhoneNumberBR } from './Contact/PhoneNumberBR.type'
 export { createPhoneNumberBR } from './Contact/PhoneNumberBR.type'
+
+export { Contact } from './Contact/Contact.type'
+export { createContact } from './Contact/Contact.type'
