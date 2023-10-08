@@ -19,7 +19,6 @@ export class PhoneNumberBR extends GenericType {
 
 		if(this.errors.length === 0) {
 			this.value = formatPhoneNumberBR(normalizedPhoneNumber as string)
-			console.log(this.value)
 		}
 	}
 }

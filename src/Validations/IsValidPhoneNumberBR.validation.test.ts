@@ -66,5 +66,5 @@ test('should return null for an empty optional input', () => {
 test('should return an error for a required empty input', () => {
 	const result = IsValidPhoneNumberBR('', 'Phone number', true);
 	expect(result).not.toBeNull();
-	expect(result?.message).toBe('Phone number is not a valid mobile phone number in Brazil.');
+	expect(result?.message).toBe('Phone number is not a valid phone number.');
 });

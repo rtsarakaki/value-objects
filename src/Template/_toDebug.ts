@@ -1,5 +1,6 @@
-import { PhoneNumberBR } from "../ValueObjects/Contact/PhoneNumberBR.type";
+const firstNumber: number = 1 
+const secondNumber: string = '1'
 
-const result = new PhoneNumberBR('(21) 9999-9999', 'Phone number');
-console.log(result)
+console.log(firstNumber + secondNumber)
+
 

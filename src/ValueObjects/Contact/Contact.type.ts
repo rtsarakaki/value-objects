@@ -1,10 +1,12 @@
+import { GenericError, InvalidValue } from "../../Errors";
+import { getResourceMessageByKey } from "../../Resources/Messages.resource";
 import { GenericType, GenericValidation } from "../../Types";
 import { ShortDescription } from "../StringLiteral/ShortDescription.type";
 import { Email } from "./Email.type";
 import { PhoneNumberBR } from "./PhoneNumberBR.type";
 import { SlackChannelPattern } from "./SlackChannelPattern.type";
 
-type ContactType = 'SlackChannel' | 'Email' | 'Phone';
+export type ContactType = 'SlackChannel' | 'Email' | 'Phone';
 
 export class Contact extends GenericType {
 	_type: ContactType
@@ -32,10 +34,16 @@ export class Contact extends GenericType {
 				this.value = phone.value;
 				break;
 			default:
+				const errorMessage = getResourceMessageByKey("ContactWithoutType", language)
+				this.errors.push(new InvalidValue(errorMessage, null))
 				break;
 		}
 
 		this._description = new ShortDescription(description, msg, required, language, ...customValidators);
+		if (this._description.errors.length > 0) {
+			this.errors.push(this._description.errors[0])
+		}
+		
 		this._type = type;
 	}
 

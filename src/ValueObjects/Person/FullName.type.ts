@@ -44,34 +44,43 @@ export function createFullName(name: string, label: string, required = true) {
   return new FullName(name, label, required);
 }
 
-export function formatFullName(fullName: string) {
-  fullName = fullName.trim();
-  fullName = fullName.replace(/[^\w\sÀ-ú]/gi, '');
-  fullName = fullName.replace(/\d+/g, '');
-  fullName = fullName.toLowerCase().replace(/(?:^|\s)\S/g, function (capitalize) {
-    return capitalize.toUpperCase();
-  });
+type Prepositions = {
+  'Da': string;
+  'Do': string;
+  'Das': string;
+  'Dos': string;
+  'A': string;
+  'E': string;
+  'De': string;
+  'La': string;
+};
 
-  var arrayOfPrepositionsWithFirstLetterCapitalized = ['Da', 'Do', 'Das', 'Dos', 'A', 'E', 'De', 'La'];
-  var arrayOfPrepositionsWithFirstLetterLowerCase = ['da', 'do', 'das', 'dos', 'a', 'e', 'de', 'la'];
+const removeSpecialCharacters = (str: string) => str.replace(/[^\w\sÀ-ú]/gi, '');
+const removeNumbers = (str: string) => str.replace(/\d+/g, '');
+const capitalizeFirstLetter = (str: string) => str.toLowerCase().replace(/(?:^|\s)\S/g, (capitalize) => capitalize.toUpperCase());
+const replacePrepositions = (str: string) => {
+  const prepositions: Prepositions = {
+    'Da': 'da',
+    'Do': 'do',
+    'Das': 'das',
+    'Dos': 'dos',
+    'A': 'a',
+    'E': 'e',
+    'De': 'de',
+    'La': 'la'
+  };
+  return str.split(' ').map(word => prepositions[word as keyof Prepositions] || word).join(' ');
+};
+const removeExtraSpaces = (str: string) => str.trim().replace(/\s+/g, ' ');
 
-  for (var i = arrayOfPrepositionsWithFirstLetterCapitalized.length - 1; i >= 0; i--) {
-    fullName = fullName.replace(
-      RegExp(
-        '\\b' + arrayOfPrepositionsWithFirstLetterCapitalized[i].replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&') + '\\b',
-        'g',
-      ),
-      arrayOfPrepositionsWithFirstLetterLowerCase[i],
-    );
-  }
-  let parts = fullName.split(' ');
-  fullName = '';
-  for (i = 0; i < parts.length; i++) {
-    if (parts[i].trim().length > 0) {
-      fullName = fullName + parts[i] + ' ';
-    }
-  }
-
-  return fullName.trim();
-}
-
+export const formatFullName = (fullName: string) => {
+  return removeExtraSpaces(
+    replacePrepositions(
+      capitalizeFirstLetter(
+        removeNumbers(
+          removeSpecialCharacters(fullName)
+        )
+      )
+    )
+  );
+};
