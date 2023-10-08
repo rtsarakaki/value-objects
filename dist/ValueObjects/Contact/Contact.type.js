@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createContact = exports.Contact = void 0;
+const Errors_1 = require("../../Errors");
+const Messages_resource_1 = require("../../Resources/Messages.resource");
 const Types_1 = require("../../Types");
 const ShortDescription_type_1 = require("../StringLiteral/ShortDescription.type");
 const Email_type_1 = require("./Email.type");
@@ -27,9 +29,14 @@ class Contact extends Types_1.GenericType {
                 this.value = phone.value;
                 break;
             default:
+                const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)("ContactWithoutType", language);
+                this.errors.push(new Errors_1.InvalidValue(errorMessage, null));
                 break;
         }
         this._description = new ShortDescription_type_1.ShortDescription(description, msg, required, language, ...customValidators);
+        if (this._description.errors.length > 0) {
+            this.errors.push(this._description.errors[0]);
+        }
         this._type = type;
     }
     get description() {

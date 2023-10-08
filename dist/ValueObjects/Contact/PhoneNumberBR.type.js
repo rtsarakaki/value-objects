@@ -17,7 +17,6 @@ class PhoneNumberBR extends Types_1.GenericType {
         this.validate(validators);
         if (this.errors.length === 0) {
             this.value = formatPhoneNumberBR(normalizedPhoneNumber);
-            console.log(this.value);
         }
     }
 }

@@ -10,7 +10,7 @@ class FullName extends Types_1.GenericType {
         const msg = label ?? 'Name';
         super(name);
         if (name !== undefined) {
-            const formatedName = formatFullName(name);
+            const formatedName = (0, exports.formatFullName)(name);
             const defaultValidators = [
                 () => (0, CannotBeBlank_validation_1.CannotBeBlank)(formatedName, msg, required, language),
                 () => (0, MustHaveAtLeastXCharacters_validation_1.MustHaveAtLeastXCharacters)(formatedName, msg, 2, required, language),
@@ -45,25 +45,24 @@ function createFullName(name, label, required = true) {
     return new FullName(name, label, required);
 }
 exports.createFullName = createFullName;
-function formatFullName(fullName) {
-    fullName = fullName.trim();
-    fullName = fullName.replace(/[^\w\sÀ-ú]/gi, '');
-    fullName = fullName.replace(/\d+/g, '');
-    fullName = fullName.toLowerCase().replace(/(?:^|\s)\S/g, function (capitalize) {
-        return capitalize.toUpperCase();
-    });
-    var arrayOfPrepositionsWithFirstLetterCapitalized = ['Da', 'Do', 'Das', 'Dos', 'A', 'E', 'De', 'La'];
-    var arrayOfPrepositionsWithFirstLetterLowerCase = ['da', 'do', 'das', 'dos', 'a', 'e', 'de', 'la'];
-    for (var i = arrayOfPrepositionsWithFirstLetterCapitalized.length - 1; i >= 0; i--) {
-        fullName = fullName.replace(RegExp('\\b' + arrayOfPrepositionsWithFirstLetterCapitalized[i].replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&') + '\\b', 'g'), arrayOfPrepositionsWithFirstLetterLowerCase[i]);
-    }
-    let parts = fullName.split(' ');
-    fullName = '';
-    for (i = 0; i < parts.length; i++) {
-        if (parts[i].trim().length > 0) {
-            fullName = fullName + parts[i] + ' ';
-        }
-    }
-    return fullName.trim();
-}
+const removeSpecialCharacters = (str) => str.replace(/[^\w\sÀ-ú]/gi, '');
+const removeNumbers = (str) => str.replace(/\d+/g, '');
+const capitalizeFirstLetter = (str) => str.toLowerCase().replace(/(?:^|\s)\S/g, (capitalize) => capitalize.toUpperCase());
+const replacePrepositions = (str) => {
+    const prepositions = {
+        'Da': 'da',
+        'Do': 'do',
+        'Das': 'das',
+        'Dos': 'dos',
+        'A': 'a',
+        'E': 'e',
+        'De': 'de',
+        'La': 'la'
+    };
+    return str.split(' ').map(word => prepositions[word] || word).join(' ');
+};
+const removeExtraSpaces = (str) => str.trim().replace(/\s+/g, ' ');
+const formatFullName = (fullName) => {
+    return removeExtraSpaces(replacePrepositions(capitalizeFirstLetter(removeNumbers(removeSpecialCharacters(fullName)))));
+};
 exports.formatFullName = formatFullName;

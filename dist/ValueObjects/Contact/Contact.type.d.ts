@@ -1,6 +1,6 @@
 import { GenericType, GenericValidation } from "../../Types";
 import { ShortDescription } from "../StringLiteral/ShortDescription.type";
-type ContactType = 'SlackChannel' | 'Email' | 'Phone';
+export type ContactType = 'SlackChannel' | 'Email' | 'Phone';
 export declare class Contact extends GenericType {
     _type: ContactType;
     _description: ShortDescription;
@@ -9,4 +9,3 @@ export declare class Contact extends GenericType {
     get type(): ContactType;
 }
 export declare function createContact(value: string, type: ContactType, description: string, label?: string | null, required?: boolean, language?: string, ...customValidators: GenericValidation[]): Contact;
-export {};

@@ -305,11 +305,37 @@
             "messages": [
                 {
                     "language": "en-US",
-                    "message": "${label} is not a valid mobile phone number in Brazil."
+                    "message": "${label} is not a valid phone number."
                 },
                 {
                     "language": "pt-BR",
-                    "message": "${label} não é um formato válido para telefone celular."
+                    "message": "${label} não é um formato válido para telefone."
+                }
+            ]
+        },
+        {
+            "key": "ContactWithoutType",
+            "messages": [
+                {
+                    "language": "en-US",
+                    "message": "Contact type is required."
+                },
+                {
+                    "language": "pt-BR",
+                    "message": "O tipo do contato é obrigatório."
+                }
+            ]
+        },
+        {
+            "key": "CollectionThatDoesNotAllowDuplicates",
+            "messages": [
+                {
+                    "language": "en-US",
+                    "message": "Item with key ${key} already exists in collection ${this._label}."
+                },
+                {
+                    "language": "pt-BR",
+                    "message": "O item com a chave ${key} já existe na coleção ${this.label}."
                 }
             ]
         }

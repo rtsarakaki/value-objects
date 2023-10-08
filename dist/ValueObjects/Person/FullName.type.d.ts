@@ -7,4 +7,4 @@ export declare class FullName extends GenericType {
     get middleName(): string;
 }
 export declare function createFullName(name: string, label: string, required?: boolean): FullName;
-export declare function formatFullName(fullName: string): string;
+export declare const formatFullName: (fullName: string) => string;
