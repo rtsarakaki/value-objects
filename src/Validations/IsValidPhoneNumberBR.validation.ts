@@ -11,7 +11,6 @@ export const IsValidPhoneNumberBR: IsValidPhoneNumberInterface = (value: string,
 	function validateMobilePhoneNumberBR(phoneNumber: string, errorMessage: string) {
 		try {
 			const normalizedPhoneNumber = normalizePhoneNumber(phoneNumber);
-			console.log('validateMobilePhoneNumberBR', normalizedPhoneNumber)
 			if (!normalizedPhoneNumber) {
 				return new InvalidValue(errorMessage);
 			}
@@ -35,7 +34,6 @@ export const IsValidPhoneNumberBR: IsValidPhoneNumberInterface = (value: string,
 export function normalizePhoneNumber(phoneNumber: string): string | null {
 	// Remove all non-digit characters
 	const normalized = phoneNumber.replace(/\D/g, '').replaceAll('.', '');
-	console.log(normalized)
 
 	// If the number starts with 55, remove it
 	if (normalized.startsWith('55')) {

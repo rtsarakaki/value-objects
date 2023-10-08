@@ -11,7 +11,7 @@ export class CollectionThatDoesNotAllowDuplicates<T extends object> extends Gene
 	propertyUsedAsKeyToValidadeDuplicates: keyof T;
 
 	constructor(itemsToBeLoaded: T[], propertyUsedAsKeyToValidadeDuplicates: keyof T, label: string, language: string = 'en-US') {
-		super(null)
+		super(itemsToBeLoaded)
 		this._label = label;
 		this._language = language;
 
@@ -77,7 +77,7 @@ export class CollectionThatDoesNotAllowDuplicates<T extends object> extends Gene
 			const uniqueItems: duplicatedItem[] = [];
 
 			array.forEach((originalItem, index: number) => {
-				const existingItem = uniqueItems.filter((duplicatedItem) => { return duplicatedItem.key === originalItem.key && duplicatedItem.index === originalItem.index })
+				const existingItem = uniqueItems.filter((duplicatedItem) => { return duplicatedItem.key === originalItem.key })
 				if (existingItem.length === 0) {
 					uniqueItems.push(array[index]);
 				}

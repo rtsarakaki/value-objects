@@ -33,7 +33,7 @@ class Contact extends Types_1.GenericType {
                 this.errors.push(new Errors_1.InvalidValue(errorMessage, null));
                 break;
         }
-        this._description = new ShortDescription_type_1.ShortDescription(description, msg, required, language, ...customValidators);
+        this._description = new ShortDescription_type_1.ShortDescription(description, msg, false, language, ...customValidators);
         if (this._description.errors.length > 0) {
             this.errors.push(this._description.errors[0]);
         }

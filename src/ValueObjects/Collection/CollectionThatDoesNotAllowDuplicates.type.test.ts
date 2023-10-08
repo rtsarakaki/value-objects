@@ -28,7 +28,7 @@ describe('Testing CollectionThatDoesNotAllowDuplicates', () => {
 	test('Should update an item in the collection', () => {
 		collection.update('987654321', { value: '123456789', description: 'New home phone', type: 'phone' });
 		expect(collection.items).toContainEqual({ value: '123456789', description: 'New home phone', type: 'phone' });
-		expect(collection.errors.length).toBe(3);
+		expect(collection.errors.length).toBe(1);
 		expect(collection.isValid).toBeFalsy();
 	});
 
