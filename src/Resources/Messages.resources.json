@@ -331,11 +331,11 @@
 			"messages": [
 				{
 					"language": "en-US", 
-					"message": "Item with key ${key} already exists in collection ${this._label}."
+					"message": "Item with key ${key} already exists in collection ${label} indexes [${indexes}]."
 				},
 				{
 					"language": "pt-BR",
-					"message": "O item com a chave ${key} já existe na coleção ${this.label}."
+					"message": "O item com a chave ${key} já existe na coleção ${label} indices [${indexes}]."
 				}
 			]
 		}

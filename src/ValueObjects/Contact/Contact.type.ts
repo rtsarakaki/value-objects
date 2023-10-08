@@ -39,7 +39,7 @@ export class Contact extends GenericType {
 				break;
 		}
 
-		this._description = new ShortDescription(description, msg, required, language, ...customValidators);
+		this._description = new ShortDescription(description, msg, false, language, ...customValidators);
 		if (this._description.errors.length > 0) {
 			this.errors.push(this._description.errors[0])
 		}

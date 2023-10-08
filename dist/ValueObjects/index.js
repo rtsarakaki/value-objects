@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createContact = exports.Contact = exports.createPhoneNumberBR = exports.PhoneNumberBR = exports.createSlackChannelPattern = exports.SlackChannelPattern = exports.createEmail = exports.Email = exports.createUrlAddress = exports.UrlAddress = exports.createNumber = exports.Number = exports.createPositiveInteger = exports.PositiveInteger = exports.createUUID = exports.UUID = exports.createKebabCode = exports.KebabCode = exports.createTitle = exports.Title = exports.createSingleWord = exports.SingleWord = exports.createShortDescription = exports.ShortDescription = exports.createLongDescription = exports.LongDescription = exports.createFullName = exports.FullName = exports.shortDateFormat = exports.createShortDate = exports.ShortDate = void 0;
+exports.CollectionThatDoesNotAllowDuplicates = exports.createContact = exports.Contact = exports.createPhoneNumberBR = exports.PhoneNumberBR = exports.createSlackChannelPattern = exports.SlackChannelPattern = exports.createEmail = exports.Email = exports.createUrlAddress = exports.UrlAddress = exports.createNumber = exports.Number = exports.createPositiveInteger = exports.PositiveInteger = exports.createUUID = exports.UUID = exports.createKebabCode = exports.KebabCode = exports.createTitle = exports.Title = exports.createSingleWord = exports.SingleWord = exports.createShortDescription = exports.ShortDescription = exports.createLongDescription = exports.LongDescription = exports.createFullName = exports.FullName = exports.shortDateFormat = exports.createShortDate = exports.ShortDate = void 0;
 var ShortDate_type_1 = require("./Date/ShortDate.type");
 Object.defineProperty(exports, "ShortDate", { enumerable: true, get: function () { return ShortDate_type_1.ShortDate; } });
 var ShortDate_type_2 = require("./Date/ShortDate.type");
@@ -63,3 +63,5 @@ var Contact_type_1 = require("./Contact/Contact.type");
 Object.defineProperty(exports, "Contact", { enumerable: true, get: function () { return Contact_type_1.Contact; } });
 var Contact_type_2 = require("./Contact/Contact.type");
 Object.defineProperty(exports, "createContact", { enumerable: true, get: function () { return Contact_type_2.createContact; } });
+var CollectionThatDoesNotAllowDuplicates_type_1 = require("./Collection/CollectionThatDoesNotAllowDuplicates.type");
+Object.defineProperty(exports, "CollectionThatDoesNotAllowDuplicates", { enumerable: true, get: function () { return CollectionThatDoesNotAllowDuplicates_type_1.CollectionThatDoesNotAllowDuplicates; } });

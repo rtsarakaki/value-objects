@@ -30,3 +30,4 @@ export { createPhoneNumberBR } from './Contact/PhoneNumberBR.type';
 export { Contact } from './Contact/Contact.type';
 export { createContact } from './Contact/Contact.type';
 export { ContactType } from './Contact/Contact.type';
+export { CollectionThatDoesNotAllowDuplicates } from "./Collection/CollectionThatDoesNotAllowDuplicates.type";
