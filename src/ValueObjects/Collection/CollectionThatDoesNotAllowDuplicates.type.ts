@@ -17,13 +17,13 @@ export class CollectionThatDoesNotAllowDuplicates<T extends object> extends Gene
 
 		this.propertyUsedAsKeyToValidadeDuplicates = propertyUsedAsKeyToValidadeDuplicates;
 
-		if (itemsToBeLoaded.length > 0) {
-			const keys: Array<keyof T> = Object.keys(itemsToBeLoaded[0]) as Array<keyof T>;
-			const propertyExists = keys.includes(propertyUsedAsKeyToValidadeDuplicates);
-			if (!propertyExists) {
-				throw new Error(`The ${propertyUsedAsKeyToValidadeDuplicates as string} property does not exist in the object `)
-			}
-		}
+		if (itemsToBeLoaded.length === 0) { return }
+
+		const keys: Array<keyof T> = Object.keys(itemsToBeLoaded[0]) as Array<keyof T>;
+		const propertyExists = keys.includes(propertyUsedAsKeyToValidadeDuplicates);
+		if (!propertyExists) {
+			throw new Error(`The ${propertyUsedAsKeyToValidadeDuplicates as string} property does not exist in the object `)
+		}		
 
 		itemsToBeLoaded.reduce((_, item) => {
 			this.add(item);
