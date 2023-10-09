@@ -16,7 +16,8 @@ export class CollectionThatDoesNotAllowDuplicates<T extends object> extends Gene
 		this._language = language;
 
 		this.propertyUsedAsKeyToValidadeDuplicates = propertyUsedAsKeyToValidadeDuplicates;
-
+		
+		if (itemsToBeLoaded === null || itemsToBeLoaded === undefined) { return }
 		if (itemsToBeLoaded.length === 0) { return }
 
 		const keys: Array<keyof T> = Object.keys(itemsToBeLoaded[0]) as Array<keyof T>;

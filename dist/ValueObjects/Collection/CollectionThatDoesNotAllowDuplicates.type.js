@@ -12,12 +12,13 @@ class CollectionThatDoesNotAllowDuplicates extends Types_1.GenericType {
         this._label = label;
         this._language = language;
         this.propertyUsedAsKeyToValidadeDuplicates = propertyUsedAsKeyToValidadeDuplicates;
-        if (itemsToBeLoaded.length > 0) {
-            const keys = Object.keys(itemsToBeLoaded[0]);
-            const propertyExists = keys.includes(propertyUsedAsKeyToValidadeDuplicates);
-            if (!propertyExists) {
-                throw new Error(`The ${propertyUsedAsKeyToValidadeDuplicates} property does not exist in the object `);
-            }
+        if (itemsToBeLoaded.length === 0) {
+            return;
+        }
+        const keys = Object.keys(itemsToBeLoaded[0]);
+        const propertyExists = keys.includes(propertyUsedAsKeyToValidadeDuplicates);
+        if (!propertyExists) {
+            throw new Error(`The ${propertyUsedAsKeyToValidadeDuplicates} property does not exist in the object `);
         }
         itemsToBeLoaded.reduce((_, item) => {
             this.add(item);
