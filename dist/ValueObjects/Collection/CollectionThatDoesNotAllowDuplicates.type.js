@@ -37,27 +37,35 @@ class CollectionThatDoesNotAllowDuplicates extends Types_1.GenericType {
         this.keys.push(key);
         this.checkForDuplicates();
     }
-    remove(item) {
-        const newItems = this.items.filter((i) => i[this.propertyUsedAsKeyToValidadeDuplicates] !== item[this.propertyUsedAsKeyToValidadeDuplicates]);
-        if (newItems.length === this.items.length) {
-            throw new Error("Item not found");
+    remove(key) {
+        const items = this.findByKey(key);
+        if (items.length === 0) {
+            throw new Error("Key not found");
         }
-        this.items = newItems;
-        this.keys = newItems.map((i) => i[this.propertyUsedAsKeyToValidadeDuplicates]);
+        const filteredArray = this.items.filter((item) => item[this.propertyUsedAsKeyToValidadeDuplicates] !== key);
+        this.items = filteredArray;
+        this.keys = filteredArray.map((item) => item[this.propertyUsedAsKeyToValidadeDuplicates]);
         this.checkForDuplicates();
     }
     update(key, newItem) {
-        const index = this.keys.indexOf(key);
-        if (index === -1) {
+        const items = this.findByKey(key);
+        if (items.length === 0) {
             throw new Error("Key not found");
         }
         const newKey = newItem[this.propertyUsedAsKeyToValidadeDuplicates];
-        this.items[index] = newItem;
-        this.keys[index] = newKey;
+        items.forEach((item) => {
+            const index = this.items.indexOf(item);
+            this.items[index] = newItem;
+            this.keys[index] = newKey;
+        });
         this.checkForDuplicates();
     }
+    findByKey(key) {
+        const items = this.items.filter((item) => item[this.propertyUsedAsKeyToValidadeDuplicates] === key);
+        return items;
+    }
     checkForDuplicates() {
-        this.errors = [];
+        this.clearErrors();
         function removeDuplicates(array) {
             if (!array) {
                 return [];
@@ -98,7 +106,7 @@ class CollectionThatDoesNotAllowDuplicates extends Types_1.GenericType {
             const error = new Errors_1.InvalidValue(errorMessage);
             return error;
         });
-        this.errors.push(...errors);
+        this.addErrors(errors);
     }
 }
 exports.CollectionThatDoesNotAllowDuplicates = CollectionThatDoesNotAllowDuplicates;

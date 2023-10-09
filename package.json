@@ -1,9 +1,9 @@
 {
   "name": "smart-value-objects",
-  "version": "2.2.4",
+  "version": "2.2.5",
   "description": "A Typescript library of classes aimed to help developers using and undestanding immutable objects.",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "jest",
     "build": "tsc --declaration",

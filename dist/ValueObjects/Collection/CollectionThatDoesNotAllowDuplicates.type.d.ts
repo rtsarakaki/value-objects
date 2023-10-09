@@ -7,7 +7,8 @@ export declare class CollectionThatDoesNotAllowDuplicates<T extends object> exte
     propertyUsedAsKeyToValidadeDuplicates: keyof T;
     constructor(itemsToBeLoaded: T[], propertyUsedAsKeyToValidadeDuplicates: keyof T, label: string, language?: string);
     add(item: T): void;
-    remove(item: T): void;
+    remove(key: string): void;
     update(key: string, newItem: T): void;
+    findByKey(key: string): T[];
     checkForDuplicates(): void;
 }

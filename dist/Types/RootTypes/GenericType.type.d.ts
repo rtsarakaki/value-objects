@@ -6,6 +6,8 @@ export declare class GenericType {
     constructor(value: any);
     get isValid(): boolean;
     accumulateErrors(callback: any): void;
+    addErrors(errors: GenericError[]): void;
+    clearErrors(): void;
     validate(validationList: any[]): void;
     toJson(): {};
 }
