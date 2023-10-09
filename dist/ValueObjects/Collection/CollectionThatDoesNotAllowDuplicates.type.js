@@ -6,7 +6,7 @@ const Messages_resource_1 = require("../../Resources/Messages.resource");
 const Types_1 = require("../../Types");
 class CollectionThatDoesNotAllowDuplicates extends Types_1.GenericType {
     constructor(itemsToBeLoaded, propertyUsedAsKeyToValidadeDuplicates, label, language = 'en-US') {
-        super(null);
+        super(itemsToBeLoaded);
         this.items = [];
         this.keys = [];
         this._label = label;
@@ -64,7 +64,7 @@ class CollectionThatDoesNotAllowDuplicates extends Types_1.GenericType {
             }
             const uniqueItems = [];
             array.forEach((originalItem, index) => {
-                const existingItem = uniqueItems.filter((duplicatedItem) => { return duplicatedItem.key === originalItem.key && duplicatedItem.index === originalItem.index; });
+                const existingItem = uniqueItems.filter((duplicatedItem) => { return duplicatedItem.key === originalItem.key; });
                 if (existingItem.length === 0) {
                     uniqueItems.push(array[index]);
                 }

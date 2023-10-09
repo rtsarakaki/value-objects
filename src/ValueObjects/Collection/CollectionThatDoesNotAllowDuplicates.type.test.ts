@@ -39,7 +39,7 @@ describe('Testing CollectionThatDoesNotAllowDuplicates', () => {
 	});
 
 	test('Should remove an item from the collection', () => {
-		collection.remove({ value: '123456789', description: 'New Home phone', type: 'phone' });
+		collection.remove('123456789');
 		expect(collection.items).not.toContainEqual({ value: '123456789', description: 'New home phone', type: 'phone' });
 		expect(collection.errors.length).toBe(0);
 		expect(collection.isValid).toBeTruthy();
@@ -48,7 +48,7 @@ describe('Testing CollectionThatDoesNotAllowDuplicates', () => {
 	test('Should not remove an item with a non-existent key from the collection', () => {
 		expect(() => {
 			collection.remove({ value: 'nonexistent@example.com', description: 'Non-existent item', type: 'email' });
-		}).toThrowError('Item not found');
+		}).toThrowError('Key not found');
 	});
 
 	test('Should throw an error if the key property does not exist in the object', () => {

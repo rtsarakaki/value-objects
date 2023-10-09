@@ -45,29 +45,36 @@ export class CollectionThatDoesNotAllowDuplicates<T extends object> extends Gene
 		this.checkForDuplicates();
 	}
 
-	remove(item: T) {
-		const newItems = this.items.filter((i) => i[this.propertyUsedAsKeyToValidadeDuplicates] !== item[this.propertyUsedAsKeyToValidadeDuplicates]);
-		if (newItems.length === this.items.length) {
-			throw new Error("Item not found");
-		}
-		this.items = newItems;
-		this.keys = newItems.map((i) => i[this.propertyUsedAsKeyToValidadeDuplicates] as string);
+	remove(key: string) {
+		const items = this.findByKey(key);
+		if (items.length === 0) { throw new Error("Key not found") }
+
+		const filteredArray = this.items.filter((item) => item[this.propertyUsedAsKeyToValidadeDuplicates] !== key);
+		this.items = filteredArray;
+		this.keys = filteredArray.map((item) => item[this.propertyUsedAsKeyToValidadeDuplicates] as string);
 		this.checkForDuplicates();
 	}
 
 	update(key: string, newItem: T) {
-		const index = this.keys.indexOf(key);
-		if (index === -1) {
-			throw new Error("Key not found");
-		}
+		const items = this.findByKey(key);
+		if (items.length === 0) { throw new Error("Key not found") }
+
 		const newKey = (newItem[this.propertyUsedAsKeyToValidadeDuplicates] as string);
-		this.items[index] = newItem;
-		this.keys[index] = newKey;
+		items.forEach((item) => {
+			const index = this.items.indexOf(item);
+			this.items[index] = newItem;
+			this.keys[index] = newKey;
+		});
 		this.checkForDuplicates();
 	}
 
+	findByKey(key: string): T[] {
+		const items = this.items.filter((item) => item[this.propertyUsedAsKeyToValidadeDuplicates] === key);
+		return items;
+	}
+
 	checkForDuplicates() {
-		this.errors = [];
+		this.clearErrors()
 
 		type duplicatedItem = { key: string, index: number }
 
@@ -117,6 +124,6 @@ export class CollectionThatDoesNotAllowDuplicates<T extends object> extends Gene
 			return error
 		})
 
-		this.errors.push(...errors);
+		this.addErrors(errors);
 	}
 }

@@ -21,6 +21,14 @@ export class GenericType {
     }
   }
 
+  public addErrors(errors: GenericError[]) {
+    this.errors = this.errors.concat(errors)
+  }
+
+  public clearErrors() {
+    this.errors = []
+  }
+
   public validate(validationList: any[]) {
     if (validationList !== undefined && validationList !== null && validationList.length > 0) {
       validationList.forEach(validation => this.accumulateErrors(validation));

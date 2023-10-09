@@ -7,7 +7,6 @@ const IsValidPhoneNumberBR = (value, label, required = true, language = 'en-US')
     function validateMobilePhoneNumberBR(phoneNumber, errorMessage) {
         try {
             const normalizedPhoneNumber = normalizePhoneNumber(phoneNumber);
-            console.log('validateMobilePhoneNumberBR', normalizedPhoneNumber);
             if (!normalizedPhoneNumber) {
                 return new InvalidValue_error_1.InvalidValue(errorMessage);
             }
@@ -27,7 +26,6 @@ const IsValidPhoneNumberBR = (value, label, required = true, language = 'en-US')
 exports.IsValidPhoneNumberBR = IsValidPhoneNumberBR;
 function normalizePhoneNumber(phoneNumber) {
     const normalized = phoneNumber.replace(/\D/g, '').replaceAll('.', '');
-    console.log(normalized);
     if (normalized.startsWith('55')) {
         return normalizePhoneNumber(normalized.substring(2));
     }
