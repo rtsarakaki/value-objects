@@ -12,6 +12,9 @@ class CollectionThatDoesNotAllowDuplicates extends Types_1.GenericType {
         this._label = label;
         this._language = language;
         this.propertyUsedAsKeyToValidadeDuplicates = propertyUsedAsKeyToValidadeDuplicates;
+        if (itemsToBeLoaded === null || itemsToBeLoaded === undefined) {
+            return;
+        }
         if (itemsToBeLoaded.length === 0) {
             return;
         }
