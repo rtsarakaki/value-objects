@@ -4,7 +4,6 @@ export { CannotContainSpecialCharacters } from './CannotContainSpecialCharacters
 export { CannotHaveMoreThanXCharacters } from './CannotHaveMoreThanXCharacters.validation';
 export { CannotStartWithZero } from './CannotStartWithZero.validation';
 export { IsPositiveInteger } from './IsPositiveInteger.validation';
-export { IsValidColor } from './IsValidColor.validation';
 export { IsValidDate } from './IsValidDate.validation';
 export { IsValidEmail } from './IsValidEmail.validation';
 export { IsValidNumber } from './IsValidNumber.validation';
