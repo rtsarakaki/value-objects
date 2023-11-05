@@ -4,7 +4,7 @@ import { GenericEntity } from "../Types";
 import { FullName, KebabCode } from "../ValueObjects";
 
 @ValidateEntity
-class Frankenstein extends GenericEntity {
+class Frankenstein extends GenericEntity<any, any> {
 
 	@CannotBeBlank('Required Property', true)
 	_requiredProperty: string;
@@ -18,7 +18,7 @@ class Frankenstein extends GenericEntity {
 	_fullName: FullName;
 
 	constructor(valores: any) {
-		super();
+		super(valores);
 		this._requiredProperty = valores.requiredProperty
 		this._noNumbers = valores.noNumbers
 		this._kebabCode = new KebabCode(valores.kebabCode, 'No Numbers', true);

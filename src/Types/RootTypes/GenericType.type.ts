@@ -1,6 +1,6 @@
 import { GenericError } from "../../Errors/GenericError.error";
 
-export class GenericType {
+export class GenericType{
   value: any;
   [property: string]: any;
   errors: Array<GenericError>;
@@ -35,13 +35,9 @@ export class GenericType {
     }
   }
 
-  public toJson() {
-    return {};
-  }
-
 }
 
-export type FromJsonFunc<M> = (data: any) => M;
+// export type FromJsonFunc<M> = (data: any) => M;
 
 
 

@@ -1,10 +1,15 @@
-import { UUID, createUUID } from '../../ValueObjects';
 import { GenericType } from './GenericType.type';
 
-export class GenericEntity extends GenericType {
+type basic = {
+  id?: string
+}
 
-  constructor() {
+export class GenericEntity<TModel extends basic, TDto> extends GenericType {
+  _json: TModel
+
+  constructor(json: any) {
     super(null);
+    this._json = json;
   }
 
   public initProp(object: any, value: GenericType, required: boolean = true): GenericType {
@@ -26,6 +31,23 @@ export class GenericEntity extends GenericType {
   }
 
   public get id() {
-    return '';
+    return this._json?.id;
+  }
+
+  public toJson(callback?: (entity: this) => TDto): TDto {
+    const processedEntity = callback ? callback(this) : this._json as unknown as TDto;
+    return processedEntity;
+  }
+
+  static fromJson<TModel extends basic, TDto>(this: new (json: TModel) => GenericEntity<TModel, TDto>, json: TModel | TDto, callback?: (json: TDto) => TModel): GenericEntity<TModel, TDto> {
+    if (callback && (json as TDto)) {
+      const result = callback(json as any);
+      if (result) {
+        return new this(result);
+      }
+    }
+
+    const entity = new this(json as TModel);
+    return entity;
   }
 }
