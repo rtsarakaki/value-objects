@@ -3,8 +3,6 @@ import { InvalidValue } from '../../Errors/InvalidValue.error';
 import { GenericEntity } from './GenericEntity.entity';
 import { GenericType } from './GenericType.type';
 
-test.todo('convert test to test.each model');
-
 export const TypeValidator = (value: string) => {
 
 	if (value !== 'GenericType Test') {

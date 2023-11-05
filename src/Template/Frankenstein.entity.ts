@@ -1,7 +1,7 @@
 import { CannotBeBlank, CannotContainNumbers, ValidateEntity } from "../Decorators";
 import { GenericError } from "../Errors";
 import { GenericEntity } from "../Types";
-import { KebabCode } from "../ValueObjects";
+import { FullName, KebabCode } from "../ValueObjects";
 
 @ValidateEntity
 class Frankenstein extends GenericEntity {
@@ -15,12 +15,14 @@ class Frankenstein extends GenericEntity {
 	errors: GenericError[];
 
 	_kebabCode: KebabCode;
+	_fullName: FullName;
 
 	constructor(valores: any) {
 		super();
 		this._requiredProperty = valores.requiredProperty
 		this._noNumbers = valores.noNumbers
 		this._kebabCode = new KebabCode(valores.kebabCode, 'No Numbers', true);
+		this._fullName = new FullName(valores.fullName, 'Name', true)
 		this.errors = [];
 	}
 

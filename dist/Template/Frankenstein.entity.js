@@ -15,6 +15,7 @@ let Frankenstein = class Frankenstein extends Types_1.GenericEntity {
         this._requiredProperty = valores.requiredProperty;
         this._noNumbers = valores.noNumbers;
         this._kebabCode = new ValueObjects_1.KebabCode(valores.kebabCode, 'No Numbers', true);
+        this._fullName = new ValueObjects_1.FullName(valores.fullName, 'Name', true);
         this.errors = [];
     }
     get requiredProperty() {

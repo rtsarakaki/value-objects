@@ -1,6 +1,8 @@
+import { UUID, createUUID } from '../../ValueObjects';
 import { GenericType } from './GenericType.type';
 
 export class GenericEntity extends GenericType {
+
   constructor() {
     super(null);
   }
