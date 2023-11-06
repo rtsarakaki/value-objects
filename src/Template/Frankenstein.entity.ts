@@ -4,7 +4,7 @@ import { GenericEntity } from "../Types";
 import { FullName, KebabCode } from "../ValueObjects";
 
 @ValidateEntity
-export class Frankenstein extends GenericEntity<any, any> {
+export class Frankenstein extends GenericEntity<any> {
 
 	@CannotBeBlank('Required Property', true)
 	_requiredProperty: string;

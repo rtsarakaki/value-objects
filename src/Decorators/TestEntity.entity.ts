@@ -4,7 +4,7 @@ import { GenericEntity } from '../Types/RootTypes/GenericEntity.entity';
 import { GenericType } from '../Types/RootTypes/GenericType.type';
 
 @ValidateEntity
-export class TestEntity extends GenericEntity<TestModel, TestModelDto> {
+export class TestEntity extends GenericEntity<TestModel> {
 
 	_prop1: TestType;
 	_prop2: TestType;

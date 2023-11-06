@@ -1,6 +1,6 @@
 import { GenericEntity } from "../Types";
 
-export function ValidateEntity<T extends { new(...args: any[]): GenericEntity<any, any>; }>(constructor: T) {
+export function ValidateEntity<T extends { new(...args: any[]): GenericEntity<any>; }>(constructor: T) {
 	return class extends constructor {
 		constructor(...args: any[]) {
 			super(...args);
