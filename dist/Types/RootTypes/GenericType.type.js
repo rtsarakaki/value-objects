@@ -26,8 +26,5 @@ class GenericType {
             validationList.forEach(validation => this.accumulateErrors(validation));
         }
     }
-    toJson() {
-        return {};
-    }
 }
 exports.GenericType = GenericType;

@@ -4,7 +4,7 @@ type basic = {
   id?: string
 }
 
-export class GenericEntity<TModel extends basic, TDto> extends GenericType {
+export class GenericEntity<TModel extends basic> extends GenericType {
   _json: TModel
 
   constructor(json: any) {
@@ -32,22 +32,5 @@ export class GenericEntity<TModel extends basic, TDto> extends GenericType {
 
   public get id() {
     return this._json?.id;
-  }
-
-  public toJson(callback?: (entity: this) => TDto): TDto {
-    const processedEntity = callback ? callback(this) : this._json as unknown as TDto;
-    return processedEntity;
-  }
-
-  static fromJson<TModel extends basic, TDto>(this: new (json: TModel) => GenericEntity<TModel, TDto>, json: TModel | TDto, callback?: (json: TDto) => TModel): GenericEntity<TModel, TDto> {
-    if (callback && (json as TDto)) {
-      const result = callback(json as any);
-      if (result) {
-        return new this(result);
-      }
-    }
-
-    const entity = new this(json as TModel);
-    return entity;
   }
 }

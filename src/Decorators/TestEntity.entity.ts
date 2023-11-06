@@ -1,6 +1,7 @@
-import { ValidateEntity } from "../Decorators/ValidateEntity";
-import { InvalidValue } from "../Errors";
-import { GenericEntity, GenericType } from "../Types";
+import { ValidateEntity } from './ValidateEntity';
+import { InvalidValue } from '../Errors/InvalidValue.error';
+import { GenericEntity } from '../Types/RootTypes/GenericEntity.entity';
+import { GenericType } from '../Types/RootTypes/GenericType.type';
 
 @ValidateEntity
 export class TestEntity extends GenericEntity<TestModel, TestModelDto> {
@@ -54,12 +55,3 @@ export type TestModelDto = {
 	props: string[]
 }
 
-const m: TestModel = {
-	id: "1",
-	prop1: "GenericType Test",
-	prop2: "GenericType Test"
-}
-
-const t = new TestEntity(m)
-console.log(t.isValid)
-console.log(t.errors)

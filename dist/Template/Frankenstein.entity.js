@@ -11,7 +11,7 @@ const Types_1 = require("../Types");
 const ValueObjects_1 = require("../ValueObjects");
 let Frankenstein = class Frankenstein extends Types_1.GenericEntity {
     constructor(valores) {
-        super();
+        super(valores);
         this._requiredProperty = valores.requiredProperty;
         this._noNumbers = valores.noNumbers;
         this._kebabCode = new ValueObjects_1.KebabCode(valores.kebabCode, 'No Numbers', true);

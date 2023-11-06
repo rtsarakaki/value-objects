@@ -1,4 +1,6 @@
-export function ValidateEntity<T extends { new(...args: any[]): { initProp: (instance: any, value: any) => any; errors: any; }; }>(constructor: T) {
+import { GenericEntity } from "../Types";
+
+export function ValidateEntity<T extends { new(...args: any[]): GenericEntity<any, any>; }>(constructor: T) {
 	return class extends constructor {
 		constructor(...args: any[]) {
 			super(...args);

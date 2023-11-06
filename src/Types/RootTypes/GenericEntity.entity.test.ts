@@ -34,7 +34,7 @@ type TestModelDto = {
 	props: string []
 }
 
-class TestEntity extends GenericEntity<TestModel, TestModelDto> {
+class TestEntity extends GenericEntity<TestModel> {
 
 	_prop1: TestType;
 	_prop2: TestType;
@@ -109,71 +109,5 @@ describe('GenericType', () => {
 		expect(genericEntity.errors.length).toEqual(2)
 		expect(genericEntity.prop1).toEqual(model.prop1)
 		expect(genericEntity.prop2).toEqual(model.prop2)
-	})
-
-	test('GenericEntity toJson without callback', () => {
-		const model: TestModel = {
-			prop1: "GenericType Test",
-			prop2: "GenericType Test"
-		}
-		const genericEntity = new TestEntity(model)
-		const toJsonResult = genericEntity.toJson()
-
-		expect(toJsonResult).toEqual(model)
-	})
-
-	test('GenericEntity toJson with callback', () => {
-		const model: TestModel = {
-			prop1: "GenericType Test",
-			prop2: "GenericType Test"
-		}
-
-		const modelTarget = {
-			props: ["GenericType Test", "GenericType Test"]
-		}
-
-		const myCallback = (entity: TestEntity): TestModelDto => {
-			const props = [entity.prop1, entity.prop2]
-			return {
-				props: props
-			}
-		};
-
-		const genericEntity = new TestEntity(model)
-		const toJsonResult = genericEntity.toJson(myCallback)
-
-		expect(toJsonResult).toEqual(modelTarget)
-	})
-
-	test('GenericEntity fromJson without callback', () => {
-		const model: TestModel = {
-			prop1: "GenericType Test",
-			prop2: "GenericType Test"
-		}
-
-		const genericEntity = TestEntity.fromJson(model)
-
-		expect(genericEntity.toJson()).toEqual(model)
-	})
-
-	test('GenericEntity fromJson with callback', () => {
-		const model: TestModel = {
-			prop1: "GenericType Test",
-			prop2: "GenericType Test"
-		}
-
-		const modelTarget = {
-			props: ["GenericType Test", "GenericType Test"]
-		}
-
-		const myCallback = (dto: TestModelDto): TestModel => {
-			return {
-				prop1: dto.props[0],
-				prop2: dto.props[1]
-			}
-		};
-		const genericEntity = TestEntity.fromJson(modelTarget, myCallback)
-
-		expect(genericEntity.toJson()).toEqual(model)
 	})
 }) 

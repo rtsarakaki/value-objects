@@ -3,8 +3,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.GenericEntity = void 0;
 const GenericType_type_1 = require("./GenericType.type");
 class GenericEntity extends GenericType_type_1.GenericType {
-    constructor() {
+    constructor(json) {
         super(null);
+        this._json = json;
     }
     initProp(object, value, required = true) {
         if (!(value instanceof GenericType_type_1.GenericType))
@@ -22,7 +23,21 @@ class GenericEntity extends GenericType_type_1.GenericType {
         return value;
     }
     get id() {
-        return '';
+        return this._json?.id;
+    }
+    toJson(callback) {
+        const processedEntity = callback ? callback(this) : this._json;
+        return processedEntity;
+    }
+    static fromJson(json, callback) {
+        if (callback && json) {
+            const result = callback(json);
+            if (result) {
+                return new this(result);
+            }
+        }
+        const entity = new this(json);
+        return entity;
     }
 }
 exports.GenericEntity = GenericEntity;

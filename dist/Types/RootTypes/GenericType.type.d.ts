@@ -9,6 +9,4 @@ export declare class GenericType {
     addErrors(errors: GenericError[]): void;
     clearErrors(): void;
     validate(validationList: any[]): void;
-    toJson(): {};
 }
-export type FromJsonFunc<M> = (data: any) => M;
