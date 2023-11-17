@@ -1,13 +1,19 @@
+import { GenericEntity } from "../Types";
 export declare function ValidateEntity<T extends {
-    new (...args: any[]): {
-        initProp: (instance: any, value: any) => any;
-        errors: any;
-    };
+    new (...args: any[]): GenericEntity<any>;
 }>(constructor: T): {
     new (...args: any[]): {
+        [property: string]: any;
         init(): void;
         validate(): void;
-        initProp: (instance: any, value: any) => any;
-        errors: any;
+        _json: any;
+        initProp(object: any, value: import("../Types").GenericType, required?: boolean): import("../Types").GenericType;
+        readonly id: string | undefined;
+        value: any;
+        errors: import("../Errors").GenericError[];
+        readonly isValid: boolean;
+        accumulateErrors(callback: any): void;
+        addErrors(errors: import("../Errors").GenericError[]): void;
+        clearErrors(): void;
     };
 } & T;

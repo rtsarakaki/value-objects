@@ -7,10 +7,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TestType = exports.TypeValidator = exports.TestEntity = void 0;
-const ValidateEntity_1 = require("../Decorators/ValidateEntity");
-const Errors_1 = require("../Errors");
-const Types_1 = require("../Types");
-let TestEntity = class TestEntity extends Types_1.GenericEntity {
+const ValidateEntity_1 = require("./ValidateEntity");
+const InvalidValue_error_1 = require("../Errors/InvalidValue.error");
+const GenericEntity_entity_1 = require("../Types/RootTypes/GenericEntity.entity");
+const GenericType_type_1 = require("../Types/RootTypes/GenericType.type");
+let TestEntity = class TestEntity extends GenericEntity_entity_1.GenericEntity {
     constructor(model) {
         super(model);
         this._prop1 = this.initProp(this, new TestType(model.prop1));
@@ -29,12 +30,12 @@ exports.TestEntity = TestEntity = __decorate([
 ], TestEntity);
 const TypeValidator = (value) => {
     if (value !== 'GenericType Test') {
-        return new Errors_1.InvalidValue('test not ok');
+        return new InvalidValue_error_1.InvalidValue('test not ok');
     }
     return null;
 };
 exports.TypeValidator = TypeValidator;
-class TestType extends Types_1.GenericType {
+class TestType extends GenericType_type_1.GenericType {
     constructor(value) {
         super(value);
         if (value !== undefined) {
@@ -46,11 +47,3 @@ class TestType extends Types_1.GenericType {
     }
 }
 exports.TestType = TestType;
-const m = {
-    id: "1",
-    prop1: "GenericType Test",
-    prop2: "GenericType Test"
-};
-const t = new TestEntity(m);
-console.log(t.isValid);
-console.log(t.errors);

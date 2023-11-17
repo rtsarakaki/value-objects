@@ -34,7 +34,7 @@ const createRegexFromString = (regexString: string): RegExp => {
 };
 
 const validateRegex = (regex: string, language: string = 'en-US') => {
-	const errorMessage = getResourceMessageByKey(validateRegex.name, language, [{ tag: '${regex}', value: regex }])
+	const errorMessage = getResourceMessageByKey('validateRegex', language, [{ tag: '${regex}', value: regex }])
 
 	try {
 		new RegExp(regex);

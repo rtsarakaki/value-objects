@@ -9,7 +9,7 @@ function replaceTagsInMessage(message, tagList) {
         return messageReplaced;
     }
     catch (e) {
-        const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)(replaceTagsInMessage.name);
+        const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)('replaceTagsInMessage');
         throw new InvalidValue_error_1.InvalidValue(errorMessage);
     }
 }

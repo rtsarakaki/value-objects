@@ -26,7 +26,7 @@ const createRegexFromString = (regexString) => {
     return new RegExp(regexString);
 };
 const validateRegex = (regex, language = 'en-US') => {
-    const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)(validateRegex.name, language, [{ tag: '${regex}', value: regex }]);
+    const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)('validateRegex', language, [{ tag: '${regex}', value: regex }]);
     try {
         new RegExp(regex);
         return null;

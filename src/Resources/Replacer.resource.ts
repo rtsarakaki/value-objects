@@ -12,7 +12,7 @@ export function replaceTagsInMessage(message: string, tagList: ITagListItem[]): 
 		return messageReplaced;
 	}
 	catch (e){
-		const errorMessage = getResourceMessageByKey(replaceTagsInMessage.name)
+		const errorMessage = getResourceMessageByKey('replaceTagsInMessage')
 		throw new InvalidValue(errorMessage);
 	}
 }

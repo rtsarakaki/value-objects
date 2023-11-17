@@ -6,6 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Frankenstein = void 0;
 const Decorators_1 = require("../Decorators");
 const Types_1 = require("../Types");
 const ValueObjects_1 = require("../ValueObjects");
@@ -28,13 +29,14 @@ let Frankenstein = class Frankenstein extends Types_1.GenericEntity {
         return this._kebabCode.value;
     }
 };
+exports.Frankenstein = Frankenstein;
 __decorate([
     (0, Decorators_1.CannotBeBlank)('Required Property', true)
 ], Frankenstein.prototype, "_requiredProperty", void 0);
 __decorate([
     (0, Decorators_1.CannotContainNumbers)('No Numbers')
 ], Frankenstein.prototype, "_noNumbers", void 0);
-Frankenstein = __decorate([
+exports.Frankenstein = Frankenstein = __decorate([
     Decorators_1.ValidateEntity
 ], Frankenstein);
 const valores = {

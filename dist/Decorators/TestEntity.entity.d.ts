@@ -1,5 +1,6 @@
-import { InvalidValue } from "../Errors";
-import { GenericEntity, GenericType } from "../Types";
+import { InvalidValue } from '../Errors/InvalidValue.error';
+import { GenericEntity } from '../Types/RootTypes/GenericEntity.entity';
+import { GenericType } from '../Types/RootTypes/GenericType.type';
 export declare class TestEntity extends GenericEntity<TestModel> {
     _prop1: TestType;
     _prop2: TestType;
