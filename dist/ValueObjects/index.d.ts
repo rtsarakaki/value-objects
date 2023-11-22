@@ -13,6 +13,8 @@ export { Title } from './StringLiteral/Title.type';
 export { createTitle } from './StringLiteral/Title.type';
 export { KebabCode } from './StringLiteral/KebabCode.type';
 export { createKebabCode } from './StringLiteral/KebabCode.type';
+export { Acronym } from './StringLiteral/Acronym.type';
+export { createAcronymCode } from './StringLiteral/Acronym.type';
 export { UUID } from './UUID/UUID.type';
 export { createUUID } from './UUID/UUID.type';
 export { PositiveInteger } from './Number/PositiveInteger.type';

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CollectionThatDoesNotAllowDuplicates = exports.createContact = exports.Contact = exports.createPhoneNumberBR = exports.PhoneNumberBR = exports.createSlackChannelPattern = exports.SlackChannelPattern = exports.createEmail = exports.Email = exports.createUrlAddress = exports.UrlAddress = exports.createNumber = exports.Number = exports.createPositiveInteger = exports.PositiveInteger = exports.createUUID = exports.UUID = exports.createKebabCode = exports.KebabCode = exports.createTitle = exports.Title = exports.createSingleWord = exports.SingleWord = exports.createShortDescription = exports.ShortDescription = exports.createLongDescription = exports.LongDescription = exports.createFullName = exports.FullName = exports.shortDateFormat = exports.createShortDate = exports.ShortDate = void 0;
+exports.CollectionThatDoesNotAllowDuplicates = exports.createContact = exports.Contact = exports.createPhoneNumberBR = exports.PhoneNumberBR = exports.createSlackChannelPattern = exports.SlackChannelPattern = exports.createEmail = exports.Email = exports.createUrlAddress = exports.UrlAddress = exports.createNumber = exports.Number = exports.createPositiveInteger = exports.PositiveInteger = exports.createUUID = exports.UUID = exports.createAcronymCode = exports.Acronym = exports.createKebabCode = exports.KebabCode = exports.createTitle = exports.Title = exports.createSingleWord = exports.SingleWord = exports.createShortDescription = exports.ShortDescription = exports.createLongDescription = exports.LongDescription = exports.createFullName = exports.FullName = exports.shortDateFormat = exports.createShortDate = exports.ShortDate = void 0;
 var ShortDate_type_1 = require("./Date/ShortDate.type");
 Object.defineProperty(exports, "ShortDate", { enumerable: true, get: function () { return ShortDate_type_1.ShortDate; } });
 var ShortDate_type_2 = require("./Date/ShortDate.type");
@@ -31,6 +31,10 @@ var KebabCode_type_1 = require("./StringLiteral/KebabCode.type");
 Object.defineProperty(exports, "KebabCode", { enumerable: true, get: function () { return KebabCode_type_1.KebabCode; } });
 var KebabCode_type_2 = require("./StringLiteral/KebabCode.type");
 Object.defineProperty(exports, "createKebabCode", { enumerable: true, get: function () { return KebabCode_type_2.createKebabCode; } });
+var Acronym_type_1 = require("./StringLiteral/Acronym.type");
+Object.defineProperty(exports, "Acronym", { enumerable: true, get: function () { return Acronym_type_1.Acronym; } });
+var Acronym_type_2 = require("./StringLiteral/Acronym.type");
+Object.defineProperty(exports, "createAcronymCode", { enumerable: true, get: function () { return Acronym_type_2.createAcronymCode; } });
 var UUID_type_1 = require("./UUID/UUID.type");
 Object.defineProperty(exports, "UUID", { enumerable: true, get: function () { return UUID_type_1.UUID; } });
 var UUID_type_2 = require("./UUID/UUID.type");

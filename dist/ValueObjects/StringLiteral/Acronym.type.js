@@ -11,7 +11,7 @@ class Acronym extends Types_1.GenericType {
         const defaultValidators = [
             () => (0, Validations_1.CannotBeBlank)(formatedValue, msg, required, language),
             () => (0, Validations_1.MustHaveAtLeastXCharacters)(formatedValue, msg, 2, required, language),
-            () => (0, Validations_1.CannotHaveMoreThanXCharacters)(formatedValue, msg, 10, required, language),
+            () => (0, Validations_1.CannotHaveMoreThanXCharacters)(formatedValue, msg, 5, required, language),
             () => (0, Validations_1.MustHaveOnlyOneWord)(value, msg, required, language),
         ];
         const validators = customValidators.length > 0 ? [...defaultValidators, ...customValidators] : defaultValidators;
