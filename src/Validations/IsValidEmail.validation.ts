@@ -11,9 +11,11 @@ export const IsValidEmail: IsValidEmailInterface = (value: string, label: string
 	function validateEmail(email: string, errorMessage: string) {
 		try {
 			if (typeof email !== 'string') return new InvalidValue(errorMessage);
-			return /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i.test(email) && !/^[.-]|[-.]$|([.-]{2,})/i.test(email) ? null : new InvalidValue(errorMessage);
+			const result =  /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i.test(email) && !/^[.-]|[-.]$|([.-]{2,})/i.test(email) ? null : new InvalidValue(errorMessage);
+			return result
 			
 		} catch (err) {
+			console.log('error', err);
 			return new InvalidValue(errorMessage);
 		}
 	}

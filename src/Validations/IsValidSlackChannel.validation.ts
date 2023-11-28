@@ -6,12 +6,12 @@ interface IsValidSlackChannelInterface extends GenericValidation {
 	(value: string, label: string, required?: boolean, language?: string): InvalidValue | null;
 }
 
-export const IsValidSlackChannel: IsValidSlackChannelInterface = (value: string, label: string, required: boolean = true, language: string = 'en-US') => {
+export const IsValidHashtag: IsValidSlackChannelInterface = (value: string, label: string, required: boolean = true, language: string = 'en-US') => {
 
 	function validateSlackChannel(channel: string, errorMessage: string) {
 		try {
 			if (typeof channel !== 'string') return new InvalidValue(errorMessage);
-			if (!/^#[a-z0-9_.-]+$/.test(channel)) return new InvalidValue(errorMessage);
+			if (!/^#[a-z0-9_.-]+$/i.test(channel)) return new InvalidValue(errorMessage);
 			if (channel.endsWith('-') || channel.endsWith('_')) return new InvalidValue(errorMessage);
 
 			return null

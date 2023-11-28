@@ -4,7 +4,7 @@ exports.validationAcceleratorSuggestion = exports.validateLabel = void 0;
 const Errors_1 = require("../Errors");
 const Messages_resource_1 = require("../Resources/Messages.resource");
 function validateLabel(value, language = 'en-US') {
-    const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)(validateLabel.name, language);
+    const errorMessage = (0, Messages_resource_1.getResourceMessageByKey)("validateLabel", language);
     if (typeof value !== 'string')
         return new Errors_1.InvalidValue(errorMessage);
     if (value.trim() === '')

@@ -9,7 +9,7 @@ export { IsValidDate } from './IsValidDate.validation'
 export { IsValidEmail } from './IsValidEmail.validation'
 export { IsValidNumber } from './IsValidNumber.validation'
 export { IsValidPhoneNumberBR } from './IsValidPhoneNumberBR.validation'
-export { IsValidSlackChannel } from './IsValidSlackChannel.validation'
+export { IsValidHashtag as IsValidSlackChannel } from './IsValidSlackChannel.validation'
 export { IsValidUrl } from './IsValidUrl.validation'
 export { MustBeContainedInEnum } from './MustBeContainedInEnum.validation'
 export { MustContainOnlyNumbers } from './MustContainOnlyNumbers.validation'
@@ -18,6 +18,8 @@ export { MustHaveAtLeastXCharacters } from './MustHaveAtLeastXCharacters.validat
 export { MustHaveOnlyOneWord } from './MustHaveOnlyOneWord.validation'
 export { MustHaveTheSameStructureThan } from './MustHaveTheSameStructureThan.validation'
 export { MustStartWithAlphaNumeric } from './MustStartWithAlphaNumeric.validation'
+export { NumberCannotBeGreaterThan } from './NumberCannotBeGreaterThan.validation'
+export { NumberCannotBeLessThan } from './NumberCannotBeLessThan.validation'
 export { RegexMatch } from './RegexMatch.validation'
 
 

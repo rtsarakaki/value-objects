@@ -1,6 +1,6 @@
 import { describe, expect, test } from '@jest/globals';
 import { InvalidValue } from "../Errors";
-import { IsValidSlackChannel } from "./IsValidSlackChannel.validation";
+import { IsValidHashtag } from './IsValidSlackChannel.validation';
 
 describe(`Testing valid channels`, () => {
 	const arrayOfValidChannels = [
@@ -13,7 +13,7 @@ describe(`Testing valid channels`, () => {
 	]
 
 	describe.each(arrayOfValidChannels)(`Valid channel '%p' should return null.`, ({ channel }) => {
-		const result = IsValidSlackChannel(channel, 'Channel', true, 'en-US');
+		const result = IsValidHashtag(channel, 'Channel', true, 'en-US');
 		test(`IsValidSlackChannel tested and return no errors.`, () => {
 			expect(result).toBeNull();
 		});
@@ -32,7 +32,7 @@ describe(`Testing invalid channels`, () => {
 	]
 
 	describe.each(arrayOfInvalidChannels)(`Invalid channel '%p' should return an InvalidValue with message '%p'.`, ({ channel, errorMessage }) => {
-		const result = IsValidSlackChannel(channel, 'Channel', true, 'en-US');
+		const result = IsValidHashtag(channel, 'Channel', true, 'en-US');
 		test(`IsValidSlackChannel tested and return an InvalidValue with message '${errorMessage}'.`, () => {
 			expect(result).toBeInstanceOf(InvalidValue);
 			expect(result?.message).toEqual(errorMessage);

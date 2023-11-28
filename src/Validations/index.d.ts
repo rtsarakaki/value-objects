@@ -18,6 +18,8 @@ export { MustHaveAtLeastXCharacters } from './MustHaveAtLeastXCharacters.validat
 export { MustHaveOnlyOneWord } from './MustHaveOnlyOneWord.validation'
 export { MustHaveTheSameStructureThan } from './MustHaveTheSameStructureThan.validation'
 export { MustStartWithAlphaNumeric } from './MustStartWithAlphaNumeric.validation'
+export { NumberCannotBeGreaterThan } from './NumberCannotBeGreaterThan.validation'
+export { NumberCannotBeLessThan } from './NumberCannotBeLessThan.validation'
 export { RegexMatch } from './RegexMatch.validation'
 
 

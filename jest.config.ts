@@ -3,7 +3,7 @@
  * https://jestjs.io/docs/configuration
  */
 
-import type {Config} from 'jest';
+import type { Config } from 'jest';
 
 const config: Config = {
   // Automatically clear mock calls, instances, contexts and results before every test
@@ -17,6 +17,11 @@ const config: Config = {
 
   // Indicates which provider should be used to instrument code for coverage
   coverageProvider: "babel",
+
+  // // Add this to transform TypeScript files
+  // transform: {
+  //   '^.+\\.tsx?$': 'babel-jest',
+  // },
 };
 
 export default config;

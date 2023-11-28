@@ -27,8 +27,14 @@ export function GenerateUUID(label: string, required: boolean = true, language: 
 
 export class UUID extends GenericType {
   constructor(value: string, label: string, required: boolean = true, language: string = 'en-US', ...customValidators: GenericValidation[]) {
+    if (!!!value) {
+      const generatedUUID =  GenerateUUID(label, required, language, ...customValidators);
+      super(generatedUUID.value);
+    }
+    else {
+      super(value);
+    }
     const msg = label ?? 'Id';
-    super(value);
     if (value !== null) {
       const defaultValidators = [
         () => CannotBeBlank(value, msg, required, language),
@@ -37,7 +43,7 @@ export class UUID extends GenericType {
       const validators = customValidators.length > 0 ? [...defaultValidators, ...customValidators] : defaultValidators;
       this.validate(validators);
     } else {
-      this.valor = GenerateUUID(label);
+      this.value = GenerateUUID(label).value;
     }
   }
 }

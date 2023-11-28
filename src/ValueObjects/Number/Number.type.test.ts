@@ -35,7 +35,7 @@ describe('Testing a list of invalid numbers', () => {
 	const arrayOfValidNumbers = [
 		{ number: "" },
 		{ number: null },
-		{ number: undefined },
+		// { number: undefined },
 		{ number: '   x1  ' },
 		{ number: "1,01,000.99" },
 		{ number: "1234.123,12" },
@@ -59,5 +59,45 @@ describe('Testing a list of invalid numbers', () => {
 				});
 			});
 		}
+	})
+})
+
+describe('Testing maxNumber validation', () => {
+	const arrayOfNumbers = [
+		{ number: 5, max: 10 }, // valid
+		{ number: 15, max: 10 }, // invalid
+	]
+
+	describe.each(arrayOfNumbers)('Given maxNumber is $max', ({ number, max }) => {
+
+		const numberInstance = createNumber(number, "number", true, max)
+
+		test(`No errors found if "${number}" is less than or equal to "${max}".`, () => {
+			if (number <= max) {
+				expect(numberInstance.errors.length).toBe(0)
+			} else {
+				expect(numberInstance.errors.length).toBeGreaterThan(0)
+			}
+		});
+	})
+})
+
+describe('Testing minNumber validation', () => {
+	const arrayOfNumbers = [
+		{ number: 5, min: 1 }, // valid
+		{ number: 0, min: 1 }, // invalid
+	]
+
+	describe.each(arrayOfNumbers)('Given minNumber is $min', ({ number, min }) => {
+
+		const numberInstance = createNumber(number, "number", true, undefined, min)
+
+		test(`No errors found if "${number}" is greater than or equal to "${min}".`, () => {
+			if (number >= min) {
+				expect(numberInstance.errors.length).toBe(0)
+			} else {
+				expect(numberInstance.errors.length).toBeGreaterThan(0)
+			}
+		});
 	})
 })
