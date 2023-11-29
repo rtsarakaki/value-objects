@@ -1,7 +1,7 @@
 import { GenericType, GenericValidation } from "../../Types";
+import { MustHaveAtLeastXLetters } from "../../Validations";
 import { CannotBeBlank } from "../../Validations/CannotBeBlank.validation";
 import { CannotHaveMoreThanXCharacters } from "../../Validations/CannotHaveMoreThanXCharacters.validation";
-import { MustHaveAtLeastXCharacters } from "../../Validations/MustHaveAtLeastXCharacters.validation";
 
 export class FullName extends GenericType {
   constructor(name: string, label: string, required = true, language: string = 'en-US', ...customValidators: GenericValidation[]) {
@@ -11,7 +11,7 @@ export class FullName extends GenericType {
       const formatedName = formatFullName(name);
       const defaultValidators = [
         () => CannotBeBlank(formatedName, msg, required, language),
-        () => MustHaveAtLeastXCharacters(formatedName, msg, 2, required, language),
+        () => MustHaveAtLeastXLetters(formatedName, msg, 2, required, language),
         () => CannotHaveMoreThanXCharacters(formatedName, msg, 50, required, language),
       ]
       const validators = customValidators.length > 0 ? [...defaultValidators, ...customValidators] : defaultValidators;

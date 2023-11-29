@@ -1,7 +1,6 @@
 import { describe, expect, test } from '@jest/globals';
 import { createTitle } from './Title.type';
 
-test.todo('convert test to test.each model');
 
 describe('Title value object', () => {
 	test('Valid Title Values.', () => {
@@ -9,7 +8,6 @@ describe('Title value object', () => {
 			{ value: 'Ricardo', result: 'Ricardo' },
 			{ value: "That's my title", result: "That's My Title" },
 			{ value: "Welcome back, Ricardo Tadeu Sinhei Arakaki", result: "Welcome Back, Ricardo Tadeu Sinhei Arakaki" },
-			{ value: "Hi", result: "Hi" },
 			{ value: "hello world!", result: "Hello World!" },
 			{ value: "       hello world!", result: "Hello World!" },
 			{ value: "       hello world!         ", result: "Hello World!" },
@@ -26,8 +24,8 @@ describe('Title value object', () => {
 
 	test('Invalid Title Values', () => {
 		const arrayOfInvalidNames = [
-			{ name: '', result: 2 },
-			{ name: 'a', result: 1 },
+			{ name: '', result: 3 },
+			{ name: 'a', result: 2 },
 		]
 
 		arrayOfInvalidNames.map(({ name, result }) => {

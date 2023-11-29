@@ -1,6 +1,6 @@
 import { GenericType, GenericValidation } from "../../Types";
 import { CannotBeBlank, CannotHaveMoreThanXCharacters, IsValidEmail, MustHaveAtLeastXCharacters, MustHaveOnlyOneWord } from "../../Validations";
-import { IsValidHashtag } from "../../Validations/IsValidSlackChannel.validation";
+import { IsValidHashtag } from "../../Validations/IsValidHashtag.validation";
 
 export class Hashtag extends GenericType {
 	constructor(value: string, label: string | null = null, required: boolean = true, language: string = 'en-US', ...customValidators: GenericValidation[]) {

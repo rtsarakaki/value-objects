@@ -338,6 +338,32 @@
                     "message": "O item com a chave ${key} já existe na coleção ${label} indices [${indexes}]."
                 }
             ]
+        },
+        {
+            "key": "NumberCannotBeGreaterThan",
+            "messages": [
+                {
+                    "language": "en-US",
+                    "message": "${label} cannot be greater than ${maxNumber}."
+                },
+                {
+                    "language": "pt-BR",
+                    "message": "${label} não pode ser maior que ${maxNumber}."
+                }
+            ]
+        },
+        {
+            "key": "NumberCannotBeLessThan",
+            "messages": [
+                {
+                    "language": "en-US",
+                    "message": "${label} cannot be less than ${minNumber}."
+                },
+                {
+                    "language": "pt-BR",
+                    "message": "${label} não pode ser menor que ${minNumber}."
+                }
+            ]
         }
     ]
 }

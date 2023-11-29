@@ -1,16 +1,9 @@
 "use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Frankenstein = void 0;
-const Decorators_1 = require("../Decorators");
 const Types_1 = require("../Types");
 const ValueObjects_1 = require("../ValueObjects");
-let Frankenstein = class Frankenstein extends Types_1.GenericEntity {
+class Frankenstein extends Types_1.GenericEntity {
     constructor(valores) {
         super(valores);
         this._requiredProperty = valores.requiredProperty;
@@ -28,17 +21,8 @@ let Frankenstein = class Frankenstein extends Types_1.GenericEntity {
     get kebabCode() {
         return this._kebabCode.value;
     }
-};
+}
 exports.Frankenstein = Frankenstein;
-__decorate([
-    (0, Decorators_1.CannotBeBlank)('Required Property', true)
-], Frankenstein.prototype, "_requiredProperty", void 0);
-__decorate([
-    (0, Decorators_1.CannotContainNumbers)('No Numbers')
-], Frankenstein.prototype, "_noNumbers", void 0);
-exports.Frankenstein = Frankenstein = __decorate([
-    Decorators_1.ValidateEntity
-], Frankenstein);
 const valores = {
     requiredProperty: 'ok',
     noNumbers: 'Do not allow numbers',

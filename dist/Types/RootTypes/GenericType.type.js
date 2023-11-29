@@ -22,8 +22,14 @@ class GenericType {
         this.errors = [];
     }
     validate(validationList) {
-        if (validationList !== undefined && validationList !== null && validationList.length > 0) {
-            validationList.forEach(validation => this.accumulateErrors(validation));
+        if (validationList !== undefined &&
+            validationList !== null &&
+            validationList.length > 0) {
+            validationList.forEach((validation) => {
+                if (typeof validation === 'function') {
+                    this.accumulateErrors(validation);
+                }
+            });
         }
     }
 }

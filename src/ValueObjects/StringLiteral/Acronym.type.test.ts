@@ -5,8 +5,6 @@ describe(`Valid Acronym Values.`, () => {
 	const arrayOfValidValues = [
 		{ value: 'sp', expected: 'SP' },
 		{ value: 'colab', expected: 'COLAB' },
-		{ value: '--', expected: '--' },
-		{ value: '53', expected: '53' },
 	]
 	describe.each(arrayOfValidValues)(`%p.`, ({ value, expected }) => {
 		const acronym = new Acronym(value, 'my label', true, true)
@@ -25,6 +23,8 @@ describe('Test a list of invalid names', () => {
 	const arrayOfInvalidValues = [
 		{ value: '-ricardo', label: 'ricardo' },
 		{ value: 'invalid.kebab.value', label: 'with dots' },
+		{ value: '--', label: 'no letters' },
+		{ value: '. . ', label: 'no letters' },
 	]
 
 	describe.each(arrayOfInvalidValues)('"$name" is invalid.', ({ value, label }) => {

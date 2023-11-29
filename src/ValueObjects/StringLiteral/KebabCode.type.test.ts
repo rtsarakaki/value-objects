@@ -9,7 +9,6 @@ describe(`Valid KebabCode Values.`, () => {
 		{ value: '  KEBAB-CASE  ', expected: 'kebab-case' },
 		{ value: '  Kebab-Case  ', expected: 'kebab-case' },
 		{ value: '  Kebab-Case123  ', expected: 'kebab-case123' },
-		{ value: '  9999-9999  ', expected: '9999-9999' },
 		{ value: '  ABC-9999  ', expected: 'abc-9999' },
 	]
 	describe.each(arrayOfValidValues)(`%p.`, ({ value, expected }) => {

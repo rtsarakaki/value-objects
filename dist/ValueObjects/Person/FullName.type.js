@@ -39,6 +39,15 @@ class FullName extends Types_1.GenericType {
             return '';
         return this._nameParts.slice(1, this._nameParts.length - 1).join(' ') ?? '';
     }
+    get abbreviatedName() {
+        if (this._nameParts.length < 3)
+            return this.value ?? '';
+        const middleInitials = this._nameParts.slice(1, this._nameParts.length - 1).map(name => `${name.charAt(0)}.`).join(' ');
+        return `${this.firstName} ${middleInitials} ${this.lastName}`;
+    }
+    get cardName() {
+        return this.abbreviatedName.toUpperCase();
+    }
 }
 exports.FullName = FullName;
 function createFullName(name, label, required = true) {

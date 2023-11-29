@@ -12,7 +12,7 @@ export class Contact extends GenericType {
 	_type: ContactType
 	_description: ShortDescription
 
-	constructor(value: string, type: ContactType, description: string, label: string | null = null, required: boolean = true, language: string = 'en-US', ...customValidators: GenericValidation[]) {
+	constructor(value: string, type: ContactType, description: string, label: string | null = null, required: boolean = true, emailDomainBlackList: string[] = [], emailDomainWhiteList: string[] = [], language: string = 'en-US', ...customValidators: GenericValidation[]) {
 		super(value);
 
 		const msg = label ?? 'Contact';
@@ -24,7 +24,7 @@ export class Contact extends GenericType {
 				this.value = slackChannel.value;
 				break;
 			case 'Email':
-				const email = new Email(value, msg, required, language, ...customValidators);
+				const email = new Email(value, msg, required, emailDomainBlackList, emailDomainWhiteList, language, ...customValidators);
 				this.errors = email.errors.length > 0 ? email.errors : [];
 				this.value = email.value;
 				break;
@@ -54,6 +54,6 @@ export class Contact extends GenericType {
 
 }
 
-export function createContact(value: string, type: ContactType, description: string, label: string | null = null, required: boolean = true, language: string = 'en-US', ...customValidators: GenericValidation[]) {
-	return new Contact(value, type, description, label, required, language, ...customValidators);
+export function createContact(value: string, type: ContactType, description: string, label: string | null = null, required: boolean = true, emailDomainBlackList: string[] = [], emailDomainWhiteList: string[] = [], language: string = 'en-US', ...customValidators: GenericValidation[]) {
+	return new Contact(value, type, description, label, required, emailDomainBlackList, emailDomainWhiteList, language, ...customValidators);
 }

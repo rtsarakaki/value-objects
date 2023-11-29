@@ -1,7 +1,6 @@
 import { GenericType, GenericValidation } from "../../Types";
-import { CannotBeBlank } from "../../Validations";
+import { CannotBeBlank, MustHaveAtLeastXLetters } from "../../Validations";
 import { CannotHaveMoreThanXCharacters } from "../../Validations/CannotHaveMoreThanXCharacters.validation";
-import { MustHaveAtLeastXCharacters } from "../../Validations/MustHaveAtLeastXCharacters.validation";
 import { MustHaveOnlyOneWord } from "../../Validations/MustHaveOnlyOneWord.validation";
 
 
@@ -11,7 +10,7 @@ export class SingleWord extends GenericType {
     super(value);
     const defaultValidators = [
       () => CannotBeBlank(value, msg, required, language),
-      () => MustHaveAtLeastXCharacters(value, msg, 1, required, language),
+      () => MustHaveAtLeastXLetters(value, msg, 3, required, language),
       () => CannotHaveMoreThanXCharacters(value, msg, 50, required, language),
       () => MustHaveOnlyOneWord(value, msg, required, language),
     ];

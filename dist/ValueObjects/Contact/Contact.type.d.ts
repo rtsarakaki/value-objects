@@ -4,8 +4,8 @@ export type ContactType = 'SlackChannel' | 'Email' | 'Phone';
 export declare class Contact extends GenericType {
     _type: ContactType;
     _description: ShortDescription;
-    constructor(value: string, type: ContactType, description: string, label?: string | null, required?: boolean, language?: string, ...customValidators: GenericValidation[]);
+    constructor(value: string, type: ContactType, description: string, label?: string | null, required?: boolean, emailDomainBlackList?: string[], emailDomainWhiteList?: string[], language?: string, ...customValidators: GenericValidation[]);
     get description(): any;
     get type(): ContactType;
 }
-export declare function createContact(value: string, type: ContactType, description: string, label?: string | null, required?: boolean, language?: string, ...customValidators: GenericValidation[]): Contact;
+export declare function createContact(value: string, type: ContactType, description: string, label?: string | null, required?: boolean, emailDomainBlackList?: string[], emailDomainWhiteList?: string[], language?: string, ...customValidators: GenericValidation[]): Contact;

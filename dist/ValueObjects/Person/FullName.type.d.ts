@@ -5,6 +5,8 @@ export declare class FullName extends GenericType {
     get firstName(): string;
     get lastName(): string;
     get middleName(): string;
+    get abbreviatedName(): string;
+    get cardName(): string;
 }
 export declare function createFullName(name: string, label: string, required?: boolean): FullName;
 export declare const formatFullName: (fullName: string) => string;

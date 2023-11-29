@@ -25,7 +25,7 @@ describe(`Testing valid emails`, () => {
 	]
 	
 	describe.each(arrayOfValidEmails)(`%p is a valid email.`, ({ value, label }) => {
-		const result = new Email(value, 'fix label', true)
+		const result = new Email(value, 'fix label', true, [], [])
 		
 		test(`Nenhum erro encontrado`, () => {
 			expect(result.errors.length).toEqual(0)
@@ -58,7 +58,7 @@ describe(`Testing invalid emails`, () => {
 	];
 
 	describe.each(arrayOfInvalidEmails)(`%p is an invalid email.`, ({ value, label }) => {
-		const result = new Email(value, 'fix label', true)
+		const result = new Email(value, 'fix label', true, [], [])
 
 		test(`${result.errors.length} errors found.`, () => {
 			expect(result.errors.length).toBeGreaterThan(0)

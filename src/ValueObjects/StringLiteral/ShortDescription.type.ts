@@ -1,27 +1,50 @@
 import { GenericType, GenericValidation } from "../../Types";
+import { MustHaveAtLeastXLetters } from "../../Validations";
 import { CannotBeBlank } from "../../Validations/CannotBeBlank.validation";
 import { CannotHaveMoreThanXCharacters } from "../../Validations/CannotHaveMoreThanXCharacters.validation";
 import { MustHaveAtLeastXCharacters } from "../../Validations/MustHaveAtLeastXCharacters.validation";
 
 export class ShortDescription extends GenericType {
-  constructor(value: string, label: string, required = true, language: string = 'en-US', ...customValidators: GenericValidation[]) {
-    const msg = label ?? 'Short Description';
-    super(value);
-    const defaultValidators = [
-      () => CannotBeBlank(value, msg, required, language),
-      () => MustHaveAtLeastXCharacters(value, msg, 2, required, language),
-      () => CannotHaveMoreThanXCharacters(value, msg, 120, required, language),
-    ]
-    const validators = customValidators.length > 0 ? [...defaultValidators, ...customValidators] : defaultValidators;
-    this.validate(validators);
+	constructor(
+		value: string,
+		label: string,
+		required = true,
+		language: string = "en-US",
+		...customValidators: GenericValidation[]
+	) {
+		const msg = label ?? "Short Description";
+		super(value);
+		const defaultValidators = [
+			() => CannotBeBlank(value, msg, required, language),
+			() => MustHaveAtLeastXCharacters(value, msg, 5, required, language),
+			() => MustHaveAtLeastXLetters(value, msg, 4, required, language),
+			() =>
+				CannotHaveMoreThanXCharacters(value, msg, 120, required, language),
+		];
+		const validators =
+			customValidators.length > 0
+				? [...defaultValidators, ...customValidators]
+				: defaultValidators;
+		this.validate(validators);
 
-    if (this.errors.length === 0) {
-      this.value = value.trim();
-    }
-
-  }
+		if (this.errors.length === 0) {
+			this.value = value.trim();
+		}
+	}
 }
 
-export function createShortDescription(value: string, label: string, required: boolean = true, language: string = 'en-US', ...customValidators: GenericValidation[]) {
-  return new ShortDescription(value, label, required, language, ...customValidators);
+export function createShortDescription(
+	value: string,
+	label: string,
+	required: boolean = true,
+	language: string = "en-US",
+	...customValidators: GenericValidation[]
+) {
+	return new ShortDescription(
+		value,
+		label,
+		required,
+		language,
+		...customValidators,
+	);
 }

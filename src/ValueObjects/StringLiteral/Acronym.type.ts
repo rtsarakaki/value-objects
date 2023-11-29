@@ -2,8 +2,8 @@ import { GenericType, GenericValidation } from "../../Types";
 import {
 	CannotBeBlank,
 	CannotHaveMoreThanXCharacters,
-	MustHaveAtLeastXCharacters,
-	MustHaveOnlyOneWord,
+	MustHaveAtLeastXLetters,
+	MustHaveOnlyOneWord
 } from "../../Validations";
 
 export class Acronym extends GenericType {
@@ -23,14 +23,7 @@ export class Acronym extends GenericType {
 		const formatedValue = formatValue(value, _upper);
 		const defaultValidators = [
 			() => CannotBeBlank(formatedValue, _label, _required, _language),
-			() =>
-				MustHaveAtLeastXCharacters(
-					formatedValue,
-					_label,
-					2,
-					_required,
-					_language,
-				),
+			() => MustHaveAtLeastXLetters(value, _label, 2, required, language),
 			() =>
 				CannotHaveMoreThanXCharacters(
 					formatedValue,

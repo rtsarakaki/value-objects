@@ -9,7 +9,7 @@ const Email_type_1 = require("./Email.type");
 const PhoneNumberBR_type_1 = require("./PhoneNumberBR.type");
 const SlackChannelPattern_type_1 = require("./SlackChannelPattern.type");
 class Contact extends Types_1.GenericType {
-    constructor(value, type, description, label = null, required = true, language = 'en-US', ...customValidators) {
+    constructor(value, type, description, label = null, required = true, emailDomainBlackList = [], emailDomainWhiteList = [], language = 'en-US', ...customValidators) {
         super(value);
         const msg = label ?? 'Contact';
         switch (type) {
@@ -19,7 +19,7 @@ class Contact extends Types_1.GenericType {
                 this.value = slackChannel.value;
                 break;
             case 'Email':
-                const email = new Email_type_1.Email(value, msg, required, language, ...customValidators);
+                const email = new Email_type_1.Email(value, msg, required, emailDomainBlackList, emailDomainWhiteList, language, ...customValidators);
                 this.errors = email.errors.length > 0 ? email.errors : [];
                 this.value = email.value;
                 break;
@@ -44,7 +44,7 @@ class Contact extends Types_1.GenericType {
     }
 }
 exports.Contact = Contact;
-function createContact(value, type, description, label = null, required = true, language = 'en-US', ...customValidators) {
-    return new Contact(value, type, description, label, required, language, ...customValidators);
+function createContact(value, type, description, label = null, required = true, emailDomainBlackList = [], emailDomainWhiteList = [], language = 'en-US', ...customValidators) {
+    return new Contact(value, type, description, label, required, emailDomainBlackList, emailDomainWhiteList, language, ...customValidators);
 }
 exports.createContact = createContact;

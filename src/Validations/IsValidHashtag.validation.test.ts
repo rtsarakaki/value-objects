@@ -1,6 +1,6 @@
 import { describe, expect, test } from '@jest/globals';
 import { InvalidValue } from "../Errors";
-import { IsValidHashtag } from './IsValidSlackChannel.validation';
+import { IsValidHashtag } from './IsValidHashtag.validation';
 
 describe(`Testing valid channels`, () => {
 	const arrayOfValidChannels = [

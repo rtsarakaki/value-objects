@@ -1,15 +1,14 @@
-import { CannotBeBlank, CannotContainNumbers, ValidateEntity } from "../Decorators";
+
 import { GenericError } from "../Errors";
 import { GenericEntity } from "../Types";
 import { FullName, KebabCode } from "../ValueObjects";
 
-@ValidateEntity
+
 export class Frankenstein extends GenericEntity<any> {
 
-	@CannotBeBlank('Required Property', true)
 	_requiredProperty: string;
 
-	@CannotContainNumbers('No Numbers')
+
 	_noNumbers: string;
 
 	errors: GenericError[];

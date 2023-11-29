@@ -340,6 +340,19 @@
 			]
 		},
 		{
+			"key": "Collection",
+			"messages": [
+				{
+					"language": "en-US", 
+					"message": "Item already exists in collection ${label}."
+				},
+				{
+					"language": "pt-BR",
+					"message": "O item  já existe na coleção ${label}."
+				}
+			]
+		},
+		{
 			"key": "NumberCannotBeGreaterThan",
 			"messages": [
 				{
@@ -362,6 +375,45 @@
 				{
 					"language": "pt-BR",
 					"message": "${label} não pode ser menor que ${minNumber}."
+				}
+			]
+		},
+		{
+			"key": "EmailDomainBlackList",
+			"messages": [
+				{
+					"language": "en-US", 
+					"message": "The domain of ${label} is not allowed."
+				},
+				{
+					"language": "pt-BR",
+					"message": "O domínio de ${label} não é permitido."
+				}
+			]
+		},
+		{
+			"key": "EmailDomainWhiteList",
+			"messages": [
+				{
+					"language": "en-US", 
+					"message": "The domain of ${label} is not allowed."
+				},
+				{
+					"language": "pt-BR",
+					"message": "O domínio de ${label} não é permitido."
+				}
+			]
+		},
+		{
+			"key": "MustHaveAtLeastXLetters",
+			"messages": [
+				{
+					"language": "en-US",
+					"message": "${label} must have at least ${lettersNumber} letters."
+				},
+				{
+					"language": "pt-BR",
+					"message": "${label} deve ter pelo menos ${lettersNumber} letras."
 				}
 			]
 		}
