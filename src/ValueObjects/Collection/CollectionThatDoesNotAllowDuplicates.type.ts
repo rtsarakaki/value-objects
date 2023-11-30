@@ -10,7 +10,7 @@ export class CollectionThatDoesNotAllowDuplicates<T extends object> extends Gene
 	_language: string
 	propertyUsedAsKeyToValidadeDuplicates: keyof T;
 
-	constructor(itemsToBeLoaded: T[], propertyUsedAsKeyToValidadeDuplicates: keyof T, label: string, validationCallback: (item: T, items: T[]) => boolean, language: string = 'en-US') {
+	constructor(itemsToBeLoaded: T[], propertyUsedAsKeyToValidadeDuplicates: keyof T, label: string, language: string = 'en-US') {
 		super(itemsToBeLoaded)
 		this._label = label;
 		this._language = language;

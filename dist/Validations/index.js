@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RegexMatch = exports.NumberCannotBeLessThan = exports.NumberCannotBeGreaterThan = exports.MustStartWithAlphaNumeric = exports.MustHaveTheSameStructureThan = exports.MustHaveOnlyOneWord = exports.MustHaveAtLeastXCharacters = exports.MustEndWithAlphaNumeric = exports.MustContainOnlyNumbers = exports.MustBeContainedInEnum = exports.IsValidUrl = exports.IsValidPhoneNumberBR = exports.IsValidNumber = exports.IsValidHashtag = exports.IsValidEmail = exports.IsValidDate = exports.IsPositiveInteger = exports.EmailDomainWhiteList = exports.EmailDomainBlackList = exports.CannotStartWithZero = exports.CannotHaveMoreThanXCharacters = exports.CannotContainSpecialCharacters = exports.CannotContainNumbers = exports.CannotBeBlank = void 0;
+exports.RegexMatch = exports.NumberCannotBeLessThan = exports.NumberCannotBeGreaterThan = exports.MustStartWithAlphaNumeric = exports.MustHaveTheSameStructureThan = exports.MustHaveOnlyOneWord = exports.MustHaveAtLeastXLetters = exports.MustHaveAtLeastXCharacters = exports.MustEndWithAlphaNumeric = exports.MustContainOnlyNumbers = exports.MustBeContainedInEnum = exports.IsValidUrl = exports.IsValidPhoneNumberBR = exports.IsValidNumber = exports.IsValidHashtag = exports.IsValidEmail = exports.IsValidDate = exports.IsPositiveInteger = exports.EmailDomainWhiteList = exports.EmailDomainBlackList = exports.CannotStartWithZero = exports.CannotHaveMoreThanXCharacters = exports.CannotContainSpecialCharacters = exports.CannotContainNumbers = exports.CannotBeBlank = void 0;
 var CannotBeBlank_validation_1 = require("./CannotBeBlank.validation");
 Object.defineProperty(exports, "CannotBeBlank", { enumerable: true, get: function () { return CannotBeBlank_validation_1.CannotBeBlank; } });
 var CannotContainNumbers_validation_1 = require("./CannotContainNumbers.validation");
@@ -37,6 +37,8 @@ var MustEndWithAlphaNumeric_validation_1 = require("./MustEndWithAlphaNumeric.va
 Object.defineProperty(exports, "MustEndWithAlphaNumeric", { enumerable: true, get: function () { return MustEndWithAlphaNumeric_validation_1.MustEndWithAlphaNumeric; } });
 var MustHaveAtLeastXCharacters_validation_1 = require("./MustHaveAtLeastXCharacters.validation");
 Object.defineProperty(exports, "MustHaveAtLeastXCharacters", { enumerable: true, get: function () { return MustHaveAtLeastXCharacters_validation_1.MustHaveAtLeastXCharacters; } });
+var MustHaveAtLeastXLetters_validation_1 = require("./MustHaveAtLeastXLetters.validation");
+Object.defineProperty(exports, "MustHaveAtLeastXLetters", { enumerable: true, get: function () { return MustHaveAtLeastXLetters_validation_1.MustHaveAtLeastXLetters; } });
 var MustHaveOnlyOneWord_validation_1 = require("./MustHaveOnlyOneWord.validation");
 Object.defineProperty(exports, "MustHaveOnlyOneWord", { enumerable: true, get: function () { return MustHaveOnlyOneWord_validation_1.MustHaveOnlyOneWord; } });
 var MustHaveTheSameStructureThan_validation_1 = require("./MustHaveTheSameStructureThan.validation");

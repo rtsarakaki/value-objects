@@ -20,6 +20,6 @@ const EmailDomainWhiteList = (value, label, domains = [], required = true, langu
         }
     }
     const replaceList = [{ tag: '${label}', value: label }];
-    return (0, ValidationsTools_1.validationAcceleratorSuggestion)(validateEmailDomainWhiteList, value, label, required, "IsValidDomain", language, replaceList);
+    return (0, ValidationsTools_1.validationAcceleratorSuggestion)(validateEmailDomainWhiteList, value, label, required, "EmailDomainWhiteList", language, replaceList);
 };
 exports.EmailDomainWhiteList = EmailDomainWhiteList;

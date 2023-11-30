@@ -1,7 +1,6 @@
 import { GenericType, GenericValidation } from "../../Types";
 import { CannotBeBlank, MustHaveAtLeastXLetters } from "../../Validations";
 import { CannotHaveMoreThanXCharacters } from "../../Validations/CannotHaveMoreThanXCharacters.validation";
-import { MustHaveAtLeastXCharacters } from "../../Validations/MustHaveAtLeastXCharacters.validation";
 
 export class Title extends GenericType {
 	constructor(
@@ -15,8 +14,7 @@ export class Title extends GenericType {
 		super(value);
 		const defaultValidators = [
 			() => CannotBeBlank(value, msg, required, language),
-			() => MustHaveAtLeastXCharacters(value, msg, 5, required, language),
-			() => MustHaveAtLeastXLetters(value, msg, 4, required, language),
+			() => MustHaveAtLeastXLetters(value, msg, 5, required, language),
 			() =>
 				CannotHaveMoreThanXCharacters(value, msg, 50, required, language),
 		];

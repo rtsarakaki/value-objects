@@ -13,7 +13,7 @@ class Acronym extends Types_1.GenericType {
         const formatedValue = formatValue(value, _upper);
         const defaultValidators = [
             () => (0, Validations_1.CannotBeBlank)(formatedValue, _label, _required, _language),
-            () => (0, Validations_1.MustHaveAtLeastXCharacters)(formatedValue, _label, 2, _required, _language),
+            () => (0, Validations_1.MustHaveAtLeastXLetters)(value, _label, 2, required, language),
             () => (0, Validations_1.CannotHaveMoreThanXCharacters)(formatedValue, _label, 5, _required, _language),
             () => (0, Validations_1.MustHaveOnlyOneWord)(value, _label, _required, _language),
         ];

@@ -16,6 +16,7 @@ export { MustBeContainedInEnum } from './MustBeContainedInEnum.validation';
 export { MustContainOnlyNumbers } from './MustContainOnlyNumbers.validation';
 export { MustEndWithAlphaNumeric } from './MustEndWithAlphaNumeric.validation';
 export { MustHaveAtLeastXCharacters } from './MustHaveAtLeastXCharacters.validation';
+export { MustHaveAtLeastXLetters } from './MustHaveAtLeastXLetters.validation';
 export { MustHaveOnlyOneWord } from './MustHaveOnlyOneWord.validation';
 export { MustHaveTheSameStructureThan } from './MustHaveTheSameStructureThan.validation';
 export { MustStartWithAlphaNumeric } from './MustStartWithAlphaNumeric.validation';

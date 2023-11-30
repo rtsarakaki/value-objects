@@ -20,6 +20,6 @@ const EmailDomainBlackList = (value, label, domains = [], required = true, langu
         }
     }
     const replaceList = [{ tag: '${label}', value: label }];
-    return (0, ValidationsTools_1.validationAcceleratorSuggestion)(validateEmailDomainBlackList, value, label, required, "IsInvalidDomain", language, replaceList);
+    return (0, ValidationsTools_1.validationAcceleratorSuggestion)(validateEmailDomainBlackList, value, label, required, "EmailDomainBlackList", language, replaceList);
 };
 exports.EmailDomainBlackList = EmailDomainBlackList;

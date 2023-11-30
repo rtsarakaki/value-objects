@@ -1,7 +1,6 @@
 import { GenericType, GenericValidation } from "../../Types";
 import { MustHaveAtLeastXLetters } from "../../Validations";
 import { CannotBeBlank } from "../../Validations/CannotBeBlank.validation";
-import { MustHaveAtLeastXCharacters } from "../../Validations/MustHaveAtLeastXCharacters.validation";
 
 export class LongDescription extends GenericType {
 	constructor(
@@ -15,8 +14,7 @@ export class LongDescription extends GenericType {
 		super(value);
 		const defaultValidators = [
 			() => CannotBeBlank(value, msg, required, language),
-			() => MustHaveAtLeastXCharacters(value, msg, 5, required, language),
-			() => MustHaveAtLeastXLetters(value, msg, 4, required, language),
+			() => MustHaveAtLeastXLetters(value, msg, 5, required, language),
 		];
 		const validators =
 			customValidators.length > 0
