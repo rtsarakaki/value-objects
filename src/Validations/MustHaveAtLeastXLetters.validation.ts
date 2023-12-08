@@ -18,7 +18,7 @@ export const MustHaveAtLeastXLetters: MustHaveAtLeastXLettersInterface = (
 		try {
 			if (typeof value !== 'string') throw new InvalidValue(errorMessage);
 
-			const letterCount = (value.match(/[a-zA-Z]/g) || []).length;
+			const letterCount = (value.match(/[\p{L}]/gu) || []).length;
 			return letterCount < lettersNumber ? new InvalidValue(errorMessage) : null;
 		}
 		catch (e) {

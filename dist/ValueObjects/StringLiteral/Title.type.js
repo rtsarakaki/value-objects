@@ -4,20 +4,23 @@ exports.capitalizeText = exports.createTitle = exports.Title = void 0;
 const Types_1 = require("../../Types");
 const Validations_1 = require("../../Validations");
 const CannotHaveMoreThanXCharacters_validation_1 = require("../../Validations/CannotHaveMoreThanXCharacters.validation");
+const CannotRepeatCharInSequenceFourTimes_validation_1 = require("../../Validations/CannotRepeatCharInSequenceFourTimes.validation");
 class Title extends Types_1.GenericType {
     constructor(value, label, required = true, language = "en-US", ...customValidators) {
         const msg = label ?? "Title";
         super(value);
+        const cleanedValue = value.trim();
         const defaultValidators = [
-            () => (0, Validations_1.CannotBeBlank)(value, msg, required, language),
-            () => (0, Validations_1.MustHaveAtLeastXLetters)(value, msg, 5, required, language),
-            () => (0, CannotHaveMoreThanXCharacters_validation_1.CannotHaveMoreThanXCharacters)(value, msg, 50, required, language),
+            () => (0, Validations_1.CannotBeBlank)(cleanedValue, msg, required, language),
+            () => (0, Validations_1.MustHaveAtLeastXLetters)(cleanedValue, msg, 3, required, language),
+            () => (0, CannotHaveMoreThanXCharacters_validation_1.CannotHaveMoreThanXCharacters)(cleanedValue, msg, 50, required, language),
+            () => (0, CannotRepeatCharInSequenceFourTimes_validation_1.CannotRepeatCharInSequenceFourTimes)(cleanedValue, msg, required, language),
         ];
         const validators = customValidators.length > 0
             ? [...defaultValidators, ...customValidators]
             : defaultValidators;
         this.validate(validators);
-        this.value = capitalizeText(value.trim());
+        this.value = capitalizeText(cleanedValue);
     }
 }
 exports.Title = Title;

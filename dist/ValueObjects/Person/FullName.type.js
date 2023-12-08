@@ -5,6 +5,7 @@ const Types_1 = require("../../Types");
 const Validations_1 = require("../../Validations");
 const CannotBeBlank_validation_1 = require("../../Validations/CannotBeBlank.validation");
 const CannotHaveMoreThanXCharacters_validation_1 = require("../../Validations/CannotHaveMoreThanXCharacters.validation");
+const CannotRepeatCharInSequenceFourTimes_validation_1 = require("../../Validations/CannotRepeatCharInSequenceFourTimes.validation");
 class FullName extends Types_1.GenericType {
     constructor(name, label, required = true, language = 'en-US', ...customValidators) {
         const msg = label ?? 'Name';
@@ -15,6 +16,7 @@ class FullName extends Types_1.GenericType {
                 () => (0, CannotBeBlank_validation_1.CannotBeBlank)(formatedName, msg, required, language),
                 () => (0, Validations_1.MustHaveAtLeastXLetters)(formatedName, msg, 2, required, language),
                 () => (0, CannotHaveMoreThanXCharacters_validation_1.CannotHaveMoreThanXCharacters)(formatedName, msg, 50, required, language),
+                () => (0, CannotRepeatCharInSequenceFourTimes_validation_1.CannotRepeatCharInSequenceFourTimes)(formatedName, msg, required, language),
             ];
             const validators = customValidators.length > 0 ? [...defaultValidators, ...customValidators] : defaultValidators;
             this.validate(validators);
