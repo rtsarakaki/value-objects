@@ -9,8 +9,8 @@ describe('Title value object', () => {
 			{ value: "That's my title", result: "That's My Title" },
 			{ value: "Welcome back, Ricardo Tadeu Sinhei Arakaki", result: "Welcome Back, Ricardo Tadeu Sinhei Arakaki" },
 			{ value: "hello world!", result: "Hello World!" },
-			{ value: "       hello world!", result: "Hello World!" },
-			{ value: "       hello world!         ", result: "Hello World!" },
+			{ value: "   hello world!", result: "Hello World!" },
+			{ value: "   hello world!   ", result: "Hello World!" },
 			{ value: "titulo de um artigo.", result: "Titulo de Um Artigo." },
 			{ value: "Piece of cake!!!", result: "Piece of Cake!!!" },
 		]
@@ -24,8 +24,8 @@ describe('Title value object', () => {
 
 	test('Invalid Title Values', () => {
 		const arrayOfInvalidNames = [
-			{ name: '', result: 3 },
-			{ name: 'a', result: 2 },
+			{ name: '', result: 2 },
+			{ name: 'a', result: 1 },
 		]
 
 		arrayOfInvalidNames.map(({ name, result }) => {

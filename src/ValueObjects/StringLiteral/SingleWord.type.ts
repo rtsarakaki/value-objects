@@ -13,6 +13,7 @@ export class SingleWord extends GenericType {
       () => MustHaveAtLeastXLetters(value, msg, 3, required, language),
       () => CannotHaveMoreThanXCharacters(value, msg, 50, required, language),
       () => MustHaveOnlyOneWord(value, msg, required, language),
+      /// nao pode ter 4 caracteres iguais seguidos
     ];
     const validators = customValidators.length > 0 ? [...defaultValidators, ...customValidators] : defaultValidators;
     this.validate(validators);

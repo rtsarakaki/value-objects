@@ -2,6 +2,7 @@ import { GenericType, GenericValidation } from "../../Types";
 import { MustHaveAtLeastXLetters } from "../../Validations";
 import { CannotBeBlank } from "../../Validations/CannotBeBlank.validation";
 import { CannotHaveMoreThanXCharacters } from "../../Validations/CannotHaveMoreThanXCharacters.validation";
+import { CannotRepeatCharInSequenceFourTimes } from "../../Validations/CannotRepeatCharInSequenceFourTimes.validation";
 
 export class ShortDescription extends GenericType {
 	constructor(
@@ -15,9 +16,11 @@ export class ShortDescription extends GenericType {
 		super(value);
 		const defaultValidators = [
 			() => CannotBeBlank(value, msg, required, language),
-			() => MustHaveAtLeastXLetters(value, msg, 5, required, language),
+			() => MustHaveAtLeastXLetters(value, msg, 20, required, language),
 			() =>
 				CannotHaveMoreThanXCharacters(value, msg, 120, required, language),
+			() =>
+				CannotRepeatCharInSequenceFourTimes(value, msg, required, language),
 		];
 		const validators =
 			customValidators.length > 0

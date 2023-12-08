@@ -1,6 +1,7 @@
 import { GenericType, GenericValidation } from "../../Types";
 import { CannotBeBlank, MustHaveAtLeastXLetters } from "../../Validations";
 import { CannotHaveMoreThanXCharacters } from "../../Validations/CannotHaveMoreThanXCharacters.validation";
+import { CannotRepeatCharInSequenceFourTimes } from "../../Validations/CannotRepeatCharInSequenceFourTimes.validation";
 
 export class Title extends GenericType {
 	constructor(
@@ -12,18 +13,20 @@ export class Title extends GenericType {
 	) {
 		const msg = label ?? "Title";
 		super(value);
+		const cleanedValue = value.trim();
 		const defaultValidators = [
-			() => CannotBeBlank(value, msg, required, language),
-			() => MustHaveAtLeastXLetters(value, msg, 5, required, language),
+			() => CannotBeBlank(cleanedValue, msg, required, language),
+			() => MustHaveAtLeastXLetters(cleanedValue, msg, 3, required, language),
 			() =>
-				CannotHaveMoreThanXCharacters(value, msg, 50, required, language),
+				CannotHaveMoreThanXCharacters(cleanedValue, msg, 50, required, language),
+			() => CannotRepeatCharInSequenceFourTimes(cleanedValue, msg, required, language),
 		];
 		const validators =
 			customValidators.length > 0
 				? [...defaultValidators, ...customValidators]
 				: defaultValidators;
 		this.validate(validators);
-		this.value = capitalizeText(value.trim());
+		this.value = capitalizeText(cleanedValue);
 	}
 }
 

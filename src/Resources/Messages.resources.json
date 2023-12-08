@@ -416,6 +416,19 @@
 					"message": "${label} deve ter pelo menos ${lettersNumber} letras."
 				}
 			]
+		},
+		{
+			"key": "CannotRepeatCharInSequenceFourTimes",
+			"messages": [
+				{
+					"language": "en-US",
+					"message": "${label} cannot have a character repeated four times in sequence."
+				},
+				{
+					"language": "pt-BR",
+					"message": "${label} não pode ter um caractere repetido quatro vezes em sequência."
+				}
+			]
 		}
 	]
 }

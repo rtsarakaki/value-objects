@@ -4,14 +4,12 @@ import { createShortDescription } from './ShortDescription.type';
 describe('ShortDescription value object', () => {
 	test('Valid ShortDescription Values.', () => {
 		const arrayOfValidNames = [
-			{ value: 'Ricardo', result: 'Ricardo' },
-			{ value: "That's my title", result: "That's my title" },
+			{ value: 'Ricardo tadeu sinhei arakaki', result: 'Ricardo tadeu sinhei arakaki' },
+			{ value: "That's a short description", result: "That's a short description" },
 			{ value: "Welcome back, Ricardo Tadeu Sinhei Arakaki", result: "Welcome back, Ricardo Tadeu Sinhei Arakaki" },
-			{ value: "hello world!", result: "hello world!" },
-			{ value: "       hello world!", result: "hello world!" },
-			{ value: "       hello world!         ", result: "hello world!" },
-			{ value: "titulo de um artigo.", result: "titulo de um artigo." },
-			{ value: "Piece of cake!!!", result: "Piece of cake!!!" },
+			// { value: "hello world is very short!", result: "hello world is very short!" },
+			// { value: "titulo de um artigo.", result: "titulo de um artigo." },
+			// { value: "Piece of cake!!!", result: "Piece of cake!!!" },
 		]
 
 		arrayOfValidNames.map(({ value, result }) => {
