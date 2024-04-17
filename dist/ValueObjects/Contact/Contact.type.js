@@ -4,17 +4,17 @@ exports.createContact = exports.Contact = void 0;
 const Errors_1 = require("../../Errors");
 const Messages_resource_1 = require("../../Resources/Messages.resource");
 const Types_1 = require("../../Types");
+const UrlAddress_type_1 = require("../Digital/UrlAddress.type");
 const ShortDescription_type_1 = require("../StringLiteral/ShortDescription.type");
 const Email_type_1 = require("./Email.type");
 const PhoneNumberBR_type_1 = require("./PhoneNumberBR.type");
-const SlackChannelPattern_type_1 = require("./SlackChannelPattern.type");
 class Contact extends Types_1.GenericType {
     constructor(value, type, description, label = null, required = true, emailDomainBlackList = [], emailDomainWhiteList = [], language = 'en-US', ...customValidators) {
         super(value);
         const msg = label ?? 'Contact';
         switch (type) {
             case 'SlackChannel':
-                const slackChannel = new SlackChannelPattern_type_1.SlackChannelPattern(value, msg, required, language, ...customValidators);
+                const slackChannel = new UrlAddress_type_1.UrlAddress(value, msg, required, language, ...customValidators);
                 this.errors = slackChannel.errors.length > 0 ? slackChannel.errors : [];
                 this.value = slackChannel.value;
                 break;
