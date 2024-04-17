@@ -2,7 +2,7 @@ import { GenericError } from "../../Errors/GenericError.error";
 
 export class GenericType {
 	private _originalValue: any;
-	private _value: any;
+	protected _value: any;
 	[property: string]: any;
 	errors: Array<GenericError>;
 
@@ -43,17 +43,17 @@ export class GenericType {
 		this.errors = [];
 	}
 
-  public validate(validationList: any[]) {
-    if (
-      validationList !== undefined &&
-      validationList !== null &&
-      validationList.length > 0
-    ) {
-      validationList.forEach((validation) => {
-        if (typeof validation === 'function') {
-          this.accumulateErrors(validation);
-        }
-      });
-    }
-  }
+	public validate(validationList: any[]) {
+		if (
+			validationList !== undefined &&
+			validationList !== null &&
+			validationList.length > 0
+		) {
+			validationList.forEach((validation) => {
+				if (typeof validation === 'function') {
+					this.accumulateErrors(validation);
+				}
+			});
+		}
+	}
 }
