@@ -1,13 +1,27 @@
 import { GenericError } from "../../Errors/GenericError.error";
 
 export class GenericType {
-	value: any;
+	private _originalValue: any;
+	private _value: any;
 	[property: string]: any;
 	errors: Array<GenericError>;
 
 	constructor(value: any) {
-		this.value = value;
+		this._value = value;
+		this._originalValue = value;
 		this.errors = new Array();
+	}
+
+	public get originalValue(): any {
+		return this._originalValue;
+	}
+
+	public get value(): any {
+		return this._value;
+	}
+
+	protected set value(value: any) {
+		this._value = value
 	}
 
 	public get isValid(): boolean {

@@ -4,10 +4,12 @@ exports.formatPhoneNumberBR = exports.createPhoneNumberBR = exports.PhoneNumberB
 const Types_1 = require("../../Types");
 const Validations_1 = require("../../Validations");
 const IsValidPhoneNumberBR_validation_1 = require("../../Validations/IsValidPhoneNumberBR.validation");
+const DDD_type_1 = require("./DDD.type");
 class PhoneNumberBR extends Types_1.GenericType {
     constructor(value, label = null, required = true, language = 'en-US', ...customValidators) {
         super(value);
-        const msg = label ?? 'Email';
+        this.DDD = new DDD_type_1.DDD('');
+        const msg = label ?? 'Phone';
         const normalizedPhoneNumber = (0, IsValidPhoneNumberBR_validation_1.normalizePhoneNumber)(value);
         const defaultValidators = [
             () => (0, Validations_1.CannotBeBlank)(value, msg, required, language),
@@ -16,7 +18,9 @@ class PhoneNumberBR extends Types_1.GenericType {
         const validators = customValidators.length > 0 ? [...defaultValidators, ...customValidators] : defaultValidators;
         this.validate(validators);
         if (this.errors.length === 0) {
-            this.value = formatPhoneNumberBR(normalizedPhoneNumber);
+            const phoneNumberCleaned = normalizedPhoneNumber;
+            this.DDD = new DDD_type_1.DDD(phoneNumberCleaned.substring(0, 2));
+            this.value = formatPhoneNumberBR(phoneNumberCleaned);
         }
     }
 }
@@ -34,3 +38,5 @@ function formatPhoneNumberBR(phoneNumber) {
     return phoneNumber;
 }
 exports.formatPhoneNumberBR = formatPhoneNumberBR;
+const phoneNumberBR = new PhoneNumberBR('11987654321');
+console.log(phoneNumberBR);

@@ -3,8 +3,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.GenericType = void 0;
 class GenericType {
     constructor(value) {
-        this.value = value;
+        this._value = value;
+        this._originalValue = value;
         this.errors = new Array();
+    }
+    get originalValue() {
+        return this._originalValue;
+    }
+    get value() {
+        return this._value;
+    }
+    set value(value) {
+        this._value = value;
     }
     get isValid() {
         return this?.errors?.length === 0;

@@ -7,6 +7,13 @@ class GenericEntity extends GenericType_type_1.GenericType {
         super(null);
         this._json = json;
     }
+    initProps(user, mapping) {
+        const entity = {};
+        for (const key in mapping) {
+            entity[`_${key}`] = this.initProp(this, mapping[key](user[key], key));
+        }
+        return entity;
+    }
     initProp(object, value, required = true) {
         if (!(value instanceof GenericType_type_1.GenericType))
             return value;

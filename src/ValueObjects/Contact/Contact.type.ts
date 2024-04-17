@@ -1,10 +1,10 @@
-import { GenericError, InvalidValue } from "../../Errors";
+import { InvalidValue } from "../../Errors";
 import { getResourceMessageByKey } from "../../Resources/Messages.resource";
 import { GenericType, GenericValidation } from "../../Types";
+import { UrlAddress } from "../Digital/UrlAddress.type";
 import { ShortDescription } from "../StringLiteral/ShortDescription.type";
 import { Email } from "./Email.type";
 import { PhoneNumberBR } from "./PhoneNumberBR.type";
-import { SlackChannelPattern } from "./SlackChannelPattern.type";
 
 export type ContactType = 'SlackChannel' | 'Email' | 'Phone';
 
@@ -19,7 +19,7 @@ export class Contact extends GenericType {
 
 		switch (type) {
 			case 'SlackChannel':
-				const slackChannel = new SlackChannelPattern(value, msg, required, language, ...customValidators);
+				const slackChannel = new UrlAddress(value, msg, required, language, ...customValidators);
 				this.errors = slackChannel.errors.length > 0 ? slackChannel.errors : [];
 				this.value = slackChannel.value;
 				break;
@@ -40,7 +40,7 @@ export class Contact extends GenericType {
 		}
 
 		this._description = new ShortDescription(description, msg, false, language, ...customValidators);
-		
+
 		this._type = type;
 	}
 

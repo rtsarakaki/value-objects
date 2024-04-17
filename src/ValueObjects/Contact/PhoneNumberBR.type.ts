@@ -1,12 +1,16 @@
 import { GenericType, GenericValidation } from "../../Types";
 import { CannotBeBlank } from "../../Validations";
 import { IsValidPhoneNumberBR, normalizePhoneNumber } from "../../Validations/IsValidPhoneNumberBR.validation";
+import { DDD } from "./DDD.type";
 
 export class PhoneNumberBR extends GenericType {
+
+	DDD: DDD = new DDD('')
+ 
 	constructor(value: string, label: string | null = null, required: boolean = true, language: string = 'en-US', ...customValidators: GenericValidation[]) {
 		super(value);
 
-		const msg = label ?? 'Email';
+		const msg = label ?? 'Phone';
 
 		const normalizedPhoneNumber = normalizePhoneNumber(value)
 
@@ -18,7 +22,9 @@ export class PhoneNumberBR extends GenericType {
 		this.validate(validators);
 
 		if(this.errors.length === 0) {
-			this.value = formatPhoneNumberBR(normalizedPhoneNumber as string)
+			const phoneNumberCleaned = normalizedPhoneNumber as string
+			this.DDD = new DDD(phoneNumberCleaned.substring(0, 2))
+			this.value = formatPhoneNumberBR(phoneNumberCleaned)
 		}
 	}
 }
@@ -35,3 +41,6 @@ export function formatPhoneNumberBR(phoneNumber: string): string {
 	}
 	return phoneNumber;
 }
+
+const phoneNumberBR = new PhoneNumberBR('11987654321')
+console.log(phoneNumberBR)

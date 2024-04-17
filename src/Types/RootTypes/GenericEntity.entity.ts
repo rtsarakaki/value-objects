@@ -12,7 +12,15 @@ export class GenericEntity<TModel extends basic> extends GenericType {
     this._json = json;
   }
 
-  public initProp(object: any, value: GenericType, required: boolean = true): GenericType {
+  protected initProps(user: TModel, mapping: Record<keyof TModel, (value: any, key: string) => any>) {
+    const entity: any = {};
+    for (const key in mapping) {
+      entity[`_${key}`] = this.initProp(this, mapping[key](user[key], key));
+    }
+    return entity;
+  }
+
+  protected initProp(object: any, value: GenericType, required: boolean = true): GenericType | any {
     if (!(value instanceof GenericType)) return value
     const isString = typeof value?.value === 'string';
     const isRequired = required === undefined || required;

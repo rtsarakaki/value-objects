@@ -56,9 +56,8 @@ function createFullName(name, label, required = true) {
     return new FullName(name, label, required);
 }
 exports.createFullName = createFullName;
-const removeSpecialCharacters = (str) => str.replace(/[^\w\sÀ-ú]/gi, '');
-const removeNumbers = (str) => str.replace(/\d+/g, '');
-const capitalizeFirstLetter = (str) => str.toLowerCase().replace(/(?:^|\s)\S/g, (capitalize) => capitalize.toUpperCase());
+const removeSpecialCharacters = (str) => str.replace(/[^a-zA-ZÀ-ú-\s'-]/gi, '');
+const capitalizeFirstLetter = (str) => str.toLowerCase().replace(/(?:^|\s|-|')\S/g, (capitalize) => capitalize.toUpperCase());
 const replacePrepositions = (str) => {
     const prepositions = {
         'Da': 'da',
@@ -73,7 +72,10 @@ const replacePrepositions = (str) => {
     return str.split(' ').map(word => prepositions[word] || word).join(' ');
 };
 const removeExtraSpaces = (str) => str.trim().replace(/\s+/g, ' ');
+const removeConsecutiveHyphensAndSpaces = (str) => str.replace(/(-\s|\s-|--|\s\s)+/g, ' ');
+const removeHyphenAtStartAndEnd = (str) => str.replace(/^-|-$/g, '');
 const formatFullName = (fullName) => {
-    return removeExtraSpaces(replacePrepositions(capitalizeFirstLetter(removeNumbers(removeSpecialCharacters(fullName)))));
+    return removeExtraSpaces(removeHyphenAtStartAndEnd(removeConsecutiveHyphensAndSpaces(replacePrepositions(capitalizeFirstLetter(removeSpecialCharacters(fullName))))));
 };
 exports.formatFullName = formatFullName;
+console.log((0, exports.formatFullName)("João d'avila 111"));
